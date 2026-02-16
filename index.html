@@ -18,15 +18,12 @@
   --grey:   #F0EFEA;
   --muted:  #6B6860;
   --ink:    #1C1C1A;
-
   --font-display: 'Bebas Neue', sans-serif;
   --font-serif:   'Playfair Display', serif;
   --font-body:    'DM Sans', sans-serif;
   --transition:   0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: var(--font-body);
   background: var(--white);
@@ -34,43 +31,32 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
-
 /* ─── CUSTOM CURSOR ────────────────────────────────────────────────────── */
+.cursor {
+  position: fixed; top: 0; left: 0; z-index: 9999;
+  pointer-events: none;
+}
 .cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
   width: 8px; height: 8px;
   background: var(--gold);
   border-radius: 50%;
-  pointer-events: none;
-  z-index: 2147483647;
-  transform: translate3d(-50%, -50%, 0);
-  transition: width 0.2s, height 0.2s, background 0.2s;
-  will-change: transform;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s;
 }
 .cursor-ring {
-  position: fixed;
-  top: 0; left: 0;
   width: 36px; height: 36px;
   border: 2px solid var(--red);
   border-radius: 50%;
-  pointer-events: none;
-  z-index: 2147483646;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.15s;
   opacity: 0.7;
-  transform: translate3d(-50%, -50%, 0);
-  transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s;
-  will-change: transform;
 }
-.cursor-ring.hovered {
-  width: 52px; height: 52px;
+body:has(a:hover) .cursor-ring,
+body:has(button:hover) .cursor-ring {
+  width: 56px; height: 56px;
   border-color: var(--gold);
   opacity: 1;
 }
-.cursor-dot.hovered {
-  width: 10px; height: 10px;
-  background: var(--white);
-}
-
 /* ─── NAV ──────────────────────────────────────────────────────────────── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -140,7 +126,6 @@ nav {
 }
 .nav-cta:hover { background: var(--white) !important; }
 .nav-cta::after { display: none !important; }
-
 /* ─── HERO ─────────────────────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
@@ -150,8 +135,6 @@ nav {
   overflow: hidden;
   padding-top: 72px;
 }
-
-/* Ghana flag stripe accent */
 .hero-stripes {
   position: absolute; top: 0; right: 0;
   width: 6px; height: 100%;
@@ -161,8 +144,6 @@ nav {
 .stripe-red   { background: var(--red); }
 .stripe-gold  { background: var(--gold); }
 .stripe-green { background: var(--green); }
-
-/* Diagonal grid background */
 .hero-grid {
   position: absolute; inset: 0;
   background-image:
@@ -172,8 +153,6 @@ nav {
   transform: skewY(-3deg);
   transform-origin: top left;
 }
-
-/* Large decorative letter */
 .hero-bg-letter {
   position: absolute; right: -0.1em; top: 50%;
   transform: translateY(-50%);
@@ -185,8 +164,6 @@ nav {
   user-select: none;
   letter-spacing: -0.05em;
 }
-
-/* Red diagonal slash */
 .hero-slash {
   position: absolute; right: 35%;
   top: 0; bottom: 0;
@@ -195,7 +172,6 @@ nav {
   opacity: 0.6;
   transform: rotate(8deg);
 }
-
 .hero-content {
   position: relative; z-index: 2;
   padding: 0 4rem;
@@ -281,8 +257,6 @@ nav {
 }
 .btn-secondary:hover { color: var(--gold); }
 .btn-secondary::after { content: '→'; font-size: 1.1em; }
-
-/* Stats row */
 .hero-stats {
   position: absolute; bottom: 3rem; left: 4rem; right: 4rem;
   display: flex; gap: 4rem;
@@ -307,7 +281,6 @@ nav {
   text-transform: uppercase;
   color: rgba(250,250,248,0.4);
 }
-
 /* ─── SECTION COMMONS ──────────────────────────────────────────────────── */
 section { position: relative; }
 .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
@@ -333,7 +306,6 @@ section { position: relative; }
   color: var(--ink);
 }
 .section-heading.light { color: var(--white); }
-
 /* ─── MISSION BAND ─────────────────────────────────────────────────────── */
 .mission-band {
   background: var(--gold);
@@ -363,7 +335,6 @@ section { position: relative; }
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 /* ─── ABOUT ────────────────────────────────────────────────────────────── */
 .about {
   padding: 8rem 0;
@@ -451,7 +422,6 @@ section { position: relative; }
   margin-bottom: 0.25rem;
 }
 .pillar-text { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
-
 /* ─── NATIONALS FEATURE ─────────────────────────────────────────────────── */
 .nationals {
   background: var(--black);
@@ -540,7 +510,6 @@ section { position: relative; }
   color: var(--white);
   font-weight: 500;
 }
-
 /* ─── CALENDAR STRIP ───────────────────────────────────────────────────── */
 .calendar-strip {
   padding: 6rem 0;
@@ -618,7 +587,6 @@ section { position: relative; }
   color: var(--gold);
   font-size: 1.2rem;
 }
-
 /* ─── LEADERSHIP ───────────────────────────────────────────────────────── */
 .leadership {
   padding: 8rem 0;
@@ -682,7 +650,6 @@ section { position: relative; }
 }
 .officer-card.vacant .officer-name { color: var(--muted); font-style: italic; }
 .officer-card.vacant .officer-role { color: rgba(0,0,0,0.3); }
-
 /* ─── IPF AFFILIATION ──────────────────────────────────────────────────── */
 .affiliation {
   padding: 6rem 0;
@@ -737,7 +704,6 @@ section { position: relative; }
   font-weight: 900;
   flex-shrink: 0;
 }
-
 /* ─── CONTACT / JOIN ───────────────────────────────────────────────────── */
 .join {
   padding: 8rem 0;
@@ -812,7 +778,6 @@ section { position: relative; }
   font-size: 0.9rem;
   color: rgba(250,250,248,0.7);
 }
-
 /* ─── FOOTER ───────────────────────────────────────────────────────────── */
 footer {
   background: var(--black);
@@ -838,7 +803,6 @@ footer {
   display: flex; height: 20px; width: 60px; border-radius: 2px; overflow: hidden;
 }
 .footer-flags div { flex: 1; }
-
 /* ─── NEWS & ANNOUNCEMENTS ─────────────────────────────────────────────── */
 .news {
   padding: 8rem 0;
@@ -946,7 +910,6 @@ footer {
   transition: letter-spacing var(--transition);
 }
 .news-read-more:hover { letter-spacing: 0.2em; }
-
 /* ─── RESULTS & RECORDS ─────────────────────────────────────────────────── */
 .results {
   padding: 8rem 0;
@@ -976,8 +939,6 @@ footer {
 .tab-btn:hover:not(.active) { color: var(--ink); }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
-
-/* Results table */
 .results-table {
   width: 100%;
   border-collapse: collapse;
@@ -1014,8 +975,6 @@ footer {
 .place-2 { background: #C0C0C0; color: var(--black); }
 .place-3 { background: #CD7F32; color: var(--white); }
 .place-n { background: var(--grey); color: var(--muted); font-size: 0.7rem; }
-
-/* Records table */
 .records-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1078,7 +1037,6 @@ footer {
   margin-bottom: 0.5rem;
 }
 .record-pending-sub { font-size: 0.85rem; line-height: 1.6; }
-
 /* ─── CONTACT ───────────────────────────────────────────────────────────── */
 .contact-section {
   padding: 8rem 0;
@@ -1135,8 +1093,6 @@ footer {
   transition: color var(--transition);
 }
 .contact-officer-email:hover { color: var(--ink); }
-
-/* Contact form */
 .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -1181,7 +1137,6 @@ footer {
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
 .form-submit:hover { background: var(--gold); color: var(--black); transform: translateY(-2px); }
-
 /* ─── MEMBER REGISTRATION ───────────────────────────────────────────────── */
 .register {
   padding: 8rem 0;
@@ -1237,8 +1192,6 @@ footer {
   margin-bottom: 0.2rem;
 }
 .member-type-desc { font-size: 0.8rem; color: rgba(250,250,248,0.45); line-height: 1.5; }
-
-/* Register form */
 .register-form-wrap {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
@@ -1329,7 +1282,6 @@ footer {
   margin-bottom: 0.5rem;
 }
 .form-success-msg { font-size: 0.9rem; color: rgba(250,250,248,0.55); line-height: 1.6; }
-
 /* ─── SCROLL REVEAL ────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
@@ -1337,13 +1289,11 @@ footer {
   transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
 /* ─── ANIMATIONS ────────────────────────────────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 /* ─── RESPONSIVE ───────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 0 1.5rem; }
@@ -1358,7 +1308,7 @@ footer {
   .calendar-strip { padding: 4rem 0; }
   .leadership { padding: 5rem 0; }
   body { cursor: auto; }
-  .cursor-dot, .cursor-ring { display: none; }
+  .cursor { display: none; }
 }
 @media (max-width: 600px) {
   .officers-grid { grid-template-columns: 1fr; }
@@ -1370,11 +1320,11 @@ footer {
 </style>
 </head>
 <body>
-
 <!-- Custom cursor -->
-<div class="cursor-ring" id="cursorRing"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-
+<div class="cursor" id="cursor">
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+</div>
 <!-- ── NAV ──────────────────────────────────────────────────────────────── -->
 <nav>
   <a href="#" class="nav-logo">
@@ -1391,7 +1341,6 @@ footer {
     <li><a href="#register" class="nav-cta">Join G.A.P.</a></li>
   </ul>
 </nav>
-
 <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-grid"></div>
@@ -1402,7 +1351,6 @@ footer {
     <div class="stripe-gold"></div>
     <div class="stripe-green"></div>
   </div>
-
   <div class="hero-content">
     <div class="hero-eyebrow">Ghana Association of Powerlifting</div>
     <h1 class="hero-title">
@@ -1418,7 +1366,6 @@ footer {
       <a href="#about" class="btn-secondary">About G.A.P.</a>
     </div>
   </div>
-
   <div class="hero-stats">
     <div class="stat">
       <span class="stat-num">2026</span>
@@ -1438,7 +1385,6 @@ footer {
     </div>
   </div>
 </section>
-
 <!-- ── MISSION TICKER ────────────────────────────────────────────────────── -->
 <div class="mission-band">
   <div class="mission-ticker">
@@ -1458,12 +1404,10 @@ footer {
     <span>December 19 · Accra</span>
   </div>
 </div>
-
 <!-- ── ABOUT ─────────────────────────────────────────────────────────────── -->
 <section class="about" id="about">
   <div class="section-inner">
     <div class="about-grid">
-
       <div class="about-visual reveal">
         <div class="about-flag">
           <div class="flag-red"></div>
@@ -1475,7 +1419,6 @@ footer {
           <div class="badge-label">Established<br>Ghana</div>
         </div>
       </div>
-
       <div class="about-text reveal">
         <div class="section-tag">Who We Are</div>
         <h2 class="section-heading">Ghana's<br>National Body<br>for Powerlifting</h2>
@@ -1491,7 +1434,6 @@ footer {
           world stage under internationally recognised rules and standards. All G.A.P. events follow 
           current IPF Technical Rules with full WADA-compliant anti-doping protocols.
         </p>
-
         <div class="about-pillars">
           <div class="pillar">
             <div class="pillar-icon">🏆</div>
@@ -1515,16 +1457,13 @@ footer {
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- ── NATIONALS FEATURE ──────────────────────────────────────────────────── -->
 <section class="nationals" id="nationals">
   <div class="section-inner">
     <div class="nationals-grid">
-
       <div class="nationals-info reveal">
         <div class="section-tag">Flagship Event</div>
         <div class="nationals-date">
@@ -1539,7 +1478,6 @@ footer {
         </p>
         <a href="#join" class="btn-primary">Register Interest</a>
       </div>
-
       <div class="nationals-details reveal">
         <div class="detail-card">
           <div class="detail-icon">📍</div>
@@ -1584,11 +1522,9 @@ footer {
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- ── CALENDAR ───────────────────────────────────────────────────────────── -->
 <section class="calendar-strip" id="calendar">
   <div class="section-inner">
@@ -1598,79 +1534,67 @@ footer {
         <h2 class="section-heading">2026 Calendar</h2>
       </div>
     </div>
-
     <div class="events-grid">
-
       <div class="event-card admin reveal">
         <div class="event-date-pill">Feb 11, 2026</div>
         <div class="event-tag">Admin</div>
         <div class="event-name">Founding General Assembly</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card admin reveal">
         <div class="event-date-pill">Feb – Mar 2026</div>
         <div class="event-tag">Internal</div>
         <div class="event-name">EC Meeting #1 — Commission Setup</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card reveal">
         <div class="event-date-pill">Apr 2026</div>
         <div class="event-tag">Education</div>
         <div class="event-name">Referee Seminar &amp; Certification</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card reveal">
         <div class="event-date-pill">May 2026</div>
         <div class="event-tag">Education</div>
         <div class="event-name">Coaches Education Workshop</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card admin reveal">
         <div class="event-date-pill">Jun 2026</div>
         <div class="event-tag">Internal</div>
         <div class="event-name">EC Meeting #2</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card reveal">
         <div class="event-date-pill">Jul 2026</div>
         <div class="event-tag">Education</div>
         <div class="event-name">Athletes Anti-Doping Education Day</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card reveal">
         <div class="event-date-pill">Aug 2026</div>
         <div class="event-tag">Competition</div>
         <div class="event-name">Pre-Nationals Qualifier</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card admin reveal">
         <div class="event-date-pill">Sep 2026</div>
         <div class="event-tag">Internal</div>
         <div class="event-name">EC Meeting #3</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card admin reveal">
         <div class="event-date-pill">Nov 2026</div>
         <div class="event-tag">Internal</div>
         <div class="event-name">EC Meeting #4 — Pre-Nationals Briefing</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card admin reveal">
         <div class="event-date-pill">Dec 18, 2026</div>
         <div class="event-tag">Admin</div>
         <div class="event-name">General Assembly #2</div>
         <div class="event-meta">Accra, Ghana</div>
       </div>
-
       <div class="event-card highlight reveal" style="grid-column: span 2;">
         <div class="event-date-pill">Dec 19, 2026</div>
         <div class="event-tag">National Championship</div>
@@ -1678,11 +1602,9 @@ footer {
         <div class="event-meta">Accra, Ghana — Classic &amp; Equipped · All IPF Weight Classes &amp; Divisions</div>
         <div class="event-star">★</div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- ── LEADERSHIP ─────────────────────────────────────────────────────────── -->
 <section class="leadership" id="leadership">
   <div class="section-inner">
@@ -1690,49 +1612,40 @@ footer {
       <div class="section-tag">Executive Committee</div>
       <h2 class="section-heading">Leadership</h2>
     </div>
-
     <div class="officers-grid">
-
       <div class="officer-card reveal">
         <div class="officer-avatar">DA</div>
         <div class="officer-name">Douglas Nyarko Amagyei</div>
         <div class="officer-role">President</div>
       </div>
-
       <div class="officer-card reveal">
         <div class="officer-avatar">KN</div>
         <div class="officer-name">Kwaku Nyarko</div>
         <div class="officer-role">General Secretary</div>
       </div>
-
       <div class="officer-card reveal">
         <div class="officer-avatar">SA</div>
         <div class="officer-name">Samuel Yao Ablordeppey</div>
         <div class="officer-role">Treasurer</div>
       </div>
-
       <div class="officer-card vacant reveal">
         <div class="officer-avatar">—</div>
         <div class="officer-name">To Be Appointed</div>
         <div class="officer-role">Vice President</div>
       </div>
-
       <div class="officer-card vacant reveal">
         <div class="officer-avatar">—</div>
         <div class="officer-name">To Be Appointed</div>
         <div class="officer-role">Executive Director</div>
       </div>
-
       <div class="officer-card vacant reveal">
         <div class="officer-avatar">—</div>
         <div class="officer-name">To Be Appointed</div>
         <div class="officer-role">Anti-Doping Officer</div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- ── IPF AFFILIATION ────────────────────────────────────────────────────── -->
 <section class="affiliation">
   <div class="section-inner">
@@ -1758,7 +1671,6 @@ footer {
     </div>
   </div>
 </section>
-
 <!-- ── JOIN ───────────────────────────────────────────────────────────────── -->
 <section class="join" id="join">
   <div class="join-inner">
@@ -1789,7 +1701,6 @@ footer {
     </div>
   </div>
 </section>
-
 <!-- ── NEWS & ANNOUNCEMENTS ──────────────────────────────────────────────── -->
 <section class="news" id="news">
   <div class="section-inner">
@@ -1800,7 +1711,6 @@ footer {
       </div>
       <a href="#news" class="news-link-all">All News →</a>
     </div>
-
     <div class="news-grid">
       <div class="news-card featured reveal">
         <div>
@@ -1820,7 +1730,6 @@ footer {
           <a href="#" class="news-read-more">Read More →</a>
         </div>
       </div>
-
       <div class="news-card reveal">
         <div class="news-cat">Competition</div>
         <div class="news-headline">2026 National Championships Confirmed — December 19, Accra</div>
@@ -1833,7 +1742,6 @@ footer {
           <a href="#nationals" class="news-read-more">Event Details →</a>
         </div>
       </div>
-
       <div class="news-card reveal">
         <div class="news-cat">Governance</div>
         <div class="news-headline">G.A.P. Constitution &amp; By-Laws Formally Adopted</div>
@@ -1846,7 +1754,6 @@ footer {
           <a href="#contact" class="news-read-more">Request Documents →</a>
         </div>
       </div>
-
       <div class="news-card reveal">
         <div class="news-cat">Anti-Doping</div>
         <div class="news-headline">G.A.P. Commits to Full WADA-Code Anti-Doping Programme</div>
@@ -1862,7 +1769,6 @@ footer {
     </div>
   </div>
 </section>
-
 <!-- ── RESULTS & RECORDS ──────────────────────────────────────────────────── -->
 <section class="results" id="results">
   <div class="section-inner">
@@ -1870,13 +1776,10 @@ footer {
       <div class="section-tag">Performance</div>
       <h2 class="section-heading">Results &amp; Records</h2>
     </div>
-
     <div class="results-tabs reveal">
       <button class="tab-btn active" onclick="switchTab('results-tab')">Competition Results</button>
       <button class="tab-btn" onclick="switchTab('records-tab')">National Records</button>
     </div>
-
-    <!-- Results -->
     <div class="tab-panel active" id="results-tab">
       <div class="record-pending">
         <div class="record-pending-icon">🏋️</div>
@@ -1888,8 +1791,6 @@ footer {
         </div>
       </div>
     </div>
-
-    <!-- Records -->
     <div class="tab-panel" id="records-tab">
       <div style="margin-bottom:2rem;">
         <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;">
@@ -1943,12 +1844,10 @@ footer {
     </div>
   </div>
 </section>
-
 <!-- ── CONTACT ─────────────────────────────────────────────────────────────── -->
 <section class="contact-section" id="contact">
   <div class="section-inner">
     <div class="contact-grid">
-
       <div class="reveal">
         <div class="section-tag">Get in Touch</div>
         <h2 class="section-heading">Contact<br>G.A.P.</h2>
@@ -1963,8 +1862,8 @@ footer {
             <div>
               <div class="contact-officer-name">Douglas Nyarko Amagyei</div>
               <div class="contact-officer-role">President</div>
-              <a href="/cdn-cgi/l/email-protection#2b4f445e4c474a5845524a5940446b4c464a424705484446" class="contact-officer-email">
-                📧 <span class="__cf_email__" data-cfemail="cbafa4beaca7aab8a5b2aab9a0a48baca6aaa2a7e5a8a4a6">[email&#160;protected]</span>
+              <a href="mailto:president@ghanapowerlifting.org" class="contact-officer-email">
+                📧 president@ghanapowerlifting.org
               </a>
             </div>
           </div>
@@ -1973,8 +1872,8 @@ footer {
             <div>
               <div class="contact-officer-name">Kwaku Nyarko</div>
               <div class="contact-officer-role">General Secretary</div>
-              <a href="/cdn-cgi/l/email-protection#703b07111b0543464530171d11191c5e131f1d" class="contact-officer-email">
-                📧 <span class="__cf_email__" data-cfemail="5a112d3b312f696c6f1a3d373b333674393537">[email&#160;protected]</span>
+              <a href="mailto:secretary@ghanapowerlifting.org" class="contact-officer-email">
+                📧 secretary@ghanapowerlifting.org
               </a>
             </div>
           </div>
@@ -1983,14 +1882,13 @@ footer {
             <div>
               <div class="contact-officer-name">Samuel Yao Ablordeppey</div>
               <div class="contact-officer-role">Treasurer</div>
-              <a href="/cdn-cgi/l/email-protection#681c1a0d091b1d1a0d1a280f0009060918071f0d1a04010e1c01060f46071a0f" class="contact-officer-email">
-                📧 <span class="__cf_email__" data-cfemail="51252334302224233423113639303f30213e2634233d383725383f367f3e2336">[email&#160;protected]</span>
+              <a href="mailto:treasurer@ghanapowerlifting.org" class="contact-officer-email">
+                📧 treasurer@ghanapowerlifting.org
               </a>
             </div>
           </div>
-        </div></div>
+        </div>
       </div>
-
       <div class="reveal">
         <form class="contact-form" id="contactForm" onsubmit="submitContact(event)">
           <div class="form-row">
@@ -2032,16 +1930,13 @@ footer {
           </div>
         </form>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- ── MEMBER REGISTRATION ─────────────────────────────────────────────────── -->
 <section class="register" id="register">
   <div class="section-inner">
     <div class="register-grid">
-
       <div class="register-info reveal">
         <div class="section-tag">Membership</div>
         <h2 class="section-heading">Become a<br>G.A.P. Member</h2>
@@ -2081,12 +1976,10 @@ footer {
           </div>
         </div>
       </div>
-
       <div class="reveal">
         <div class="register-form-wrap" id="registerWrap">
           <div class="register-form-title">Membership Registration</div>
           <div class="register-form-sub">Complete the form below to register. Our team will confirm your membership and provide payment details.</div>
-
           <form class="register-form" id="registerForm" onsubmit="submitRegister(event)">
             <div class="form-row">
               <div class="form-group">
@@ -2106,9 +1999,7 @@ footer {
               <label class="form-label">Phone / WhatsApp *</label>
               <input type="tel" class="form-input" placeholder="+233 …" required>
             </div>
-
             <div class="register-form-divider">Personal Details</div>
-
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label">Date of Birth *</label>
@@ -2141,9 +2032,7 @@ footer {
                 <option>Other</option>
               </select>
             </div>
-
             <div class="register-form-divider">Membership Type</div>
-
             <div class="form-group">
               <label class="form-label">Membership Category *</label>
               <select class="form-select" required>
@@ -2169,14 +2058,12 @@ footer {
                 <option>International competitions</option>
               </select>
             </div>
-
             <button type="submit" class="register-submit">Register as G.A.P. Member →</button>
             <p class="register-note">
               Membership dues are determined by the Executive Committee and will be communicated upon registration confirmation. 
               Your data is held in accordance with Ghanaian data protection law.
             </p>
           </form>
-
           <div class="form-success" id="registerSuccess">
             <div class="form-success-icon">🏆</div>
             <div class="form-success-title">Registration Received</div>
@@ -2188,11 +2075,9 @@ footer {
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 <!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-logo">G<span>.</span>A<span>.</span>P<span>.</span></div>
@@ -2203,79 +2088,39 @@ footer {
     <div class="stripe-green"></div>
   </div>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── CURSOR ──────────────────────────────────────────────────────────────────
 const dot  = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
-
-// Use translate3d — bypasses ALL stacking contexts and overflow:hidden clipping
-function setDot(x, y) {
-  dot.style.transform = 'translate3d(calc(' + x + 'px - 50%), calc(' + y + 'px - 50%), 0)';
-}
-function setRing(x, y) {
-  ring.style.transform = 'translate3d(calc(' + x + 'px - 50%), calc(' + y + 'px - 50%), 0)';
-}
-
 document.addEventListener('mousemove', e => {
-  mx = e.clientX;
-  my = e.clientY;
-  setDot(mx, my);
-}, { passive: true });
-
-// Hover detection for interactive elements
-document.addEventListener('mouseover', e => {
-  if (e.target.closest('a, button, input, select, textarea, label, [role="button"]')) {
-    dot.classList.add('hovered');
-    ring.classList.add('hovered');
-  }
+  mx = e.clientX; my = e.clientY;
+  dot.style.left  = mx + 'px';
+  dot.style.top   = my + 'px';
 });
-document.addEventListener('mouseout', e => {
-  if (e.target.closest('a, button, input, select, textarea, label, [role="button"]')) {
-    dot.classList.remove('hovered');
-    ring.classList.remove('hovered');
-  }
-});
-
-// Hide when mouse leaves viewport
-document.addEventListener('mouseleave', () => {
-  dot.style.opacity = '0';
-  ring.style.opacity = '0';
-});
-document.addEventListener('mouseenter', () => {
-  dot.style.opacity = '1';
-  ring.style.opacity = '0.7';
-});
-
-// Ring follows with smooth lag via rAF
 function animateCursor() {
-  rx += (mx - rx) * 0.10;
-  ry += (my - ry) * 0.10;
-  setRing(rx, ry);
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
   requestAnimationFrame(animateCursor);
 }
 animateCursor();
-
 // ── SCROLL REVEAL ────────────────────────────────────────────────────────────
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      // Stagger siblings
       const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
       const delay = siblings.indexOf(entry.target) * 80;
       setTimeout(() => entry.target.classList.add('visible'), delay);
     }
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
 reveals.forEach(el => observer.observe(el));
-
 // ── NAV ACTIVE SECTION ───────────────────────────────────────────────────────
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
 window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(s => {
@@ -2286,7 +2131,6 @@ window.addEventListener('scroll', () => {
       ? 'rgba(250,250,248,1)' : '';
   });
 }, { passive: true });
-
 // ── SMOOTH JOIN FORM ────────────────────────────────────────────────────────
 document.querySelector('.join-btn').addEventListener('click', () => {
   const input = document.querySelector('.join-input');
@@ -2299,7 +2143,6 @@ document.querySelector('.join-btn').addEventListener('click', () => {
     input.placeholder = 'Please enter a valid email';
   }
 });
-
 // ── RESULTS TABS ─────────────────────────────────────────────────────────────
 function switchTab(panelId) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -2307,5 +2150,30 @@ function switchTab(panelId) {
   document.getElementById(panelId).classList.add('active');
   event.currentTarget.classList.add('active');
 }
-
-// ── CONTACT FORM ─────────────────────────────────────────�
+// ── CONTACT FORM ─────────────────────────────────────────────────────────────
+function submitContact(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Sending…';
+  btn.style.background = '#555';
+  setTimeout(() => {
+    e.target.style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+  }, 1200);
+}
+// ── REGISTER FORM ─────────────────────────────────────────────────────────────
+function submitRegister(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.register-submit');
+  btn.textContent = 'Submitting…';
+  btn.style.background = 'rgba(245,197,24,0.4)';
+  setTimeout(() => {
+    document.getElementById('registerForm').style.display = 'none';
+    document.querySelector('.register-form-title').style.display = 'none';
+    document.querySelector('.register-form-sub').style.display = 'none';
+    document.getElementById('registerSuccess').style.display = 'block';
+  }, 1400);
+}
+</script>
+</body>
+</html>
