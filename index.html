@@ -36,30 +36,39 @@ body {
 }
 
 /* ─── CUSTOM CURSOR ────────────────────────────────────────────────────── */
-.cursor {
-  position: fixed; top: 0; left: 0; z-index: 9999;
-  pointer-events: none;
-}
 .cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
   width: 8px; height: 8px;
   background: var(--gold);
   border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s;
+  pointer-events: none;
+  z-index: 2147483647;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  will-change: transform;
 }
 .cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
   width: 36px; height: 36px;
   border: 2px solid var(--red);
   border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.15s;
+  pointer-events: none;
+  z-index: 2147483646;
   opacity: 0.7;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s;
+  will-change: transform;
 }
-body:has(a:hover) .cursor-ring,
-body:has(button:hover) .cursor-ring {
-  width: 56px; height: 56px;
+.cursor-ring.hovered {
+  width: 52px; height: 52px;
   border-color: var(--gold);
   opacity: 1;
+}
+.cursor-dot.hovered {
+  width: 10px; height: 10px;
+  background: var(--white);
 }
 
 /* ─── NAV ──────────────────────────────────────────────────────────────── */
@@ -1349,7 +1358,7 @@ footer {
   .calendar-strip { padding: 4rem 0; }
   .leadership { padding: 5rem 0; }
   body { cursor: auto; }
-  .cursor { display: none; }
+  .cursor-dot, .cursor-ring { display: none; }
 }
 @media (max-width: 600px) {
   .officers-grid { grid-template-columns: 1fr; }
@@ -1363,10 +1372,8 @@ footer {
 <body>
 
 <!-- Custom cursor -->
-<div class="cursor" id="cursor">
-  <div class="cursor-ring" id="cursorRing"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-</div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
 
 <!-- ── NAV ──────────────────────────────────────────────────────────────── -->
 <nav>
@@ -1956,8 +1963,8 @@ footer {
             <div>
               <div class="contact-officer-name">Douglas Nyarko Amagyei</div>
               <div class="contact-officer-role">President</div>
-              <a href="mailto:president@ghanapowerlifting.org" class="contact-officer-email">
-                📧 president@ghanapowerlifting.org
+              <a href="/cdn-cgi/l/email-protection#2b4f445e4c474a5845524a5940446b4c464a424705484446" class="contact-officer-email">
+                📧 <span class="__cf_email__" data-cfemail="cbafa4beaca7aab8a5b2aab9a0a48baca6aaa2a7e5a8a4a6">[email&#160;protected]</span>
               </a>
             </div>
           </div>
@@ -1966,8 +1973,8 @@ footer {
             <div>
               <div class="contact-officer-name">Kwaku Nyarko</div>
               <div class="contact-officer-role">General Secretary</div>
-              <a href="mailto:secretary@ghanapowerlifting.org" class="contact-officer-email">
-                📧 secretary@ghanapowerlifting.org
+              <a href="/cdn-cgi/l/email-protection#703b07111b0543464530171d11191c5e131f1d" class="contact-officer-email">
+                📧 <span class="__cf_email__" data-cfemail="5a112d3b312f696c6f1a3d373b333674393537">[email&#160;protected]</span>
               </a>
             </div>
           </div>
@@ -1976,12 +1983,12 @@ footer {
             <div>
               <div class="contact-officer-name">Samuel Yao Ablordeppey</div>
               <div class="contact-officer-role">Treasurer</div>
-              <a href="mailto:treasurer@ghanapowerlifting.org" class="contact-officer-email">
-                📧 treasurer@ghanapowerlifting.org
+              <a href="/cdn-cgi/l/email-protection#681c1a0d091b1d1a0d1a280f0009060918071f0d1a04010e1c01060f46071a0f" class="contact-officer-email">
+                📧 <span class="__cf_email__" data-cfemail="51252334302224233423113639303f30213e2634233d383725383f367f3e2336">[email&#160;protected]</span>
               </a>
             </div>
           </div>
-        </div>
+        </div></div>
       </div>
 
       <div class="reveal">
@@ -2197,23 +2204,55 @@ footer {
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── CURSOR ──────────────────────────────────────────────────────────────────
 const dot  = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
 
+// Use translate3d — bypasses ALL stacking contexts and overflow:hidden clipping
+function setDot(x, y) {
+  dot.style.transform = 'translate3d(calc(' + x + 'px - 50%), calc(' + y + 'px - 50%), 0)';
+}
+function setRing(x, y) {
+  ring.style.transform = 'translate3d(calc(' + x + 'px - 50%), calc(' + y + 'px - 50%), 0)';
+}
+
 document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left  = mx + 'px';
-  dot.style.top   = my + 'px';
+  mx = e.clientX;
+  my = e.clientY;
+  setDot(mx, my);
+}, { passive: true });
+
+// Hover detection for interactive elements
+document.addEventListener('mouseover', e => {
+  if (e.target.closest('a, button, input, select, textarea, label, [role="button"]')) {
+    dot.classList.add('hovered');
+    ring.classList.add('hovered');
+  }
+});
+document.addEventListener('mouseout', e => {
+  if (e.target.closest('a, button, input, select, textarea, label, [role="button"]')) {
+    dot.classList.remove('hovered');
+    ring.classList.remove('hovered');
+  }
 });
 
+// Hide when mouse leaves viewport
+document.addEventListener('mouseleave', () => {
+  dot.style.opacity = '0';
+  ring.style.opacity = '0';
+});
+document.addEventListener('mouseenter', () => {
+  dot.style.opacity = '1';
+  ring.style.opacity = '0.7';
+});
+
+// Ring follows with smooth lag via rAF
 function animateCursor() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
+  rx += (mx - rx) * 0.10;
+  ry += (my - ry) * 0.10;
+  setRing(rx, ry);
   requestAnimationFrame(animateCursor);
 }
 animateCursor();
@@ -2269,31 +2308,4 @@ function switchTab(panelId) {
   event.currentTarget.classList.add('active');
 }
 
-// ── CONTACT FORM ─────────────────────────────────────────────────────────────
-function submitContact(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Sending…';
-  btn.style.background = '#555';
-  setTimeout(() => {
-    e.target.style.display = 'none';
-    document.getElementById('contactSuccess').style.display = 'block';
-  }, 1200);
-}
-
-// ── REGISTER FORM ─────────────────────────────────────────────────────────────
-function submitRegister(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.register-submit');
-  btn.textContent = 'Submitting…';
-  btn.style.background = 'rgba(245,197,24,0.4)';
-  setTimeout(() => {
-    document.getElementById('registerForm').style.display = 'none';
-    document.querySelector('.register-form-title').style.display = 'none';
-    document.querySelector('.register-form-sub').style.display = 'none';
-    document.getElementById('registerSuccess').style.display = 'block';
-  }, 1400);
-}
-</script>
-</body>
-</html>
+// ── CONTACT FORM ─────────────────────────────────────────�
