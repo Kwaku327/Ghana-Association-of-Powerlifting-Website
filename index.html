@@ -31,28 +31,44 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
+/* ─── FIX: Universal cursor:none — prevents default cursor on ANY element ── */
+*, *::before, *::after,
+a, button, input, select, textarea, label, [onclick] {
+  cursor: none !important;
+}
 /* ─── CUSTOM CURSOR ────────────────────────────────────────────────────── */
 .cursor {
-  position: fixed; top: 0; left: 0; z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
   pointer-events: none;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 .cursor-dot {
   width: 8px; height: 8px;
   background: var(--gold);
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
   transition: transform 0.1s;
+  will-change: transform;
 }
 .cursor-ring {
   width: 36px; height: 36px;
   border: 2px solid var(--red);
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%, -50%, 0);
   transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.15s;
   opacity: 0.7;
+  will-change: transform, width, height;
 }
 body:has(a:hover) .cursor-ring,
-body:has(button:hover) .cursor-ring {
+body:has(button:hover) .cursor-ring,
+body:has(input:hover) .cursor-ring,
+body:has(select:hover) .cursor-ring,
+body:has(textarea:hover) .cursor-ring,
+body:has([onclick]:hover) .cursor-ring {
   width: 56px; height: 56px;
   border-color: var(--gold);
   opacity: 1;
@@ -238,7 +254,6 @@ nav {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border: none;
-  cursor: none;
   text-decoration: none;
   display: inline-block;
   transition: background var(--transition), transform var(--transition);
@@ -754,7 +769,6 @@ section { position: relative; }
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  cursor: none;
   transition: background var(--transition);
   flex-shrink: 0;
 }
@@ -843,7 +857,6 @@ footer {
   position: relative;
   overflow: hidden;
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
-  cursor: none;
 }
 .news-card:hover {
   background: rgba(255,255,255,0.06);
@@ -932,7 +945,6 @@ footer {
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
   color: var(--muted);
-  cursor: none;
   transition: color var(--transition), border-color var(--transition);
 }
 .tab-btn.active { color: var(--red); border-bottom-color: var(--red); }
@@ -1131,7 +1143,6 @@ footer {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  cursor: none;
   transition: background var(--transition), transform var(--transition);
   align-self: flex-start;
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
@@ -1254,7 +1265,6 @@ footer {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  cursor: none;
   width: 100%;
   margin-top: 0.5rem;
   transition: background var(--transition), transform var(--transition);
@@ -1307,8 +1317,12 @@ footer {
   .nationals { padding: 5rem 0; }
   .calendar-strip { padding: 4rem 0; }
   .leadership { padding: 5rem 0; }
-  body { cursor: auto; }
-  .cursor { display: none; }
+  /* Restore native cursor on touch/small devices */
+  body, *, *::before, *::after,
+  a, button, input, select, textarea, label, [onclick] {
+    cursor: auto !important;
+  }
+  .cursor { display: none !important; }
 }
 @media (max-width: 600px) {
   .officers-grid { grid-template-columns: 1fr; }
@@ -1862,8 +1876,8 @@ footer {
             <div>
               <div class="contact-officer-name">Douglas Nyarko Amagyei</div>
               <div class="contact-officer-role">President</div>
-              <a href="mailto:president@ghanapowerlifting.org" class="contact-officer-email">
-                📧 president@ghanapowerlifting.org
+              <a href="mailto:douglasamagyei@ghanapowerlifting.org" class="contact-officer-email">
+                📧 douglasamagyei@ghanapowerlifting.org
               </a>
             </div>
           </div>
@@ -1872,8 +1886,8 @@ footer {
             <div>
               <div class="contact-officer-name">Kwaku Nyarko</div>
               <div class="contact-officer-role">General Secretary</div>
-              <a href="mailto:secretary@ghanapowerlifting.org" class="contact-officer-email">
-                📧 secretary@ghanapowerlifting.org
+              <a href="mailto:kwakunyarko@ghanapowerlifting.org" class="contact-officer-email">
+                📧 kwakunyarko@ghanapowerlifting.org
               </a>
             </div>
           </div>
@@ -2089,23 +2103,29 @@ footer {
   </div>
 </footer>
 <script>
-// ── CURSOR ──────────────────────────────────────────────────────────────────
+// ── CURSOR (GPU-composited, stacking-context proof) ─────────────────────────
+const cursorEl = document.getElementById('cursor');
 const dot  = document.getElementById('cursorDot');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
+
 document.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
-  dot.style.left  = mx + 'px';
-  dot.style.top   = my + 'px';
+  dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate3d(-50%, -50%, 0)`;
 });
+
 function animateCursor() {
   rx += (mx - rx) * 0.12;
   ry += (my - ry) * 0.12;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
+  ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate3d(-50%, -50%, 0)`;
   requestAnimationFrame(animateCursor);
 }
 animateCursor();
+
+// Hide when mouse leaves viewport
+document.addEventListener('mouseleave', () => { cursorEl.style.opacity = '0'; });
+document.addEventListener('mouseenter', () => { cursorEl.style.opacity = '1'; });
+
 // ── SCROLL REVEAL ────────────────────────────────────────────────────────────
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
