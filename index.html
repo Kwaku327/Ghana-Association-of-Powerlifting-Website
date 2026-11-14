@@ -7,231 +7,879 @@
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; frame-src https://docs.google.com; connect-src 'self' https://docs.google.com; img-src 'self' data:;">
-<meta name="description" content="Ghana Association of Powerlifting (G.A.P.) — Ghana's official IPF-affiliated national governing body for drug-free powerlifting. Join us, compete, and represent Ghana.">
+<meta name="description" content="Ghana Association of Powerlifting (G.A.P.) — Ghana's national governing body for drug-free powerlifting under the International Powerlifting Federation. Membership, competitions, governance and national records.">
 <meta name="keywords" content="Ghana powerlifting, IPF, G.A.P., drug-free powerlifting, Ghana sports, African powerlifting">
 <meta property="og:title" content="Ghana Association of Powerlifting — G.A.P.">
-<meta property="og:description" content="Ghana's official IPF-affiliated national governing body for drug-free powerlifting.">
+<meta property="og:description" content="Ghana's national governing body for drug-free powerlifting under the IPF.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ghanapowerlifting.org">
+<meta name="theme-color" content="#0E1210">
 <title>Ghana Association of Powerlifting — G.A.P.</title>
-<meta name="theme-color" content="#0A0A0A">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 97,38 79,96 21,96 3,38' fill='%23F5C518'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='%230A0A0A'%3E%E2%98%85%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1210'/%3E%3Cpath d='M32 13l5.6 11.4 12.6 1.8-9.1 8.9 2.1 12.5L32 41.7l-11.2 5.9 2.1-12.5-9.1-8.9 12.6-1.8z' fill='%23E9B21B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --red:#CF0C2E;--gold:#F5C518;--green:#006B3F;--black:#0A0A0A;--white:#FAFAF8;--grey:#F0EFEA;--muted:#6B6860;--ink:#1C1C1A;
-  --font-display:'Bebas Neue',sans-serif;--font-serif:'Playfair Display',serif;--font-body:'DM Sans',sans-serif;
-  --ease:cubic-bezier(0.16,1,0.3,1);--transition:0.35s var(--ease);
+/* ── Tokens ─────────────────────────────────────────────────────────── */
+:root{
+  --ink:#0E1210; --ink-2:#161B18; --ink-3:#212823;
+  --paper:#F6F5F1; --surface:#FFFFFF; --line:#E3E1DA; --line-dark:rgba(255,255,255,.1);
+  --text:#1A1E1C; --text-2:#5C625E; --text-3:#8A8F8B; --on-dark:#F3F2EE; --on-dark-2:rgba(243,242,238,.66); --on-dark-3:rgba(243,242,238,.42);
+  --green:#00623B; --green-700:#004D2E; --green-50:#E8F1EC;
+  --gold:#E9B21B; --gold-50:#FBF3DC;
+  --red:#C8102E; --red-50:#FBE9EC;
+  --display:'Archivo',system-ui,sans-serif; --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --radius:6px; --radius-lg:10px;
+  --shadow:0 1px 2px rgba(14,18,16,.04),0 8px 24px -12px rgba(14,18,16,.12);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --wrap:1180px; --gutter:clamp(1.25rem,4vw,2.5rem);
 }
-html{scroll-behavior:smooth}body{font-family:var(--font-body);background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-.cursor{position:fixed;top:0;left:0;z-index:2147483647;pointer-events:none;will-change:transform}.cursor-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;transform:translate3d(-50%,-50%,0);transition:transform .1s}.cursor-ring{width:36px;height:36px;border:2px solid var(--red);border-radius:50%;transform:translate3d(-50%,-50%,0);transition:width .3s,height .3s,border-color .3s,transform .15s;opacity:.7}body:has(a:hover) .cursor-ring,body:has(button:hover) .cursor-ring{width:56px;height:56px;border-color:var(--gold);opacity:1}.cursor{display:none}@media (hover:hover) and (pointer:fine){.cursor{display:block}body,a,button,label,select{cursor:none}input,textarea{cursor:text}}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;z-index:201}.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:transform .3s,opacity .3s}.nav-hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.nav-hamburger.active span:nth-child(2){opacity:0}.nav-hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);z-index:200;flex-direction:column;padding:2rem;gap:0;overflow-y:auto}.mobile-menu.open{display:flex}.mobile-menu a{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:rgba(250,250,248,.7);text-decoration:none;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s}.mobile-menu a:hover{color:var(--gold)}.mobile-menu .nav-cta-mobile{background:var(--gold);color:var(--black);text-align:center;padding:1rem;margin-top:1rem;font-weight:700;border:none;border-radius:2px}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:72px;background:rgba(10,10,10,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,197,24,.15);transition:background var(--transition)}.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}.nav-emblem{width:40px;height:40px;background:var(--gold);clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}.nav-emblem::after{content:'★';color:var(--black);font-size:16px;position:absolute}.nav-wordmark{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:var(--white)}.nav-wordmark span{color:var(--gold)}.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}.nav-links a{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,248,.7);text-decoration:none;transition:color var(--transition);position:relative}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width var(--transition)}.nav-links a:hover{color:var(--white)}.nav-links a:hover::after{width:100%}.nav-cta{background:var(--gold);color:var(--black) !important;padding:.5rem 1.25rem;border-radius:2px;font-weight:700 !important;letter-spacing:.08em}.nav-cta:hover{background:var(--white) !important}.nav-cta::after{display:none !important}
-.hero{min-height:100vh;background:var(--black);position:relative;display:flex;align-items:center;overflow:hidden;padding-top:72px}.hero-stripes{position:absolute;top:0;right:0;width:6px;height:100%;display:flex;flex-direction:column}.hero-stripes div{flex:1}.stripe-red{background:var(--red)}.stripe-gold{background:var(--gold)}.stripe-green{background:var(--green)}.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(245,197,24,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,197,24,.04) 1px,transparent 1px);background-size:60px 60px;transform:skewY(-3deg);transform-origin:top left}.hero-bg-letter{position:absolute;right:-.1em;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(18rem,40vw,40rem);line-height:1;color:rgba(245,197,24,.04);pointer-events:none;user-select:none;letter-spacing:-.05em}.hero-slash{position:absolute;right:35%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,transparent,var(--red) 30%,var(--gold) 70%,transparent);opacity:.6;transform:rotate(8deg)}.hero-content{position:relative;z-index:2;padding:0 4rem;max-width:900px}.hero-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;opacity:0;animation:fadeUp .8s var(--ease) .2s forwards}.hero-eyebrow::before{content:'';display:block;width:40px;height:2px;background:var(--red)}.hero-title{font-family:var(--font-display);font-size:clamp(4rem,11vw,10rem);line-height:.92;letter-spacing:.02em;color:var(--white);opacity:0;animation:fadeUp .9s var(--ease) .4s forwards}.hero-title .accent{color:var(--gold);display:block}.hero-title .thin{font-family:var(--font-serif);font-size:.35em;font-weight:700;letter-spacing:.04em;color:rgba(250,250,248,.5);display:block;margin-top:.3em}.hero-desc{margin-top:2.5rem;font-size:1.05rem;line-height:1.7;color:rgba(250,250,248,.6);max-width:480px;opacity:0;animation:fadeUp .9s var(--ease) .6s forwards}.hero-actions{margin-top:2.5rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .9s var(--ease) .8s forwards}.btn-primary{background:var(--red);color:var(--white);padding:.9rem 2rem;font-family:var(--font-body);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:none;text-decoration:none;display:inline-block;transition:background var(--transition),transform var(--transition);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}.btn-primary:hover{background:var(--gold);color:var(--black);transform:translateY(-2px)}.btn-secondary{color:rgba(250,250,248,.7);font-size:.85rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color var(--transition)}.btn-secondary:hover{color:var(--gold)}.btn-secondary::after{content:'→';font-size:1.1em}.hero-stats{position:absolute;bottom:3rem;left:4rem;right:4rem;display:flex;gap:4rem;z-index:2;border-top:1px solid rgba(245,197,24,.15);padding-top:2rem;opacity:0;animation:fadeUp .9s var(--ease) 1s forwards}.stat{display:flex;flex-direction:column;gap:.25rem}.stat-num{font-family:var(--font-display);font-size:2.5rem;color:var(--gold);line-height:1;letter-spacing:.04em}.stat-label{font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,248,.4)}
-section{position:relative}.section-inner{max-width:1200px;margin:0 auto;padding:0 3rem}.section-tag{font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}.section-tag::before{content:'';width:24px;height:2px;background:var(--red)}.section-heading{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);letter-spacing:.02em;line-height:1;color:var(--ink)}.section-heading.light{color:var(--white)}
-.mission-band{background:var(--gold);padding:1.5rem 3rem;display:flex;align-items:center;gap:2rem;overflow:hidden}.mission-ticker{display:flex;gap:4rem;animation:ticker 20s linear infinite;white-space:nowrap;flex-shrink:0}.mission-ticker span{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.1em;color:var(--black);display:flex;align-items:center;gap:1rem}.mission-ticker span::before{content:'★';color:var(--red);font-size:.8rem}@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.address-band{background:var(--ink);padding:2.5rem 3rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}.address-item{display:flex;align-items:center;gap:.75rem}.address-icon{width:40px;height:40px;background:rgba(245,197,24,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}.address-label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,250,248,.35)}.address-val{font-size:.85rem;color:rgba(250,250,248,.75);line-height:1.4}.address-val a{color:var(--gold);text-decoration:none}.address-val a:hover{text-decoration:underline}
-.about{padding:8rem 0;background:var(--white)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}.about-visual{position:relative}.about-flag{width:100%;aspect-ratio:3/2;display:grid;grid-template-rows:1fr 1fr 1fr;border-radius:4px;overflow:hidden;box-shadow:24px 24px 0 var(--gold),28px 28px 0 rgba(0,0,0,.1)}.flag-red{background:var(--red)}.flag-gold{background:var(--gold);display:flex;align-items:center;justify-content:center}.flag-green{background:var(--green)}.flag-star{font-size:4rem;color:var(--black);line-height:1}.about-badge{position:absolute;bottom:-2rem;right:-2rem;width:120px;height:120px;background:var(--black);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:4px solid var(--gold)}.badge-year{font-family:var(--font-display);font-size:1.8rem;color:var(--gold);line-height:1}.badge-label{font-size:.55rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,248,.6);text-align:center;line-height:1.3}.about-text{display:flex;flex-direction:column;gap:1.5rem}.about-text p{font-size:1rem;line-height:1.8;color:var(--muted)}.about-text strong{color:var(--ink);font-weight:600}.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.pillar{padding:1.25rem;border:1px solid rgba(0,0,0,.08);border-top:3px solid var(--red);transition:border-top-color var(--transition),transform var(--transition)}.pillar:hover{border-top-color:var(--gold);transform:translateY(-3px)}.pillar-icon{font-size:1.5rem;margin-bottom:.5rem}.pillar-title{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:.25rem}.pillar-text{font-size:.8rem;color:var(--muted);line-height:1.5}
-.governance{padding:8rem 0;background:var(--grey)}.governance-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}.governance-col h3{font-family:var(--font-display);font-size:1.4rem;letter-spacing:.06em;color:var(--ink);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}.governance-col h3 .gov-icon{width:36px;height:36px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}.governance-col p{font-size:.9rem;line-height:1.8;color:var(--muted);margin-bottom:1.25rem}.doc-list{display:flex;flex-direction:column;gap:.75rem}.doc-item{background:var(--white);border:1px solid rgba(0,0,0,.06);border-left:4px solid var(--gold);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:transform var(--transition),box-shadow var(--transition)}.doc-item:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(0,0,0,.06)}.doc-item-info{display:flex;flex-direction:column;gap:.15rem}.doc-item-title{font-size:.85rem;font-weight:600;color:var(--ink)}.doc-item-meta{font-size:.7rem;color:var(--muted)}.doc-item-action{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);text-decoration:none;white-space:nowrap;transition:color var(--transition)}.doc-item-action:hover{color:var(--gold)}.gov-structure-list{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}.gov-body{padding:.75rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.06);display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:var(--ink)}.gov-body-badge{width:28px;height:28px;background:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--gold);font-weight:700;flex-shrink:0}
-.nationals{background:var(--black);padding:8rem 0;overflow:hidden;position:relative}.nationals::before{content:'NATIONALS';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:clamp(8rem,20vw,18rem);letter-spacing:-.05em;color:rgba(245,197,24,.04);white-space:nowrap;pointer-events:none}.nationals-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}.nationals-info{position:relative;z-index:1}.nationals-info .section-tag{color:var(--gold)}.nationals-info .section-tag::before{background:var(--gold)}.nationals-date{font-family:var(--font-display);font-size:clamp(3rem,8vw,7rem);color:var(--white);line-height:.95;margin:1rem 0;letter-spacing:.02em}.nationals-date .month{display:block;font-family:var(--font-serif);font-size:.22em;font-weight:700;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem}.nationals-date .year{display:block;font-size:.3em;color:rgba(250,250,248,.3);letter-spacing:.08em}.nationals-desc{font-size:1rem;line-height:1.7;color:rgba(250,250,248,.55);max-width:400px;margin:1.5rem 0 2rem}.nationals-details{display:flex;flex-direction:column;gap:.75rem;position:relative;z-index:1}.detail-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--red);padding:1.25rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:border-left-color var(--transition),background var(--transition)}.detail-card:hover{border-left-color:var(--gold);background:rgba(245,197,24,.05)}.detail-icon{font-size:1.25rem;flex-shrink:0;margin-top:.1rem}.detail-title{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,248,.4);margin-bottom:.2rem}.detail-val{font-size:.95rem;color:var(--white);font-weight:500}
-.calendar-strip{padding:6rem 0;background:var(--grey)}.calendar-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}.event-card{background:var(--white);border:1px solid rgba(0,0,0,.06);padding:1.75rem;position:relative;overflow:hidden;transition:transform var(--transition),box-shadow var(--transition)}.event-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transition:height var(--transition)}.event-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.1)}.event-card:hover::before{height:6px;background:var(--gold)}.event-card.highlight::before{background:var(--gold);height:4px}.event-card.admin::before{background:var(--green)}.event-date-pill{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);background:rgba(207,12,46,.08);padding:.3rem .75rem;border-radius:100px;margin-bottom:1rem}.event-card.highlight .event-date-pill{color:var(--black);background:var(--gold)}.event-card.admin .event-date-pill{color:var(--green);background:rgba(0,107,63,.1)}.event-name{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.04em;color:var(--ink);line-height:1.15;margin-bottom:.5rem}.event-meta{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}.event-meta::before{content:'📍';font-size:.7rem}.event-tag{position:absolute;top:1.5rem;right:1.5rem;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--grey);padding:.2rem .5rem;border-radius:2px}.event-star{position:absolute;bottom:1.5rem;right:1.5rem;color:var(--gold);font-size:1.2rem}
-.leadership{padding:8rem 0;background:var(--white)}.officers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}.officer-card{position:relative;padding:2.5rem 2rem;border:1px solid rgba(0,0,0,.06);overflow:hidden;transition:transform var(--transition)}.officer-card:hover{transform:translateY(-4px)}.officer-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:var(--gold);transition:height .4s cubic-bezier(.16,1,.3,1);z-index:0}.officer-card:hover::after{height:4px}.officer-avatar{width:72px;height:72px;background:var(--black);border-radius:50%;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.8rem;color:var(--gold);position:relative;z-index:1;border:3px solid var(--gold)}.officer-name{font-family:var(--font-serif);font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;position:relative;z-index:1}.officer-role{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);position:relative;z-index:1}.officer-contact{font-size:.75rem;color:var(--muted);margin-top:.75rem;position:relative;z-index:1;display:flex;flex-direction:column;gap:.2rem}.officer-contact a{color:var(--red);text-decoration:none;transition:color .2s}.officer-contact a:hover{color:var(--ink)}.officer-card.vacant .officer-avatar{background:var(--grey);border-color:rgba(0,0,0,.1);color:var(--muted)}.officer-card.vacant .officer-name{color:var(--muted);font-style:italic}.officer-card.vacant .officer-role{color:rgba(0,0,0,.3)}
-.eligibility{padding:8rem 0;background:var(--black);position:relative;overflow:hidden}.eligibility::before{content:'ELIGIBILITY';position:absolute;right:-.05em;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(8rem,20vw,16rem);color:rgba(245,197,24,.04);letter-spacing:-.05em;line-height:1;pointer-events:none;white-space:nowrap}.eligibility-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;position:relative;z-index:1}.eligibility .section-tag{color:var(--gold)}.eligibility .section-tag::before{background:var(--gold)}.eligibility .section-heading{color:var(--white);margin-bottom:1.5rem}.eligibility-body{font-size:.9rem;line-height:1.8;color:rgba(250,250,248,.6);margin-bottom:1.5rem}.eligibility-card{border:1px solid rgba(255,255,255,.08);border-left:4px solid var(--gold);padding:1.25rem 1.5rem;margin-bottom:.75rem;background:rgba(255,255,255,.03);transition:background var(--transition)}.eligibility-card:hover{background:rgba(245,197,24,.05)}.eligibility-card-title{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}.eligibility-card-text{font-size:.85rem;color:rgba(250,250,248,.65);line-height:1.6}.membership-tiers{display:flex;flex-direction:column;gap:1rem}.tier-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:1.5rem;transition:border-color var(--transition),background var(--transition)}.tier-card:hover{border-color:rgba(245,197,24,.3);background:rgba(245,197,24,.04)}.tier-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem}.tier-name{font-family:var(--font-display);font-size:1.1rem;letter-spacing:.06em;color:var(--white)}.tier-price{background:var(--gold);color:var(--black);font-family:var(--font-display);font-size:.85rem;letter-spacing:.06em;padding:.3rem .75rem}.tier-desc{font-size:.8rem;color:rgba(250,250,248,.5);line-height:1.6;margin-bottom:1rem}.tier-features{font-size:.75rem;color:rgba(250,250,248,.45);line-height:1.8}.tier-btn{display:block;width:100%;margin-top:1rem;padding:.75rem;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--gold);font-family:var(--font-body);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center;text-decoration:none;transition:background var(--transition),color var(--transition)}.tier-btn:hover{background:var(--gold);color:var(--black)}
-.affiliation{padding:6rem 0;background:var(--green);position:relative;overflow:hidden}.affiliation::before{content:'IPF';position:absolute;right:-.05em;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(12rem,30vw,26rem);color:rgba(255,255,255,.06);letter-spacing:-.05em;line-height:1;pointer-events:none}.affiliation-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}.affiliation .section-tag{color:rgba(255,255,255,.5)}.affiliation .section-tag::before{background:rgba(255,255,255,.4)}.affiliation .section-heading{color:var(--white)}.affiliation-body{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.7);margin-top:1.5rem}.affiliation-checklist{list-style:none;display:flex;flex-direction:column;gap:1rem}.affiliation-checklist li{display:flex;align-items:flex-start;gap:1rem;font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.5}.affiliation-checklist li::before{content:'✓';width:24px;height:24px;background:var(--gold);color:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;flex-shrink:0}
-.news{padding:8rem 0;background:var(--black);position:relative;overflow:hidden}.news::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.news-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}.news-header .section-heading{color:var(--white)}.news-link-all{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:gap var(--transition)}.news-link-all:hover{gap:1rem}.news-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5rem}.news-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:2rem;position:relative;overflow:hidden;transition:background var(--transition),border-color var(--transition),transform var(--transition)}.news-card:hover{background:rgba(255,255,255,.06);border-color:rgba(245,197,24,.3);transform:translateY(-4px)}.news-card.featured{border-top:3px solid var(--gold);grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between}.news-card:not(.featured){border-top:3px solid var(--red)}.news-card:nth-child(3){border-top-color:var(--green)}.news-cat{font-size:.6rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}.news-cat::before{content:'';width:16px;height:2px;background:var(--gold)}.news-card:not(.featured) .news-cat{color:var(--red)}.news-card:not(.featured) .news-cat::before{background:var(--red)}.news-card:nth-child(3) .news-cat{color:var(--green)}.news-card:nth-child(3) .news-cat::before{background:var(--green)}.news-headline{font-family:var(--font-serif);font-weight:700;color:var(--white);line-height:1.3;margin-bottom:1rem}.news-card.featured .news-headline{font-size:1.6rem}.news-card:not(.featured) .news-headline{font-size:1rem}.news-body{font-size:.875rem;line-height:1.7;color:rgba(250,250,248,.5);flex:1;margin-bottom:1.5rem}.news-meta{display:flex;align-items:center;justify-content:space-between;font-size:.7rem;color:rgba(250,250,248,.3);letter-spacing:.08em;border-top:1px solid rgba(255,255,255,.07);padding-top:1rem;margin-top:auto}.news-read-more{color:var(--gold);font-weight:700;text-decoration:none;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;transition:letter-spacing var(--transition)}.news-read-more:hover{letter-spacing:.2em}
-.results{padding:8rem 0;background:var(--white)}.results-tabs{display:flex;gap:0;border-bottom:2px solid rgba(0,0,0,.08);margin-bottom:3rem}.tab-btn{padding:.875rem 1.75rem;font-family:var(--font-body);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;color:var(--muted);transition:color var(--transition),border-color var(--transition)}.tab-btn.active{color:var(--red);border-bottom-color:var(--red)}.tab-btn:hover:not(.active){color:var(--ink)}.tab-panel{display:none}.tab-panel.active{display:block}.record-pending{text-align:center;padding:4rem 2rem;color:var(--muted);border:2px dashed rgba(0,0,0,.1);border-radius:4px}.record-pending-icon{font-size:3rem;margin-bottom:1rem}.record-pending-title{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem}.record-pending-sub{font-size:.85rem;line-height:1.6}.records-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}.record-card{border:1px solid rgba(0,0,0,.07);border-left:4px solid var(--gold);padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;transition:transform var(--transition),box-shadow var(--transition);position:relative;overflow:hidden}.record-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08)}.record-card::after{content:'★';position:absolute;right:1.25rem;top:50%;transform:translateY(-50%);color:var(--gold);opacity:.15;font-size:3rem;line-height:1}.record-division{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}.record-lift{font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;color:var(--ink)}.record-weight{font-family:var(--font-display);font-size:2rem;color:var(--red);line-height:1;letter-spacing:.04em}.record-weight span{font-size:.9rem;color:var(--muted)}.record-holder{font-size:.8rem;color:var(--muted)}
-.contact-section{padding:8rem 0;background:var(--grey)}.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}.contact-officers{display:flex;flex-direction:column;gap:1.5rem}.contact-officer-card{background:var(--white);border:1px solid rgba(0,0,0,.06);border-left:4px solid var(--red);padding:1.5rem;display:flex;align-items:center;gap:1.25rem;transition:border-left-color var(--transition),transform var(--transition)}.contact-officer-card:hover{border-left-color:var(--gold);transform:translateX(4px)}.contact-officer-card:nth-child(2){border-left-color:var(--green)}.contact-officer-card:nth-child(3){border-left-color:var(--gold)}.contact-avatar{width:52px;height:52px;background:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.2rem;color:var(--gold);flex-shrink:0;border:2px solid var(--gold)}.contact-officer-name{font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--ink)}.contact-officer-role{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:.2rem 0 .5rem}.contact-officer-email{font-size:.8rem;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color var(--transition)}.contact-officer-email:hover{color:var(--ink)}.contact-form{display:flex;flex-direction:column;gap:1.25rem}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.form-group{display:flex;flex-direction:column;gap:.4rem}.form-label{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}.form-input,.form-select,.form-textarea{padding:.875rem 1rem;background:var(--white);border:1px solid rgba(0,0,0,.1);border-radius:2px;font-family:var(--font-body);font-size:.9rem;color:var(--ink);outline:none;transition:border-color var(--transition),box-shadow var(--transition);width:100%}.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(207,12,46,.08)}.form-textarea{min-height:140px;resize:vertical}.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6860' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}.form-submit{background:var(--red);color:var(--white);padding:1rem 2rem;border:none;font-family:var(--font-body);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:background var(--transition),transform var(--transition);align-self:flex-start;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}.form-submit:hover{background:var(--gold);color:var(--black);transform:translateY(-2px)}
-.register{padding:8rem 0;background:var(--black);position:relative;overflow:hidden}.register::before{content:'JOIN';position:absolute;right:-.05em;top:50%;transform:translateY(-50%);font-family:var(--font-display);font-size:clamp(12rem,28vw,24rem);color:rgba(245,197,24,.04);letter-spacing:-.05em;line-height:1;pointer-events:none}.register-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}.register-info{position:relative;z-index:1}.register-info .section-tag{color:var(--gold)}.register-info .section-tag::before{background:var(--gold)}.register-info .section-heading{color:var(--white);margin:.75rem 0 1.5rem}.register-desc{font-size:.95rem;line-height:1.8;color:rgba(250,250,248,.55);margin-bottom:2.5rem}.member-types{display:flex;flex-direction:column;gap:.75rem}.member-type{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);transition:border-color var(--transition),background var(--transition)}.member-type:hover{border-color:rgba(245,197,24,.3);background:rgba(245,197,24,.04)}.member-type-icon{font-size:1.25rem;flex-shrink:0;margin-top:.1rem}.member-type-title{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}.member-type-desc{font-size:.8rem;color:rgba(250,250,248,.45);line-height:1.5}.register-form-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:2.5rem;position:relative;z-index:1}.register-form-title{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.08em;color:var(--white);margin-bottom:.5rem}.register-form-sub{font-size:.8rem;color:rgba(250,250,248,.4);margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.07)}.register-form{display:flex;flex-direction:column;gap:1rem}.register-form .form-input,.register-form .form-select,.register-form .form-textarea{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);color:var(--white)}.register-form .form-input:focus,.register-form .form-select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,197,24,.1)}.register-form .form-label{color:rgba(250,250,248,.45)}.register-form .form-input::placeholder{color:rgba(250,250,248,.2)}.register-form .form-select option{background:var(--black);color:var(--white)}.register-form-divider{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,250,248,.25);display:flex;align-items:center;gap:1rem;margin:.5rem 0}.register-form-divider::before,.register-form-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07)}.register-submit{background:var(--gold);color:var(--black);padding:1rem 2rem;border:none;font-family:var(--font-body);font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;width:100%;margin-top:.5rem;transition:background var(--transition),transform var(--transition);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}.register-submit:hover{background:var(--white);transform:translateY(-2px)}.register-note{font-size:.72rem;color:rgba(250,250,248,.3);line-height:1.6;margin-top:1rem;text-align:center}.form-success{display:none;text-align:center;padding:2rem}.form-success-icon{font-size:3rem;margin-bottom:1rem}.form-success-title{font-family:var(--font-display);font-size:1.75rem;letter-spacing:.08em;color:var(--gold);margin-bottom:.5rem}.form-success-msg{font-size:.9rem;color:rgba(250,250,248,.55);line-height:1.6}
-footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);padding:3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}.footer-logo{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.08em;color:rgba(250,250,248,.3)}.footer-logo span{color:var(--gold)}.footer-copy{font-size:.75rem;color:rgba(250,250,248,.25);letter-spacing:.05em}.footer-flags{display:flex;height:20px;width:60px;border-radius:2px;overflow:hidden}.footer-flags div{flex:1}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.reveal.visible{opacity:1;transform:translateY(0)}@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:1100px){.news-grid{grid-template-columns:1fr 1fr}.news-card.featured{grid-row:auto}}
-@media(max-width:900px){nav{padding:0 1.5rem}.nav-links{display:none}.nav-hamburger{display:flex}.hero-content{padding:0 1.5rem}.hero-stats{left:1.5rem;right:1.5rem;flex-wrap:wrap;gap:2rem}.about-grid,.nationals-grid,.affiliation-inner,.eligibility-grid,.governance-grid{grid-template-columns:1fr;gap:3rem}.officers-grid{grid-template-columns:1fr 1fr}.contact-grid,.register-grid{grid-template-columns:1fr;gap:3rem}.section-inner{padding:0 1.5rem}.about,.nationals,.leadership,.eligibility,.governance{padding:5rem 0}.calendar-strip{padding:4rem 0}.address-band{gap:2rem;padding:2rem 1.5rem}body,*,*::before,*::after{cursor:auto !important}.cursor{display:none}.news-grid{grid-template-columns:1fr}}
-@media(max-width:600px){.officers-grid{grid-template-columns:1fr}.hero-stats{gap:1.5rem}.about-pillars{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.address-band{flex-direction:column;gap:1.5rem;align-items:flex-start}}
-/* ── Nov 2026 refinements ─────────────────────────────────────────────── */
-::selection{background:var(--gold);color:var(--black)}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-section[id]{scroll-margin-top:72px}
-.hero-alert{display:inline-flex;align-items:center;gap:.75rem;margin-bottom:2rem;padding:.5rem 1rem .5rem .5rem;background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.3);border-radius:100px;color:rgba(250,250,248,.85);font-size:.78rem;line-height:1.3;text-decoration:none;opacity:0;animation:fadeUp .8s var(--ease) .1s forwards;transition:background var(--transition),border-color var(--transition)}
-.hero-alert:hover{background:rgba(245,197,24,.15);border-color:var(--gold)}
-.hero-alert-tag{background:var(--red);color:var(--white);font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .65rem;border-radius:100px;white-space:nowrap}
-.hero-alert-arrow{color:var(--gold);font-weight:700}
-.status-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--white);background:var(--red);padding:.4rem .85rem;border-radius:2px;margin-top:.5rem}
-.status-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--white);animation:pulse 1.6s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.nationals-date.postponed{color:rgba(250,250,248,.35)}
-.nationals-date.postponed .day{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:.08em}
-.next-event{margin:2rem 0;padding:1.5rem 1.75rem;border:1px solid rgba(245,197,24,.35);border-left:4px solid var(--gold);background:linear-gradient(135deg,rgba(245,197,24,.08),rgba(245,197,24,0))}
-.next-event-label{font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
-.next-event-title{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.03em;color:var(--white);line-height:1.05}
-.next-event-meta{margin-top:.6rem;font-size:.85rem;color:rgba(250,250,248,.6);line-height:1.6}
-.event-card.postponed{opacity:.75}
-.event-card.postponed::before{background:var(--muted)}
-.event-card.postponed .event-date-pill{background:rgba(0,0,0,.06);color:var(--muted);text-decoration:line-through}
-.event-card.postponed .event-name{color:var(--muted)}
-.event-card .event-flag{display:inline-block;margin-left:.5rem;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:var(--red);padding:.3rem .6rem;border-radius:100px;vertical-align:middle;text-decoration:none}
-.event-card.tentative::before{background:linear-gradient(90deg,var(--red),var(--gold),var(--green));height:4px}
-.event-card.tentative .event-date-pill{background:var(--black);color:var(--gold)}
-.fee-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
-.fee-card{position:relative;padding:1.5rem 1.25rem 1.25rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);overflow:hidden;transition:border-color var(--transition),transform var(--transition)}
-.fee-card:hover{border-color:rgba(245,197,24,.45);transform:translateY(-3px)}
-.fee-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
-.fee-card.diaspora::before{background:var(--gold)}
-.fee-label{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,250,248,.5)}
-.fee-amount{font-family:var(--font-display);font-size:3.2rem;line-height:1;color:var(--white);margin:.5rem 0 .25rem;letter-spacing:.02em}
-.fee-amount sup{font-size:.4em;vertical-align:top;position:relative;top:.35em;margin-right:.1em;color:var(--gold)}
-.fee-amount small{font-family:var(--font-body);font-size:.75rem;letter-spacing:.05em;color:rgba(250,250,248,.45);margin-left:.35rem}
-.fee-desc{font-size:.78rem;color:rgba(250,250,248,.55);line-height:1.55}
-.fee-note{font-size:.72rem;color:rgba(250,250,248,.4);line-height:1.6}
-.register .fee-grid{margin:2rem 0 0}
-.fee-live{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;border:1px dashed rgba(245,197,24,.35);background:rgba(245,197,24,.05);font-size:.8rem;color:rgba(250,250,248,.6);transition:border-color var(--transition),background var(--transition)}
-.fee-live.set{border-style:solid;border-color:var(--gold);background:rgba(245,197,24,.1)}
-.fee-live strong{font-family:var(--font-display);font-size:1.6rem;letter-spacing:.04em;color:var(--gold);font-weight:400;white-space:nowrap}
-.check-list{display:flex;flex-direction:column;gap:.5rem;margin-top:.25rem}
-.check-item{display:flex;align-items:flex-start;gap:.65rem;font-size:.82rem;color:rgba(250,250,248,.65);line-height:1.4;padding:.6rem .75rem;border:1px solid rgba(255,255,255,.06);transition:border-color .2s,background .2s}
-.check-item:hover{border-color:rgba(245,197,24,.3)}
-.check-item:has(input:checked){border-color:rgba(245,197,24,.5);background:rgba(245,197,24,.06);color:var(--white)}
-.check-item input{accent-color:var(--gold);width:16px;height:16px;margin-top:.1rem;flex-shrink:0}
-.check-item small{display:block;font-size:.7rem;color:rgba(250,250,248,.4);margin-top:.15rem}
-.register-form{color-scheme:dark}
-.form-error{display:none;padding:1rem;border:1px solid var(--red);background:rgba(207,12,46,.1);color:#ff8a9b;font-size:.82rem;line-height:1.5}
-.form-input.invalid{border-color:var(--red) !important}
-.register-submit:disabled,.form-submit:disabled{cursor:progress;opacity:.7;transform:none}
-.hero{flex-direction:column;align-items:stretch;justify-content:center;padding:calc(72px + 4rem) 0 3rem}.hero-stats{position:relative;bottom:auto;left:auto;right:auto;margin:4rem 4rem 0}
-@media(max-width:900px){.hero{min-height:auto;padding:120px 0 3rem}.hero-stats{margin:3rem 1.5rem 0}.hero-alert{font-size:.72rem}}
-@media(max-width:600px){.fee-grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}.reveal{opacity:1;transform:none}.mission-ticker{animation:none}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:16px;line-height:1.6;color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block}
+a{color:inherit}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+section[id]{scroll-margin-top:80px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ── Type ───────────────────────────────────────────────────────────── */
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.eyebrow::before{content:'';width:18px;height:2px;background:linear-gradient(90deg,var(--red) 33%,var(--gold) 33% 66%,var(--green) 66%)}
+.on-dark .eyebrow{color:var(--gold)}
+h1,h2,h3{font-family:var(--display);font-stretch:88%;font-weight:750;letter-spacing:-.015em;line-height:1.05;color:inherit}
+h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:.9rem}
+h3{font-size:1.2rem;font-stretch:95%;font-weight:700;letter-spacing:-.005em;line-height:1.25}
+.lede{font-size:1.075rem;color:var(--text-2);max-width:58ch;margin-top:1.1rem}
+.on-dark .lede{color:var(--on-dark-2)}
+.section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
+.on-dark{background:var(--ink);color:var(--on-dark)}
+.tint{background:var(--surface)}
+.label{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
+.on-dark .label{color:var(--on-dark-3)}
+
+/* ── Buttons ────────────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font:600 .925rem/1 var(--body);padding:.95rem 1.4rem;border-radius:var(--radius);border:1px solid transparent;text-decoration:none;cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
+.btn .icon{width:16px;height:16px;transition:transform .2s var(--ease)}
+.btn:hover .icon{transform:translateX(3px)}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-700)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#F2C443}
+.btn-ghost{border-color:var(--line);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--text-3)}
+.on-dark .btn-ghost{border-color:rgba(255,255,255,.2);color:var(--on-dark)}
+.on-dark .btn-ghost:hover{border-color:rgba(255,255,255,.45)}
+.btn:disabled{opacity:.65;cursor:progress}
+.link{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.9rem;color:var(--green);text-decoration:none}
+.link .icon{width:15px;height:15px;transition:transform .2s var(--ease)}
+.link:hover .icon{transform:translateX(3px)}
+.on-dark .link{color:var(--gold)}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2.25rem}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.flag-rule{height:3px;background:linear-gradient(90deg,var(--red) 0 33.33%,var(--gold) 33.33% 66.66%,var(--green) 66.66%)}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(14,18,16,.94);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);color:var(--on-dark);border-bottom:1px solid transparent;transition:border-color .3s}
+.site-header.scrolled{border-bottom-color:var(--line-dark)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:2rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--on-dark)}
+.brand-mark{width:38px;height:38px;border-radius:9px;background:var(--ink-3);border:1px solid var(--line-dark);display:grid;place-items:center;flex-shrink:0}
+.brand-mark svg{width:20px;height:20px;fill:var(--gold)}
+.brand-name{display:flex;flex-direction:column;line-height:1.15}
+.brand-name strong{font-family:var(--display);font-stretch:88%;font-weight:750;font-size:1.05rem;letter-spacing:.01em}
+.brand-name span{font-size:.72rem;color:var(--on-dark-3)}
+.nav{display:flex;align-items:center;gap:.15rem;list-style:none}
+.nav a{display:block;padding:.5rem .7rem;font-size:.86rem;font-weight:500;color:var(--on-dark-2);text-decoration:none;border-radius:4px;transition:color .2s}
+.nav a:hover,.nav a.active{color:var(--on-dark)}
+.nav .btn{margin-left:.75rem;padding:.65rem 1.05rem;color:var(--ink)}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-dark);border-radius:var(--radius);width:42px;height:42px;color:var(--on-dark);cursor:pointer;place-items:center}
+.mobile-nav{display:none}
+
+/* ── Hero ───────────────────────────────────────────────────────────── */
+.hero{position:relative;overflow:hidden;padding:clamp(4rem,9vw,7rem) 0 0}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 10%,rgba(0,98,59,.28),transparent 70%),radial-gradient(40% 50% at 100% 100%,rgba(233,178,27,.07),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(2.5rem,6vw,5rem);align-items:end}
+.hero h1{font-size:clamp(2.75rem,6.2vw,5rem);margin-top:1.25rem;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lede{font-size:1.15rem;margin-top:1.5rem;max-width:50ch}
+.update-card{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius-lg);padding:1.75rem;position:relative}
+.update-card::before{content:'';position:absolute;left:-1px;top:1.75rem;height:2.4rem;width:3px;background:var(--gold);border-radius:0 2px 2px 0}
+.update-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.update-card h3{font-size:1.35rem;color:var(--on-dark)}
+.update-card p{font-size:.92rem;color:var(--on-dark-2);margin-top:.6rem}
+.update-meta{display:flex;flex-direction:column;gap:.55rem;margin:1.3rem 0 1.4rem;padding-top:1.2rem;border-top:1px solid var(--line-dark)}
+.update-meta div{display:flex;align-items:center;gap:.6rem;font-size:.86rem;color:var(--on-dark-2)}
+.update-meta .icon{width:16px;height:16px;color:var(--gold)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(3.5rem,7vw,5.5rem);border-top:1px solid var(--line-dark)}
+.hero-stat{padding:1.6rem 1.5rem 1.8rem 0}
+.hero-stat+.hero-stat{padding-left:1.5rem;border-left:1px solid var(--line-dark)}
+.hero-stat strong{display:block;font-family:var(--display);font-stretch:85%;font-weight:700;font-size:1.65rem;letter-spacing:-.01em;color:var(--on-dark)}
+.hero-stat span{font-size:.82rem;color:var(--on-dark-3)}
+
+/* ── Pills ──────────────────────────────────────────────────────────── */
+.pill{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.32rem .6rem;border-radius:100px;white-space:nowrap}
+.pill-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+.on-dark .pill-red{background:rgba(200,16,46,.16);color:#FF8597}
+.on-dark .pill-gold{background:rgba(233,178,27,.14);color:var(--gold)}
+.pill-red{background:var(--red-50);color:var(--red)}
+.pill-gold{background:var(--gold-50);color:#8A6500}
+.pill-green{background:var(--green-50);color:var(--green)}
+.pill-muted{background:#EEEDE8;color:var(--text-2)}
+
+/* ── Shared blocks ──────────────────────────────────────────────────── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5.5rem);align-items:start}
+.icon-badge{width:42px;height:42px;border-radius:8px;display:grid;place-items:center;background:var(--green-50);color:var(--green);flex-shrink:0}
+.prose p{color:var(--text-2);margin-top:1.1rem;max-width:60ch}
+.prose strong{color:var(--text);font-weight:600}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.pillar{background:var(--surface);padding:1.75rem}
+.pillar .icon-badge{margin-bottom:1.1rem}
+.pillar h3{font-size:1.05rem}
+.pillar p{font-size:.9rem;color:var(--text-2);margin-top:.4rem}
+
+/* ── Governance ─────────────────────────────────────────────────────── */
+.gov-bodies{margin-top:1.75rem;border-top:1px solid var(--line)}
+.gov-body{display:grid;grid-template-columns:48px 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.gov-body b{font-family:var(--display);font-stretch:85%;font-weight:700;color:var(--green);font-size:.95rem}
+.gov-body span{font-size:.94rem;color:var(--text-2)}
+.gov-body strong{color:var(--text);font-weight:600}
+.small-copy{font-size:.93rem;color:var(--text-2);margin-top:.75rem}
+.block-label{display:block;margin:2.5rem 0 1rem}
+.block-label:first-child{margin-top:0}
+.doc-list{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);overflow:hidden}
+.doc{display:flex;align-items:center;gap:1rem;padding:1.05rem 1.25rem;text-decoration:none;transition:background .2s}
+.doc+.doc{border-top:1px solid var(--line)}
+a.doc:hover{background:#FAFAF7}
+.doc>.icon{color:var(--text-3)}
+.doc-info{flex:1;min-width:0;display:flex;flex-direction:column}
+.doc-title{font-weight:600;font-size:.94rem}
+.doc-meta{font-size:.8rem;color:var(--text-3)}
+.doc-action{font-size:.82rem;font-weight:600;color:var(--green);white-space:nowrap}
+.doc-action.muted{color:var(--text-3);font-weight:500}
+
+/* ── Competitions ───────────────────────────────────────────────────── */
+.status-card{border:1px solid var(--line-dark);border-radius:var(--radius-lg);overflow:hidden;margin-top:2.25rem}
+.status-row{padding:1.75rem}
+.status-row+.status-row{border-top:1px solid var(--line-dark)}
+.status-row.next{background:linear-gradient(135deg,rgba(0,98,59,.24),rgba(0,98,59,.04))}
+.status-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
+.status-date{font-size:.82rem;color:var(--on-dark-3);font-weight:500}
+.status-row h3{font-size:1.3rem;color:var(--on-dark)}
+.status-row h3 s{text-decoration-color:rgba(255,133,151,.7);text-decoration-thickness:1.5px;color:var(--on-dark-2)}
+.status-row p{font-size:.92rem;color:var(--on-dark-2);margin-top:.5rem}
+.spec-list{border-top:1px solid var(--line-dark)}
+.spec{display:grid;grid-template-columns:36px 1fr;gap:.9rem;padding:1.2rem 0;border-bottom:1px solid var(--line-dark)}
+.spec .icon{color:var(--gold);margin-top:.15rem}
+.spec dt{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)}
+.spec dd{font-size:.95rem;color:var(--on-dark);margin-top:.15rem}
+
+/* ── Calendar ───────────────────────────────────────────────────────── */
+.timeline{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);overflow:hidden}
+.t-row{display:grid;grid-template-columns:170px 1fr auto;gap:1.5rem;align-items:center;padding:1.15rem 1.5rem}
+.t-row+.t-row{border-top:1px solid var(--line)}
+.t-date{font-family:var(--display);font-stretch:88%;font-weight:650;font-size:.98rem}
+.t-name{font-weight:600;font-size:.98rem}
+.t-loc{font-size:.84rem;color:var(--text-3)}
+.t-row.is-past .t-date,.t-row.is-past .t-name{color:var(--text-3);font-weight:500}
+.t-row.is-postponed .t-date s{text-decoration-color:var(--red)}
+.t-row.is-feature{background:linear-gradient(90deg,var(--green-50),transparent 75%);box-shadow:inset 3px 0 0 var(--green)}
+.t-tags{display:flex;gap:.4rem;justify-content:flex-end;flex-wrap:wrap}
+
+/* ── Leadership ─────────────────────────────────────────────────────── */
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;min-width:0}
+.person>div:last-child{min-width:0}
+.avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-family:var(--display);font-stretch:85%;font-weight:700;font-size:1.05rem;color:var(--on-dark);background:var(--ink)}
+.person h3{font-size:1.05rem}
+.role{font-size:.8rem;font-weight:600;color:var(--green);margin-top:.15rem}
+.person a,.contact a{display:inline-block;margin-top:.5rem;font-size:.84rem;color:var(--text-2);text-decoration:none;overflow-wrap:anywhere}
+.person a:hover,.contact a:hover{color:var(--green);text-decoration:underline}
+.person.vacant{background:transparent;border-style:dashed}
+.person.vacant .avatar{background:#ECEBE6;color:var(--text-3)}
+.person.vacant h3{color:var(--text-3);font-weight:600}
+.person.vacant .role{color:var(--text-2)}
+
+/* ── Membership ─────────────────────────────────────────────────────── */
+.fee-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.fee{border:1px solid var(--line-dark);border-radius:var(--radius-lg);padding:1.6rem;background:var(--ink-2)}
+.fee-tag{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)}
+.fee-price{display:flex;align-items:baseline;gap:.4rem;margin-top:.75rem}
+.fee-price strong{font-family:var(--display);font-stretch:85%;font-weight:750;font-size:3rem;line-height:1;letter-spacing:-.02em;color:var(--on-dark)}
+.fee-price span{font-size:.85rem;color:var(--on-dark-3)}
+.fee p{font-size:.88rem;color:var(--on-dark-2);margin-top:.75rem}
+.fee.accent{border-color:rgba(233,178,27,.4)}
+.fee.accent .fee-tag{color:var(--gold)}
+.fee-note{font-size:.84rem;color:var(--on-dark-3);margin-top:1rem}
+.info-list{margin-top:2rem;border-top:1px solid var(--line-dark)}
+.info-item{padding:1.3rem 0;border-bottom:1px solid var(--line-dark)}
+.info-item h3{font-size:1rem;color:var(--on-dark)}
+.info-item p{font-size:.92rem;color:var(--on-dark-2);margin-top:.35rem}
+.info-item strong{color:var(--on-dark);font-weight:600}
+.cat-list{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem}
+.cat{display:grid;grid-template-columns:42px 1fr;gap:1rem;padding:1.25rem;border:1px solid var(--line-dark);border-radius:var(--radius-lg)}
+.cat .icon-badge{background:rgba(233,178,27,.1);color:var(--gold)}
+.cat h3{font-size:1rem;color:var(--on-dark)}
+.cat p{font-size:.88rem;color:var(--on-dark-2);margin-top:.25rem}
+.cat ul{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .9rem;margin-top:.6rem}
+.cat li{display:flex;align-items:center;gap:.35rem;font-size:.8rem;color:var(--on-dark-3)}
+.cat li .icon{width:13px;height:13px;color:var(--gold)}
+
+/* ── Compliance ─────────────────────────────────────────────────────── */
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem;border-top:1px solid var(--line);list-style:none}
+.checks li{display:flex;gap:.8rem;padding:1rem 0;border-bottom:1px solid var(--line);font-size:.93rem;color:var(--text-2)}
+.checks .icon{width:18px;height:18px;color:var(--green);margin-top:.15rem}
+
+/* ── News ───────────────────────────────────────────────────────────── */
+.news-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:1.25rem}
+.news-side{display:grid;gap:1.25rem}
+.news-small{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.25rem}
+.article{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.6rem;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+.article:hover{border-color:#D3D1C8;box-shadow:var(--shadow)}
+.article-meta{display:flex;align-items:center;gap:.75rem;font-size:.8rem;color:var(--text-3)}
+.article h3{margin-top:.85rem}
+.article p{font-size:.92rem;color:var(--text-2);margin-top:.55rem}
+.article .link{margin-top:auto;padding-top:1.1rem}
+.article.lead{padding:2.25rem;border-top:3px solid var(--green)}
+.article.lead h3{font-size:clamp(1.45rem,2.4vw,1.9rem);line-height:1.15}
+.article.lead p{font-size:1rem}
+
+/* ── Results ────────────────────────────────────────────────────────── */
+.tabs{display:inline-flex;padding:4px;background:#ECEBE6;border-radius:8px;margin-bottom:2rem}
+.tab-btn{font:600 .88rem var(--body);padding:.6rem 1.1rem;border:0;border-radius:6px;background:transparent;color:var(--text-2);cursor:pointer;transition:background .2s,color .2s}
+.tab-btn.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.empty{text-align:center;padding:3.5rem 1.5rem;border:1px dashed #D3D1C8;border-radius:var(--radius-lg);background:var(--surface)}
+.empty .icon-badge{margin:0 auto 1rem}
+.empty h3{font-size:1.2rem}
+.empty p{font-size:.93rem;color:var(--text-2);max-width:60ch;margin:.5rem auto 0}
+.records{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.record{background:var(--surface);padding:1.3rem 1.4rem}
+.record-div{font-size:.8rem;font-weight:600;color:var(--text-2)}
+.record-val{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:1.8rem;color:#C9C7BF;margin-top:.3rem}
+.record-val small{font-size:.9rem;font-weight:600;margin-left:.2rem}
+.record-holder{font-size:.82rem;color:var(--text-3)}
+.fine{font-size:.85rem;color:var(--text-3);margin-top:1.25rem}
+
+/* ── Forms ──────────────────────────────────────────────────────────── */
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(1.5rem,3.5vw,2.5rem);box-shadow:var(--shadow)}
+.form-card h3{font-size:1.4rem}
+.form-intro{font-size:.92rem;color:var(--text-2);margin-top:.4rem}
+.form-card form{display:flex;flex-direction:column;gap:1.1rem;margin-top:1.75rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{display:flex;flex-direction:column;gap:.4rem;border:0;min-width:0}
+.field label,.field legend{font-size:.84rem;font-weight:600;color:var(--text)}
+.field legend{margin-bottom:.5rem}
+.req{color:var(--red);margin-left:.15rem}
+.input{font:400 .95rem var(--body);color:var(--text);background:var(--surface);border:1px solid #D6D4CC;border-radius:var(--radius);padding:.78rem .9rem;width:100%;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none;min-height:46px}
+.input::placeholder{color:#A7AAA6}
+.input:hover{border-color:#BDBBB2}
+.input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(0,98,59,.14)}
+.input.invalid{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.1)}
+select.input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%235C625E' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.4rem}
+textarea.input{min-height:140px;resize:vertical}
+.group-label{display:flex;align-items:center;gap:1rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:.6rem}
+.group-label::after{content:'';flex:1;height:1px;background:var(--line)}
+.check-list{display:flex;flex-direction:column;gap:.5rem}
+.check{display:flex;gap:.75rem;align-items:flex-start;padding:.8rem .95rem;border:1px solid var(--line);border-radius:var(--radius);cursor:pointer;font-size:.92rem;font-weight:500 !important;transition:border-color .2s,background .2s}
+.check:hover{border-color:#C9C7BF}
+.check:has(input:checked){border-color:var(--green);background:var(--green-50)}
+.check input{width:17px;height:17px;margin-top:.15rem;accent-color:var(--green);flex-shrink:0}
+.check small{display:block;font-size:.8rem;font-weight:400;color:var(--text-3);margin-top:.1rem}
+.fee-live{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.15rem;border-radius:var(--radius);background:#F3F2EC;border:1px solid var(--line);font-size:.88rem;color:var(--text-2);transition:background .25s,border-color .25s}
+.fee-live strong{font-family:var(--display);font-stretch:85%;font-weight:750;font-size:1.5rem;color:var(--text-3);white-space:nowrap}
+.fee-live.set{background:var(--gold-50);border-color:#EED38A;color:var(--text)}
+.fee-live.set strong{color:var(--text)}
+.form-error{display:none;padding:.85rem 1rem;border-radius:var(--radius);background:var(--red-50);border:1px solid #F1B9C2;color:#8F0C21;font-size:.88rem}
+.form-note{font-size:.8rem;color:var(--text-3);text-align:center}
+.form-card form .btn{width:100%;padding:1.05rem}
+.success{display:none;text-align:center;padding:2.5rem 1rem}
+.success .icon-badge{width:56px;height:56px;border-radius:50%;margin:0 auto 1.25rem}
+.success .icon-badge .icon{width:26px;height:26px}
+.success h3{font-size:1.5rem}
+.success p{color:var(--text-2);margin-top:.6rem;font-size:.95rem}
+.success .fee-confirm{color:var(--green);font-weight:600}
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ── Contact lists ──────────────────────────────────────────────────── */
+.contacts{margin-top:2rem;border-top:1px solid var(--line)}
+.contact{display:flex;gap:1rem;align-items:center;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+.contact .avatar{width:44px;height:44px;font-size:.92rem}
+.contact>div:last-child{min-width:0}
+.contact h3{font-size:.98rem}
+.contact .role{margin-top:0}
+.contact a{margin-top:.15rem}
+.muted-role{color:var(--text-2);font-weight:500}
+
+/* ── Footer ─────────────────────────────────────────────────────────── */
+.site-footer{background:var(--ink);color:var(--on-dark-2);padding:4.5rem 0 0;font-size:.9rem}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:2.5rem}
+.footer-grid h4{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark);margin-bottom:1rem}
+.footer-grid ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.footer-grid a{text-decoration:none;color:var(--on-dark-2);transition:color .2s}
+.footer-grid a:hover{color:var(--on-dark)}
+.footer-about{max-width:34ch;margin-top:1rem;color:var(--on-dark-3)}
+.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:3.5rem;padding:1.5rem 0;border-top:1px solid var(--line-dark);font-size:.8rem;color:var(--on-dark-3)}
+
+/* ── Motion ─────────────────────────────────────────────────────────── */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}.js .reveal{opacity:1;transform:none}}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media(min-width:961px){.sticky-col{position:sticky;top:110px}}
+@media(max-width:1100px){.nav a{padding:.5rem .5rem;font-size:.82rem}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:960px){
+  .nav{display:none}.menu-toggle{display:grid}
+  .mobile-nav{position:fixed;inset:75px 0 0;background:var(--ink);z-index:49;padding:.5rem var(--gutter) 2rem;overflow-y:auto;flex-direction:column}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:1rem 0;border-bottom:1px solid var(--line-dark);color:var(--on-dark);text-decoration:none;font-family:var(--display);font-stretch:88%;font-weight:650;font-size:1.25rem}
+  .mobile-nav .btn{margin-top:1.5rem;border:0;font-family:var(--body);font-size:1rem;color:var(--ink)}
+  .hero-grid,.split,.news-grid{grid-template-columns:1fr}
+  .people{grid-template-columns:1fr 1fr}
+  .records{grid-template-columns:1fr 1fr}
+  .checks{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .hero-stat:nth-child(3){padding-left:0;border-left:0}
+  .hero-stat:nth-child(n+3){border-top:1px solid var(--line-dark)}
+  .pillars,.fee-cards,.news-small,.row,.people,.records{grid-template-columns:1fr}
+  .t-row{grid-template-columns:1fr;gap:.35rem}
+  .t-tags{justify-content:flex-start}
+  .brand-name span{display:none}
+  .footer-grid{grid-template-columns:1fr}
+  .article.lead{padding:1.6rem}
+}
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
-<nav>
-  <a href="#" class="nav-logo"><div class="nav-emblem"></div><div class="nav-wordmark">G<span>.</span>A<span>.</span>P<span>.</span></div></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li><li><a href="#governance">Governance</a></li><li><a href="#nationals">Nationals</a></li><li><a href="#calendar">Events</a></li><li><a href="#leadership">Leadership</a></li><li><a href="#eligibility">Eligibility</a></li><li><a href="#news">News</a></li><li><a href="#results">Results</a></li><li><a href="#contact">Contact</a></li><li><a href="#register" class="nav-cta">Join G.A.P.</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+<script>document.documentElement.classList.add('js')</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.6l-5.8 3 1.1-6.4-4.7-4.6 6.5-.9z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-bar" viewBox="0 0 24 24"><path d="M2 12h20M6.5 7v10M3.5 9.5v5M17.5 7v10M20.5 9.5v5"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M5 7h14M5 7l-3 7a3.5 3.5 0 0 0 6 0L5 7zM19 7l-3 7a3.5 3.5 0 0 0 6 0l-3-7z"/></symbol>
+  <symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="5"/><path d="M8.5 11 6 3h4l2 5 2-5h4l-2.5 8"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M21.5 20a6.5 6.5 0 0 0-4-6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v6a4 4 0 0 1-8 0zM8 6H4.5A3 3 0 0 0 8 10M16 6h3.5A3 3 0 0 1 16 10M12 14v4M8 20h8"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.6 7.2 4 4 7.3 4c2 0 3.5 1.1 4.7 2.8C13.2 5.1 14.7 4 16.7 4 20 4 22.4 7.2 21.2 10.7 19.5 15.4 12 20 12 20z"/></symbol>
+</svg>
+
+<div class="flag-rule"></div>
+<header class="site-header" id="header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand" aria-label="Ghana Association of Powerlifting — home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24"><use href="#i-star"/></svg></span>
+      <span class="brand-name"><strong>G.A.P.</strong><span>Ghana Association of Powerlifting</span></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#governance">Governance</a></li>
+        <li><a href="#nationals">Competitions</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#eligibility">Membership</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#register" class="btn btn-gold">Join G.A.P.</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <a href="#about">About</a><a href="#governance">Governance</a><a href="#nationals">Competitions</a><a href="#calendar">Calendar</a><a href="#leadership">Leadership</a><a href="#eligibility">Membership</a><a href="#news">News</a><a href="#results">Results &amp; Records</a><a href="#contact">Contact</a>
+  <a href="#register" class="btn btn-gold">Join G.A.P.</a>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" data-close-mobile>About</a><a href="#governance" data-close-mobile>Governance & Documents</a><a href="#nationals" data-close-mobile>Nationals</a><a href="#calendar" data-close-mobile>Events Calendar</a><a href="#leadership" data-close-mobile>Leadership</a><a href="#eligibility" data-close-mobile>Eligibility & Membership</a><a href="#news" data-close-mobile>News</a><a href="#results" data-close-mobile>Results & Records</a><a href="#contact" data-close-mobile>Contact</a><a href="#register" class="nav-cta-mobile" data-close-mobile>Join G.A.P.</a>
-</div>
-<section class="hero"><div class="hero-grid"></div><div class="hero-bg-letter">G</div><div class="hero-slash"></div><div class="hero-stripes"><div class="stripe-red"></div><div class="stripe-gold"></div><div class="stripe-green"></div></div><div class="hero-content"><a href="#nationals" class="hero-alert"><span class="hero-alert-tag">Update</span>December 19 Nationals postponed — IPF Central African Regionals tentatively in Ghana, Spring 2027 <span class="hero-alert-arrow">→</span></a><div class="hero-eyebrow">Ghana Association of Powerlifting</div><h1 class="hero-title"><span class="thin">The National Governing Body for</span>POWER<span class="accent">LIFTING</span></h1><p class="hero-desc">Developing, regulating, and promoting the sport of powerlifting across Ghana — under the guidance of the International Powerlifting Federation.</p><div class="hero-actions"><a href="#register" class="btn-primary">Become a Member →</a><a href="#nationals" class="btn-secondary">Competition Update</a></div></div><div class="hero-stats"><div class="stat"><span class="stat-num">2026</span><span class="stat-label">Founded</span></div><div class="stat"><span class="stat-num">SPRING '27</span><span class="stat-label">Central African Regionals (Tentative)</span></div><div class="stat"><span class="stat-num">IPF</span><span class="stat-label">Affiliated Federation</span></div><div class="stat"><span class="stat-num">GH</span><span class="stat-label">Ghana</span></div></div></section>
-<div class="mission-band"><div class="mission-ticker"><span>Clean Sport</span><span>Membership Open</span><span>IPF Affiliation</span><span>Ghana Powerlifting</span><span>Develop Athletes</span><span>Promote the Sport</span><span>Spring 2027 · Central African Regionals</span><span>Clean Sport</span><span>Membership Open</span><span>IPF Affiliation</span><span>Ghana Powerlifting</span><span>Develop Athletes</span><span>Promote the Sport</span><span>Spring 2027 · Central African Regionals</span></div></div>
-<div class="address-band" id="address"><div class="address-item"><div class="address-icon">🏢</div><div><div class="address-label">Official Address</div><div class="address-val">Ghana Association of Powerlifting<br>P.O. Box GP 1234, Accra, Ghana</div></div></div><div class="address-item"><div class="address-icon">📧</div><div><div class="address-label">General Enquiries</div><div class="address-val"><a href="mailto:info@ghanapowerlifting.org">info@ghanapowerlifting.org</a></div></div></div><div class="address-item"><div class="address-icon">🌐</div><div><div class="address-label">Website</div><div class="address-val"><a href="https://ghanapowerlifting.org">ghanapowerlifting.org</a></div></div></div></div>
-<section class="about" id="about"><div class="section-inner"><div class="about-grid"><div class="about-visual reveal"><div class="about-flag"><div class="flag-red"></div><div class="flag-gold"><span class="flag-star">★</span></div><div class="flag-green"></div></div><div class="about-badge"><div class="badge-year">2026</div><div class="badge-label">Established<br>Ghana</div></div></div><div class="about-text reveal"><div class="section-tag">Who We Are</div><h2 class="section-heading">Ghana's<br>National Body<br>for Powerlifting</h2><p>The <strong>Ghana Association of Powerlifting (G.A.P.)</strong> is the official national governing body for the sport of powerlifting in Ghana. Founded in 2026, G.A.P. operates as a not-for-profit organisation dedicated to developing the sport at every level — from grassroots participation to international competition.</p><p>G.A.P. is affiliated to the <strong>International Powerlifting Federation (IPF)</strong> and the <strong>African Powerlifting Federation (APF)</strong>, ensuring Ghana's athletes compete on the world stage under internationally recognised rules and standards. All G.A.P. events follow current IPF Technical Rules with full WADA-compliant anti-doping protocols.</p><div class="about-pillars"><div class="pillar"><div class="pillar-icon">🏆</div><div class="pillar-title">Competition</div><div class="pillar-text">National Championships, regional events and qualifiers run under IPF Technical Rules.</div></div><div class="pillar"><div class="pillar-icon">🧪</div><div class="pillar-title">Clean Sport</div><div class="pillar-text">Full WADA-code compliance and anti-doping testing at all sanctioned events.</div></div><div class="pillar"><div class="pillar-icon">🎓</div><div class="pillar-title">Education</div><div class="pillar-text">Referee certification, coaches' education and athlete development programmes.</div></div><div class="pillar"><div class="pillar-icon">🌍</div><div class="pillar-title">International</div><div class="pillar-text">Pathways for Ghanaian athletes to compete at APF and IPF World events.</div></div></div></div></div></div></section>
-<section class="governance" id="governance"><div class="section-inner"><div class="reveal"><div class="section-tag">Governance & Transparency</div><h2 class="section-heading">Constitution, By-Laws<br>&amp; Official Documents</h2></div><div class="governance-grid"><div class="governance-col reveal"><h3><span class="gov-icon">📜</span> Governance Structure</h3><p>G.A.P. is governed by three legal bodies established under its Constitution. The General Assembly is the supreme governing body, meeting annually no less than one day before the National Championship. The Executive Committee functions as the Board of Directors between General Assemblies, holding fiduciary responsibility. All governance structures comply with the IPF Constitution, By-Laws, and IOC Basic Universal Principles of Good Governance.</p><div class="gov-structure-list"><div class="gov-body"><div class="gov-body-badge">GA</div> General Assembly — Supreme governing body, meets annually</div><div class="gov-body"><div class="gov-body-badge">EC</div> Executive Committee — Board of Directors, manages day-to-day governance</div><div class="gov-body"><div class="gov-body-badge">CO</div> Commissions — Technical, Anti-Doping, Disciplinary, Appeals</div></div><h3 style="margin-top:2rem;"><span class="gov-icon">⚖️</span> IPF Compliance</h3><p>G.A.P. operates in full compliance with the IPF Constitution, IPF By-Laws, IPF Technical Rules, and the IPF Anti-Doping Rules. All members are bound by the World Anti-Doping Code (WADA). The Court of Arbitration for Sport (CAS) in Lausanne is recognised as the sole external jurisdiction body for disputes. G.A.P. is not affiliated with any organisation with similar objectives to the IPF or any organisation purporting to be a worldwide governing body for powerlifting.</p></div><div class="governance-col reveal"><h3><span class="gov-icon">📂</span> Governing Documents</h3><div class="doc-list"><div class="doc-item"><div class="doc-item-info"><div class="doc-item-title">G.A.P. Constitution</div><div class="doc-item-meta">In force from February 11, 2026</div></div><a href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request" class="doc-item-action">Request Copy →</a></div><div class="doc-item"><div class="doc-item-info"><div class="doc-item-title">G.A.P. By-Laws</div><div class="doc-item-meta">Adopted February 11, 2026</div></div><a href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request" class="doc-item-action">Request Copy →</a></div><div class="doc-item"><div class="doc-item-info"><div class="doc-item-title">Anti-Doping Policy Alignment Statement</div><div class="doc-item-meta">IPF Anti-Doping Rules &amp; WADA Code</div></div><a href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request" class="doc-item-action">Request Copy →</a></div></div><h3 style="margin-top:2rem;"><span class="gov-icon">📋</span> General Assembly Minutes &amp; Financial Reports</h3><p>All General Assembly and Extraordinary General Assembly minutes, annual reports, and audited financial statements are published below for transparency and good governance, per IPF By-Law 12.3.</p><div class="doc-list"><div class="doc-item"><div class="doc-item-info"><div class="doc-item-title">Inaugural General Assembly Minutes</div><div class="doc-item-meta">March 8, 2026 — Accra, Ghana</div></div><a href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request" class="doc-item-action">Request Copy →</a></div><div class="doc-item"><div class="doc-item-info"><div class="doc-item-title">2026 Annual Report &amp; Financial Statements</div><div class="doc-item-meta">Including Balance Sheet, P&amp;L, Cash Flow &amp; Auditor's Report</div></div><span class="doc-item-action" style="color:var(--muted);">Pending FY Close</span></div><div class="doc-item"><div class="doc-item-info"><div class="doc-item-title">IPF Membership Application Letter</div><div class="doc-item-meta">Submitted to IPF Secretary-General</div></div><a href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request" class="doc-item-action">Request Copy →</a></div></div></div></div></div></section>
-<section class="nationals" id="nationals"><div class="section-inner"><div class="nationals-grid"><div class="nationals-info reveal"><div class="section-tag">Competition Update</div><div class="status-badge">Postponed</div><div class="nationals-date postponed"><span class="month">December</span><span class="day">19</span><span class="year">2026</span></div><p class="nationals-desc">The inaugural G.A.P. National Powerlifting Championships, originally scheduled for December 19, 2026 in Accra, have been <strong style="color:var(--white)">postponed</strong>. A new date will be announced once plans for the regional championships below are confirmed.</p><div class="next-event"><div class="next-event-label">★ Next on the horizon · Tentative</div><div class="next-event-title">IPF Central African Regional Powerlifting Championships</div><div class="next-event-meta">Tentatively to be hosted in Ghana · Spring 2027<br>Dates, venue and entry details to be confirmed.</div></div><a href="#register" class="btn-primary">Become a Member</a></div><div class="nationals-details reveal"><div class="detail-card"><div class="detail-icon">📍</div><div><div class="detail-title">Status</div><div class="detail-val">National Championships postponed<br><small style="color:rgba(255,255,255,.4);font-size:.8em">Pending the IPF Central African Regional Championships (tentatively Ghana, Spring 2027)</small></div></div></div><div class="detail-card"><div class="detail-icon">🏋️</div><div><div class="detail-title">Competition Format</div><div class="detail-val">IPF Classic (Raw) Powerlifting &amp; IPF Equipped Powerlifting</div></div></div><div class="detail-card"><div class="detail-icon">⚖️</div><div><div class="detail-title">Weight Classes &amp; Divisions</div><div class="detail-val">All IPF Standard Classes — Men's &amp; Women's<br>Sub-Junior · Junior · Open · Masters M1–M4</div></div></div><div class="detail-card"><div class="detail-icon">🏅</div><div><div class="detail-title">Records</div><div class="detail-val">G.A.P. National Records eligible to be set</div></div></div><div class="detail-card"><div class="detail-icon">🧪</div><div><div class="detail-title">Anti-Doping</div><div class="detail-val">WADA-compliant testing per IPF Anti-Doping Rules</div></div></div><div class="detail-card"><div class="detail-icon">📋</div><div><div class="detail-title">Technical Rules</div><div class="detail-val">IPF Technical Rules (current edition)</div></div></div><div class="detail-card"><div class="detail-icon">📝</div><div><div class="detail-title">Eligibility to Compete</div><div class="detail-val">Open to G.A.P. members in good standing<br><small style="color:rgba(255,255,255,.4);font-size:.8em">Join now so your membership is active when entries open</small></div></div></div></div></div></div></section>
-<section class="calendar-strip" id="calendar"><div class="section-inner"><div class="calendar-header reveal"><div><div class="section-tag">Competition Year</div><h2 class="section-heading">2026–27 Calendar</h2></div></div><div class="events-grid"><div class="event-card admin reveal"><div class="event-date-pill">Mar 8, 2026</div><div class="event-tag">Admin</div><div class="event-name">Founding General Assembly</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card admin reveal"><div class="event-date-pill">Mar – Apr 2026</div><div class="event-tag">Internal</div><div class="event-name">EC Meeting #1 — Commission Setup</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card reveal"><div class="event-date-pill">Apr 2026</div><div class="event-tag">Education</div><div class="event-name">Referee Seminar &amp; Certification</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card reveal"><div class="event-date-pill">May 2026</div><div class="event-tag">Education</div><div class="event-name">Coaches Education Workshop</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card admin reveal"><div class="event-date-pill">Jun 2026</div><div class="event-tag">Internal</div><div class="event-name">EC Meeting #2</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card reveal"><div class="event-date-pill">Jul 2026</div><div class="event-tag">Education</div><div class="event-name">Athletes Anti-Doping Education Day</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card reveal"><div class="event-date-pill">Aug 2026</div><div class="event-tag">Competition</div><div class="event-name">Pre-Nationals Qualifier (Classic)</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card admin reveal"><div class="event-date-pill">Sep 2026</div><div class="event-tag">Internal</div><div class="event-name">EC Meeting #3</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card admin reveal"><div class="event-date-pill">Nov 2026</div><div class="event-tag">Internal</div><div class="event-name">EC Meeting #4 — Pre-Nationals Briefing</div><div class="event-meta">Accra, Ghana</div></div><div class="event-card admin reveal"><div class="event-date-pill">Date TBC</div><div class="event-tag">Admin</div><div class="event-name">General Assembly #2</div><div class="event-meta">Accra, Ghana — rescheduling with Nationals</div></div><div class="event-card postponed reveal"><div class="event-date-pill">Dec 19, 2026</div><div class="event-tag">Nationals</div><div class="event-name">G.A.P. National Powerlifting Championships <span class="event-flag">Postponed</span></div><div class="event-meta">Accra, Ghana — new date TBA</div></div><div class="event-card tentative reveal"><div class="event-date-pill">Spring 2027 · Tentative</div><div class="event-tag">Regional Championship</div><div class="event-name">IPF Central African Regional Powerlifting Championships</div><div class="event-meta">Ghana (tentative host) — details to be confirmed</div><div class="event-star">★</div></div></div></div></section>
-<section class="leadership" id="leadership"><div class="section-inner"><div class="reveal"><div class="section-tag">Executive Committee</div><h2 class="section-heading">Leadership</h2></div><div class="officers-grid"><div class="officer-card reveal"><div class="officer-avatar">DA</div><div class="officer-name">Douglas Nyarko Amagyei</div><div class="officer-role">President</div><div class="officer-contact"><a href="mailto:DouglasAmagyei@ghanapowerlifting.org">📧 DouglasAmagyei@ghanapowerlifting.org</a></div></div><div class="officer-card reveal"><div class="officer-avatar">KN</div><div class="officer-name">Kwaku Nyarko</div><div class="officer-role">Secretary-General</div><div class="officer-contact"><a href="mailto:KwakuNyarko@ghanapowerlifting.org">📧 KwakuNyarko@ghanapowerlifting.org</a></div></div><div class="officer-card reveal"><div class="officer-avatar">SA</div><div class="officer-name">Samuel Yao Ablordeppey</div><div class="officer-role">Treasurer</div><div class="officer-contact"><a href="mailto:treasurer@ghanapowerlifting.org">📧 treasurer@ghanapowerlifting.org</a></div></div><div class="officer-card vacant reveal"><div class="officer-avatar">—</div><div class="officer-name">To Be Appointed</div><div class="officer-role">Vice President</div></div><div class="officer-card vacant reveal"><div class="officer-avatar">—</div><div class="officer-name">To Be Appointed</div><div class="officer-role">Executive Director</div></div><div class="officer-card vacant reveal"><div class="officer-avatar">—</div><div class="officer-name">To Be Appointed</div><div class="officer-role">Anti-Doping Officer</div></div></div></div></section>
-<section class="eligibility" id="eligibility"><div class="section-inner"><div class="eligibility-grid"><div class="reveal"><div class="section-tag">Athletes</div><h2 class="section-heading">Eligibility,<br>Membership &amp;<br>National Team</h2><p class="eligibility-body">G.A.P. membership and athlete eligibility are governed by the G.A.P. Constitution (Article IV) and IPF By-Laws. All athletes competing in G.A.P. events must be current, financial members and comply with IPF Anti-Doping Rules.</p><div class="eligibility-card"><div class="eligibility-card-title">Eligibility Requirements</div><div class="eligibility-card-text">Ghanaian citizens, Ghanaian residents, persons of Ghanaian descent, or individuals otherwise approved by the Executive Committee consistent with IPF eligibility rules (IPF By-Law 14.9).</div></div><div class="eligibility-card"><div class="eligibility-card-title">Membership Types</div><div class="eligibility-card-text"><strong style="color:var(--gold)">Full Membership</strong> — Athlete, coach, and referee participation rights.<br><strong style="color:var(--gold)">Coach / Referee Membership</strong> — Coach and/or referee capacities only.<br><strong style="color:var(--gold)">IPF-Affiliated Guest</strong> — Members of other IPF nations may participate in G.A.P. events.</div></div><div class="eligibility-card"><div class="eligibility-card-title">National Team Selection</div><div class="eligibility-card-text">National team selection for APF and IPF international championships will be based on performance at the G.A.P. National Championships and compliance with IPF qualifying totals. Athletes must hold a valid Ghanaian passport or demonstrate six months of verified residency per IPF By-Law 14.9.</div></div><div class="eligibility-card"><div class="eligibility-card-title">International Competition Registration</div><div class="eligibility-card-text">Athletes selected for international representation register through G.A.P. Entry, travel, and accommodation coordination handled by the Secretary-General. A registration portal for international events will be available once G.A.P. achieves IPF provisional membership.</div></div></div><div class="reveal"><div style="margin-bottom:1.5rem"><div class="section-tag" style="color:var(--gold)">Purchase Membership</div><h3 style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:.04em;color:var(--white);margin-top:.5rem">Membership Plans</h3><p class="eligibility-body" style="margin-bottom:0">One annual membership fee applies to every category below, based on where you live.</p><div class="fee-grid"><div class="fee-card"><div class="fee-label">Full-time Ghana Resident</div><div class="fee-amount"><sup>$</sup>60<small>USD / year</small></div><div class="fee-desc">For members living in Ghana full-time.</div></div><div class="fee-card diaspora"><div class="fee-label">Ghanaian Diaspora</div><div class="fee-amount"><sup>$</sup>140<small>USD / year</small></div><div class="fee-desc">For Ghanaians and athletes of Ghanaian descent living abroad.</div></div></div><p class="fee-note">Payment details are sent after your registration is reviewed.</p></div><div class="membership-tiers"><div class="tier-card"><div class="tier-header"><div class="tier-name">Athlete Member</div><div class="tier-price">$60 / $140</div></div><div class="tier-desc">Full competition rights — compete in all G.A.P. sanctioned events, set national records, and qualify for international selection.</div><div class="tier-features">✓ Compete at G.A.P. nationals &amp; qualifiers · ✓ National record eligibility · ✓ National team selection eligibility · ✓ Voting rights at General Assembly · ✓ IPF membership registration</div><a href="#register" class="tier-btn">Register as Athlete →</a></div><div class="tier-card"><div class="tier-header"><div class="tier-name">Coach / Referee</div><div class="tier-price">$60 / $140</div></div><div class="tier-desc">Coach athletes or officiate at G.A.P. events. Access IPF certification pathways and education programmes.</div><div class="tier-features">✓ Coach or officiate at all G.A.P. events · ✓ IPF referee certification pathway · ✓ Coach education programmes · ✓ Voting rights at General Assembly</div><a href="#register" class="tier-btn">Register as Coach/Referee →</a></div><div class="tier-card"><div class="tier-header"><div class="tier-name">Associate / Supporter</div><div class="tier-price">$60 / $140</div></div><div class="tier-desc">Support the development of powerlifting in Ghana. Open to gyms, clubs, sponsors, and individuals.</div><div class="tier-features">✓ Support Ghana powerlifting · ✓ Event access · ✓ Community membership</div><a href="#register" class="tier-btn">Register as Supporter →</a></div></div></div></div></div></section>
-<section class="affiliation"><div class="section-inner"><div class="affiliation-inner"><div class="reveal"><div class="section-tag">Compliance</div><h2 class="section-heading">IPF Affiliated<br>Federation</h2><p class="affiliation-body">G.A.P. operates under the framework of the International Powerlifting Federation, the world governing body for the sport. All G.A.P. competitions, records, athlete eligibility, and anti-doping standards are governed by IPF rules and the World Anti-Doping Code.</p></div><ul class="affiliation-checklist reveal"><li>Constitution and By-Laws adopted in conformity with IPF Constitution and By-Laws</li><li>All competitions conducted under IPF Technical Rules (current edition)</li><li>Full WADA-code compliant anti-doping programme per IPF Anti-Doping Rules</li><li>Athletes bound by IPF Anti-Doping Rules as a condition of membership and participation</li><li>Court of Arbitration for Sport (CAS) recognised as sole external jurisdiction body</li><li>African Powerlifting Federation (APF) — Regional affiliation pending IPF provisional membership</li><li>Not affiliated with any competing international association per IPF By-Law 12.3</li><li>General Assembly minutes and financial reports published publicly for transparency</li><li>Annual calendar includes Classic (Raw) National Championship and Equipped National Championship</li></ul></div></div></section>
-<section class="news" id="news"><div class="section-inner"><div class="news-header reveal"><div><div class="section-tag" style="color:rgba(250,250,248,.4)">Latest from G.A.P.</div><h2 class="section-heading light">News &amp; Announcements</h2></div><a href="#news" class="news-link-all">All News →</a></div><div class="news-grid"><div class="news-card featured reveal"><div><div class="news-cat">Competition Update</div><div class="news-headline">December 19 National Championships Postponed — Ghana Eyes IPF Central African Regionals, Spring 2027</div><p class="news-body">The G.A.P. National Powerlifting Championships, planned for December 19, 2026 in Accra, have been postponed. The postponement is pending the IPF Central African Regional Powerlifting Championships, which are tentatively planned to be hosted in Ghana in Spring 2027. Dates, venue and entry information will be published here once confirmed.<br><br>Membership registration remains open, with annual dues of <strong style="color:var(--white)">$60 USD</strong> for full-time residents of Ghana and <strong style="color:var(--white)">$140 USD</strong> for Ghanaians in the diaspora.</p></div><div class="news-meta"><span>November 14, 2026</span><a href="#nationals" class="news-read-more">Details →</a></div></div><div class="news-card reveal"><div class="news-cat">Announcement</div><div class="news-headline">Ghana Association of Powerlifting Officially Established — IPF Affiliation Application Underway</div><p class="news-body">The Inaugural General Assembly in Accra adopted the Constitution and By-Laws, confirmed the founding Executive Committee, and began G.A.P.'s application for IPF provisional membership.</p><div class="news-meta"><span>March 8, 2026</span><a href="#governance" class="news-read-more">Read More →</a></div></div><div class="news-card reveal"><div class="news-cat">Competition</div><div class="news-headline">Membership Dues Set: $60 Ghana Residents · $140 Diaspora</div><p class="news-body">Annual G.A.P. membership is $60 USD for full-time residents of Ghana and $140 USD for Ghanaians abroad. Register online and our team will follow up with payment details.</p><div class="news-meta"><span>November 14, 2026</span><a href="#register" class="news-read-more">Join Now →</a></div></div><div class="news-card reveal"><div class="news-cat">Governance</div><div class="news-headline">G.A.P. Constitution &amp; By-Laws Formally Adopted</div><p class="news-body">The G.A.P. Constitution and By-Laws, compliant with IPF standards, were unanimously adopted at the Inaugural General Assembly. Both documents are available to members on request.</p><div class="news-meta"><span>March 8, 2026</span><a href="#governance" class="news-read-more">View Documents →</a></div></div><div class="news-card reveal"><div class="news-cat">Anti-Doping</div><div class="news-headline">G.A.P. Commits to Full WADA-Code Anti-Doping Programme</div><p class="news-body">G.A.P. has formally adopted the IPF Anti-Doping Rules and the World Anti-Doping Code as binding on all members. An Anti-Doping Officer appointment is imminent.</p><div class="news-meta"><span>March 8, 2026</span><a href="#about" class="news-read-more">Learn More →</a></div></div></div></div></section>
-<section class="results" id="results"><div class="section-inner"><div class="reveal" style="margin-bottom:2.5rem"><div class="section-tag">Performance</div><h2 class="section-heading">Results &amp; Records</h2></div><div class="results-tabs reveal"><button class="tab-btn active" data-tab="results-tab">Competition Results</button><button class="tab-btn" data-tab="records-tab">National Records</button></div><div class="tab-panel active" id="results-tab"><div class="record-pending"><div class="record-pending-icon">🏋️</div><div class="record-pending-title">First Competition Coming</div><div class="record-pending-sub">Official competition results will be published here following each G.A.P. sanctioned event.<br>The December 19, 2026 National Championships have been <strong>postponed</strong>; the <strong>IPF Central African Regional Championships</strong><br>are tentatively planned for Ghana in <strong>Spring 2027</strong>.</div></div></div><div class="tab-panel" id="records-tab"><div style="margin-bottom:2rem"><p style="font-size:.85rem;color:var(--muted);line-height:1.7">G.A.P. National Records will be registered following the first sanctioned competition. Records set at the first G.A.P. sanctioned competition will be the inaugural national records in each category. Records are certified by the G.A.P. Records Registrar in accordance with Chapter 8 of the G.A.P. By-Laws and current IPF Technical Rules.</p></div><div class="records-grid"><div class="record-card"><div class="record-division">Men's Open · 59kg</div><div class="record-lift">Total</div><div class="record-weight">— <span>kg</span></div><div class="record-holder">Record not yet set</div></div><div class="record-card"><div class="record-division">Men's Open · 66kg</div><div class="record-lift">Total</div><div class="record-weight">— <span>kg</span></div><div class="record-holder">Record not yet set</div></div><div class="record-card"><div class="record-division">Men's Open · 74kg</div><div class="record-lift">Total</div><div class="record-weight">— <span>kg</span></div><div class="record-holder">Record not yet set</div></div><div class="record-card"><div class="record-division">Women's Open · 52kg</div><div class="record-lift">Total</div><div class="record-weight">— <span>kg</span></div><div class="record-holder">Record not yet set</div></div><div class="record-card"><div class="record-division">Women's Open · 57kg</div><div class="record-lift">Total</div><div class="record-weight">— <span>kg</span></div><div class="record-holder">Record not yet set</div></div><div class="record-card"><div class="record-division">Women's Open · 63kg</div><div class="record-lift">Total</div><div class="record-weight">— <span>kg</span></div><div class="record-holder">Record not yet set</div></div></div><p style="font-size:.75rem;color:var(--muted);margin-top:1.5rem;font-style:italic">Showing selected weight classes. All IPF standard weight classes will be tracked.</p></div></div></section>
-<section class="contact-section" id="contact"><div class="section-inner"><div class="contact-grid"><div class="reveal"><div class="section-tag">Get in Touch</div><h2 class="section-heading">Contact<br>G.A.P.</h2><p style="font-size:.95rem;line-height:1.8;color:var(--muted);margin:1.5rem 0 2.5rem">Reach out to our Executive Committee directly for membership enquiries, competition information, sponsorship, or any other matters relating to powerlifting in Ghana.</p><div class="contact-officers"><div class="contact-officer-card"><div class="contact-avatar">DA</div><div><div class="contact-officer-name">Douglas Nyarko Amagyei</div><div class="contact-officer-role">President</div><a href="mailto:DouglasAmagyei@ghanapowerlifting.org" class="contact-officer-email">📧 DouglasAmagyei@ghanapowerlifting.org</a></div></div><div class="contact-officer-card"><div class="contact-avatar">KN</div><div><div class="contact-officer-name">Kwaku Nyarko</div><div class="contact-officer-role">Secretary-General</div><a href="mailto:KwakuNyarko@ghanapowerlifting.org" class="contact-officer-email">📧 KwakuNyarko@ghanapowerlifting.org</a></div></div><div class="contact-officer-card"><div class="contact-avatar">SA</div><div><div class="contact-officer-name">Samuel Yao Ablordeppey</div><div class="contact-officer-role">Treasurer</div><a href="mailto:treasurer@ghanapowerlifting.org" class="contact-officer-email">📧 treasurer@ghanapowerlifting.org</a></div></div></div></div><div class="reveal"><form class="contact-form" id="contactForm" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdkvgglWnfvrx9uBkP2-CNq_gFV3seoxBOa2chzwyAN4W4Cwg/formResponse" target="hidden_iframe_contact" onsubmit="submitContact(event)"><div style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden" aria-hidden="true"><label>Leave blank<input type="text" name="honeypot_contact" id="honeypot_contact" tabindex="-1" autocomplete="off"></label></div><div class="form-row"><div class="form-group"><label class="form-label">First Name *</label><input type="text" name="entry.444385941" class="form-input" placeholder="Kofi" required autocomplete="given-name"></div><div class="form-group"><label class="form-label">Last Name *</label><input type="text" name="entry.1313300918" class="form-input" placeholder="Mensah" required autocomplete="family-name"></div></div><div class="form-group"><label class="form-label">Email Address *</label><input type="email" name="entry.1399262662" class="form-input" placeholder="you@example.com" required autocomplete="email"></div><div class="form-group"><label class="form-label">Subject *</label><select name="entry.1121056505" class="form-select form-input" required><option value="" disabled selected>Select a subject</option><option>Membership Inquiry</option><option>Competition Registration</option><option>International Competition</option><option>Referee / Officials</option><option>Coaching / Athlete Development</option><option>Sponsorship &amp; Partnerships</option><option>Media &amp; Press</option><option>IPF / APF Affiliation</option><option>Anti-Doping</option><option>General Inquiry</option></select></div><div class="form-group"><label class="form-label">Message *</label><textarea name="entry.2011533149" class="form-textarea form-input" placeholder="Your message…" required></textarea></div><button type="submit" class="form-submit">Send Message →</button><div class="form-error" id="contactError" role="alert" style="color:var(--red);background:rgba(207,12,46,.06)"></div><div id="contactSuccess" style="display:none;padding:1rem;background:rgba(0,107,63,.08);border:1px solid var(--green);border-radius:2px;font-size:.85rem;color:var(--green)">✓ Message sent. We'll get back to you shortly.</div></form><iframe name="hidden_iframe_contact" id="hidden_iframe_contact" title="Contact submission" style="display:none"></iframe></div></div></div></section>
-<section class="register" id="register"><div class="section-inner"><div class="register-grid"><div class="register-info reveal"><div class="section-tag">Membership</div><h2 class="section-heading">Become a<br>G.A.P. Member</h2><p class="register-desc">Join the Ghana Association of Powerlifting and be part of building the sport in Ghana. Membership is open to athletes, coaches, referees, and supporters of powerlifting across the country.</p><div class="member-types"><div class="member-type"><div class="member-type-icon">🏋️</div><div><div class="member-type-title">Athlete Member</div><div class="member-type-desc">Compete in G.A.P. sanctioned events, set national records, and qualify for international competition via APF and IPF.</div></div></div><div class="member-type"><div class="member-type-icon">🎓</div><div><div class="member-type-title">Coach Member</div><div class="member-type-desc">Coach athletes at G.A.P. events. Access G.A.P. coach education programmes and IPF coach certification pathways.</div></div></div><div class="member-type"><div class="member-type-icon">🏳️</div><div><div class="member-type-title">Referee / Official</div><div class="member-type-desc">Train toward IPF referee certification through G.A.P. referee seminars.</div></div></div><div class="member-type"><div class="member-type-icon">⭐</div><div><div class="member-type-title">Associate / Supporter</div><div class="member-type-desc">Support the development of powerlifting in Ghana. Open to gyms, clubs, sponsors, and individuals.</div></div></div><div class="fee-grid"><div class="fee-card"><div class="fee-label">Ghana Resident</div><div class="fee-amount"><sup>$</sup>60<small>/ yr</small></div></div><div class="fee-card diaspora"><div class="fee-label">Diaspora</div><div class="fee-amount"><sup>$</sup>140<small>/ yr</small></div></div></div></div></div><div class="reveal"><div class="register-form-wrap" id="registerWrap"><div class="register-form-title">Membership Registration</div><div class="register-form-sub">Complete the form below to register. Our team will confirm your membership and send payment details for your annual dues.</div><form class="register-form" id="registerForm" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfsU9JpRA8WYFq3hIHQtB5AlCXvq52mqTWnUGHPCwMzynQA5A/formResponse" target="hidden_iframe_register" onsubmit="submitRegister(event)"><div style="position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden" aria-hidden="true"><label>Leave blank<input type="text" name="honeypot_register" id="honeypot_register" tabindex="-1" autocomplete="off"></label></div><div class="form-row"><div class="form-group"><label class="form-label">First Name *</label><input type="text" name="entry.444385941" class="form-input" placeholder="Kofi" required autocomplete="given-name"></div><div class="form-group"><label class="form-label">Last Name *</label><input type="text" name="entry.1313300918" class="form-input" placeholder="Mensah" required autocomplete="family-name"></div></div><div class="form-group"><label class="form-label">Email Address *</label><input type="email" name="entry.1399262662" class="form-input" placeholder="you@example.com" required autocomplete="email"></div><div class="form-group"><label class="form-label">Phone / WhatsApp</label><input type="tel" name="entry.803919624" class="form-input" placeholder="+233 …" autocomplete="tel"></div><div class="register-form-divider">Personal Details</div><div class="form-row"><div class="form-group"><label class="form-label">Date of Birth</label><input type="date" name="entry.1381486234" class="form-input"></div><div class="form-group"><label class="form-label">Biological Sex</label><select name="entry.2011533149" class="form-select"><option value="" disabled selected>Select</option><option>Male</option><option>Female</option><option>Other / prefer not to say</option></select></div></div><div class="form-group"><label class="form-label">Region / City in Ghana</label><input type="text" name="entry.605334597" class="form-input" placeholder="e.g. Accra, Kumasi, Cape Coast…"></div><div class="register-form-divider">Membership Type</div><div class="form-group"><label class="form-label">Membership Category *</label><select name="entry.2008277528" class="form-select" required><option value="" disabled selected>Select membership type</option><option>Athlete Member — Full Competition Rights</option><option>Coach Member</option><option>Referee / Official</option><option>Associate / Supporter</option></select></div><div class="form-group"><label class="form-label">Ghanaian Nationality / Citizenship (select all that apply) *</label><div class="check-list"><label class="check-item"><input type="checkbox" name="entry.846137646" value="Ghanaian Citizen"><span>Ghanaian Citizen</span></label><label class="check-item"><input type="checkbox" name="entry.846137646" value="Ghanaian Resident (need to be able to provide home/family address in Ghana)"><span>Ghanaian Resident — I live in Ghana full-time<small>Requires a home/family address in Ghana · $60 resident rate</small></span></label><label class="check-item"><input type="checkbox" name="entry.846137646" value="Ghanaian Descent (Diaspora)"><span>Ghanaian Descent (Diaspora) — I live abroad<small>$140 diaspora rate</small></span></label><label class="check-item"><input type="checkbox" name="entry.846137646" value="IPF-Affiliated Nation Guest"><span>IPF-Affiliated Nation Guest</span></label><label class="check-item"><input type="checkbox" name="entry.846137646" value="Currently or planning to apply for Ghanaian Passport / Citizenship"><span>Currently or planning to apply for a Ghanaian Passport / Citizenship</span></label></div></div><div class="register-form-divider">Experience</div><div class="form-group"><label class="form-label">Powerlifting Competition Experience</label><select name="entry.1750962993" class="form-select"><option value="" disabled selected>Select</option><option>None — new to the sport</option><option>Local / informal competitions only</option><option>Regional competitions</option><option>National competitions (other federations)</option><option>International competitions</option></select></div><div class="form-group"><label class="form-label">Years of Strength Training</label><select name="entry.187582774" class="form-select"><option value="" disabled selected>Select</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10+</option></select></div><div class="fee-live" id="feeLive" aria-live="polite"><span id="feeLiveText">Select your nationality / residency above to see your annual fee</span><strong id="feeLiveAmount">—</strong></div><div class="form-error" id="registerError" role="alert"></div><button type="submit" class="register-submit">Register as G.A.P. Member →</button><p class="register-note">Annual dues: $60 USD (full-time Ghana residents) · $140 USD (diaspora). Payment details are sent once your registration is confirmed. Your data is held in accordance with Ghanaian data protection law.</p></form><iframe name="hidden_iframe_register" id="hidden_iframe_register" title="Registration submission" style="display:none"></iframe><div class="form-success" id="registerSuccess"><div class="form-success-icon">🏆</div><div class="form-success-title">Registration Received</div><div class="form-success-msg">Welcome to the Ghana Association of Powerlifting.<br>Our team will review your application and contact you within 5 business days with confirmation and payment details.<br><span id="registerSuccessFee" style="color:var(--gold)"></span></div></div></div></div></div></div></section>
-<footer><div class="footer-logo">G<span>.</span>A<span>.</span>P<span>.</span></div><div class="footer-copy">&copy; 2026 Ghana Association of Powerlifting. All rights reserved. | P.O. Box GP 1234, Accra, Ghana | <a href="mailto:info@ghanapowerlifting.org" style="color:inherit">info@ghanapowerlifting.org</a></div><div class="footer-flags"><div class="stripe-red"></div><div class="stripe-gold"></div><div class="stripe-green"></div></div></footer>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero on-dark">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">National Governing Body · IPF</span>
+        <h1>Building the future of <em>powerlifting</em> in Ghana.</h1>
+        <p class="lede">The Ghana Association of Powerlifting develops, regulates and promotes drug-free powerlifting across Ghana and its diaspora — under the rules of the International Powerlifting Federation.</p>
+        <div class="actions">
+          <a href="#register" class="btn btn-gold">Become a member <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a href="#nationals" class="btn btn-ghost">Competition update</a>
+        </div>
+      </div>
+      <aside class="update-card reveal" aria-label="Latest update">
+        <div class="update-head"><span class="label">Latest update</span><span class="pill pill-red pill-dot">Postponed</span></div>
+        <h3>December 19 National Championships postponed</h3>
+        <p>Pending the IPF Central African Regional Championships, tentatively to be hosted in Ghana.</p>
+        <div class="update-meta">
+          <div><svg class="icon"><use href="#i-cal"/></svg>Spring 2027 · tentative</div>
+          <div><svg class="icon"><use href="#i-pin"/></svg>Ghana · venue to be confirmed</div>
+        </div>
+        <a href="#nationals" class="link">Read the update <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </aside>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="hero-stat"><strong>2026</strong><span>Founded in Accra</span></div>
+      <div class="hero-stat"><strong>IPF</strong><span>Rules &amp; anti-doping standards</span></div>
+      <div class="hero-stat"><strong>Spring 2027</strong><span>Central African Regionals (tentative)</span></div>
+      <div class="hero-stat"><strong>$60 / $140</strong><span>Annual dues · resident / diaspora</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap split">
+    <div class="prose reveal">
+      <span class="eyebrow">Who we are</span>
+      <h2>Ghana's national body for powerlifting.</h2>
+      <p>The <strong>Ghana Association of Powerlifting (G.A.P.)</strong> is the official national governing body for the sport of powerlifting in Ghana. Founded in 2026, G.A.P. operates as a not-for-profit organisation dedicated to developing the sport at every level — from grassroots participation to international competition.</p>
+      <p>G.A.P. is affiliated to the <strong>International Powerlifting Federation (IPF)</strong> and the <strong>African Powerlifting Federation (APF)</strong>, ensuring Ghana's athletes compete under internationally recognised rules and standards. All G.A.P. events follow current IPF Technical Rules with full WADA-compliant anti-doping protocols.</p>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar"><div class="icon-badge"><svg class="icon"><use href="#i-trophy"/></svg></div><h3>Competition</h3><p>National championships, regional events and qualifiers run under IPF Technical Rules.</p></div>
+      <div class="pillar"><div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Clean sport</h3><p>Full WADA Code compliance and anti-doping testing at sanctioned events.</p></div>
+      <div class="pillar"><div class="icon-badge"><svg class="icon"><use href="#i-grad"/></svg></div><h3>Education</h3><p>Referee certification, coach education and athlete development programmes.</p></div>
+      <div class="pillar"><div class="icon-badge"><svg class="icon"><use href="#i-globe"/></svg></div><h3>International</h3><p>Pathways for Ghanaian athletes to compete at APF and IPF championships.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section class="section tint" id="governance">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Governance &amp; transparency</span>
+      <h2>Constitution, by-laws &amp; official documents.</h2>
+      <p class="lede">G.A.P. is governed by three bodies established under its Constitution, in line with the IPF Constitution and By-Laws and the IOC Basic Universal Principles of Good Governance.</p>
+      <div class="gov-bodies">
+        <div class="gov-body"><b>GA</b><span><strong>General Assembly</strong> — the supreme governing body, meeting annually no less than one day before the National Championship.</span></div>
+        <div class="gov-body"><b>EC</b><span><strong>Executive Committee</strong> — acts as the Board of Directors between General Assemblies, with fiduciary responsibility.</span></div>
+        <div class="gov-body"><b>CO</b><span><strong>Commissions</strong> — Technical, Anti-Doping, Disciplinary and Appeals.</span></div>
+      </div>
+      <span class="label block-label">IPF compliance</span>
+      <p class="small-copy">G.A.P. complies with the IPF Constitution, By-Laws, Technical Rules and Anti-Doping Rules. All members are bound by the World Anti-Doping Code. The Court of Arbitration for Sport (CAS) in Lausanne is recognised as the sole external jurisdiction body for disputes. G.A.P. is not affiliated with any organisation purporting to be a worldwide governing body for powerlifting other than the IPF.</p>
+    </div>
+    <div class="reveal">
+      <span class="label block-label">Governing documents</span>
+      <div class="doc-list">
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20Constitution"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">G.A.P. Constitution</span><span class="doc-meta">In force from February 11, 2026</span></span><span class="doc-action">Request copy</span></a>
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20By-Laws"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">G.A.P. By-Laws</span><span class="doc-meta">Adopted February 11, 2026</span></span><span class="doc-action">Request copy</span></a>
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20Anti-Doping%20Statement"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">Anti-Doping Policy Alignment Statement</span><span class="doc-meta">IPF Anti-Doping Rules &amp; WADA Code</span></span><span class="doc-action">Request copy</span></a>
+      </div>
+      <span class="label block-label">Minutes &amp; financial reports</span>
+      <div class="doc-list">
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20GA%20Minutes"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">Inaugural General Assembly Minutes</span><span class="doc-meta">March 8, 2026 — Accra, Ghana</span></span><span class="doc-action">Request copy</span></a>
+        <div class="doc"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">2026 Annual Report &amp; Financial Statements</span><span class="doc-meta">Balance sheet, P&amp;L, cash flow &amp; auditor's report</span></span><span class="doc-action muted">Pending FY close</span></div>
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20IPF%20Application"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">IPF Membership Application Letter</span><span class="doc-meta">Submitted to the IPF Secretary-General</span></span><span class="doc-action">Request copy</span></a>
+      </div>
+      <p class="fine">Minutes and financial reports are published for transparency per IPF By-Law 12.3.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIONS -->
+<section class="section on-dark" id="nationals">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Competition update</span>
+      <h2>National Championships postponed.</h2>
+      <p class="lede">The inaugural G.A.P. National Powerlifting Championships, originally scheduled for December 19, 2026 in Accra, have been postponed. A new date will be announced once plans for the IPF Central African Regional Championships are confirmed.</p>
+      <div class="status-card">
+        <div class="status-row">
+          <div class="status-top"><span class="status-date">Originally Dec 19, 2026 · Accra</span><span class="pill pill-red pill-dot">Postponed</span></div>
+          <h3><s>G.A.P. National Powerlifting Championships</s></h3>
+          <p>New date to be announced.</p>
+        </div>
+        <div class="status-row next">
+          <div class="status-top"><span class="status-date">Spring 2027 · Ghana</span><span class="pill pill-gold">Tentative</span></div>
+          <h3>IPF Central African Regional Powerlifting Championships</h3>
+          <p>Tentatively to be hosted in Ghana. Dates, venue and entry details will be published here once confirmed.</p>
+        </div>
+      </div>
+      <div class="actions"><a href="#register" class="btn btn-gold">Become a member <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+    </div>
+    <dl class="spec-list reveal">
+      <div class="spec"><svg class="icon"><use href="#i-bar"/></svg><div><dt>Competition format</dt><dd>IPF Classic (Raw) &amp; IPF Equipped powerlifting</dd></div></div>
+      <div class="spec"><svg class="icon"><use href="#i-scale"/></svg><div><dt>Weight classes &amp; divisions</dt><dd>All IPF standard classes, men's &amp; women's · Sub-Junior, Junior, Open, Masters M1–M4</dd></div></div>
+      <div class="spec"><svg class="icon"><use href="#i-medal"/></svg><div><dt>Records</dt><dd>G.A.P. national records eligible to be set</dd></div></div>
+      <div class="spec"><svg class="icon"><use href="#i-shield"/></svg><div><dt>Anti-doping</dt><dd>WADA-compliant testing under the IPF Anti-Doping Rules</dd></div></div>
+      <div class="spec"><svg class="icon"><use href="#i-doc"/></svg><div><dt>Technical rules</dt><dd>IPF Technical Rules (current edition)</dd></div></div>
+      <div class="spec"><svg class="icon"><use href="#i-users"/></svg><div><dt>Eligibility to compete</dt><dd>G.A.P. members in good standing — join now so your membership is active when entries open</dd></div></div>
+    </dl>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="section" id="calendar">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Competition year</span><h2>2026–27 calendar</h2></div></div>
+    <div class="timeline reveal">
+      <div class="t-row is-past"><div class="t-date">Mar 8, 2026</div><div><div class="t-name">Founding General Assembly</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Admin</span></div></div>
+      <div class="t-row is-past"><div class="t-date">Mar – Apr 2026</div><div><div class="t-name">EC Meeting #1 — Commission setup</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Internal</span></div></div>
+      <div class="t-row is-past"><div class="t-date">Apr 2026</div><div><div class="t-name">Referee Seminar &amp; Certification</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Education</span></div></div>
+      <div class="t-row is-past"><div class="t-date">May 2026</div><div><div class="t-name">Coaches Education Workshop</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Education</span></div></div>
+      <div class="t-row is-past"><div class="t-date">Jun 2026</div><div><div class="t-name">EC Meeting #2</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Internal</span></div></div>
+      <div class="t-row is-past"><div class="t-date">Jul 2026</div><div><div class="t-name">Athletes Anti-Doping Education Day</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Education</span></div></div>
+      <div class="t-row is-past"><div class="t-date">Aug 2026</div><div><div class="t-name">Pre-Nationals Qualifier (Classic)</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Competition</span></div></div>
+      <div class="t-row is-past"><div class="t-date">Sep 2026</div><div><div class="t-name">EC Meeting #3</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Internal</span></div></div>
+      <div class="t-row"><div class="t-date">Nov 2026</div><div><div class="t-name">EC Meeting #4</div><div class="t-loc">Accra, Ghana</div></div><div class="t-tags"><span class="pill pill-muted">Internal</span></div></div>
+      <div class="t-row is-postponed"><div class="t-date"><s>Dec 19, 2026</s></div><div><div class="t-name">G.A.P. National Powerlifting Championships</div><div class="t-loc">Accra, Ghana — new date to be announced</div></div><div class="t-tags"><span class="pill pill-red">Postponed</span></div></div>
+      <div class="t-row"><div class="t-date">Date TBC</div><div><div class="t-name">General Assembly #2</div><div class="t-loc">Accra, Ghana — rescheduling with Nationals</div></div><div class="t-tags"><span class="pill pill-muted">Admin</span></div></div>
+      <div class="t-row is-feature"><div class="t-date">Spring 2027</div><div><div class="t-name">IPF Central African Regional Powerlifting Championships</div><div class="t-loc">Ghana (tentative host) — details to be confirmed</div></div><div class="t-tags"><span class="pill pill-gold">Tentative</span><span class="pill pill-green">Regional</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="section tint" id="leadership">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Executive Committee</span><h2>Leadership</h2></div></div>
+    <div class="people reveal">
+      <div class="person"><div class="avatar">DA</div><div><h3>Douglas Nyarko Amagyei</h3><div class="role">President</div><a href="mailto:DouglasAmagyei@ghanapowerlifting.org">DouglasAmagyei@ghanapowerlifting.org</a></div></div>
+      <div class="person"><div class="avatar">KN</div><div><h3>Kwaku Nyarko</h3><div class="role">Secretary-General</div><a href="mailto:KwakuNyarko@ghanapowerlifting.org">KwakuNyarko@ghanapowerlifting.org</a></div></div>
+      <div class="person"><div class="avatar">SA</div><div><h3>Samuel Yao Ablordeppey</h3><div class="role">Treasurer</div><a href="mailto:treasurer@ghanapowerlifting.org">treasurer@ghanapowerlifting.org</a></div></div>
+      <div class="person vacant"><div class="avatar">—</div><div><h3>To be appointed</h3><div class="role">Vice President</div></div></div>
+      <div class="person vacant"><div class="avatar">—</div><div><h3>To be appointed</h3><div class="role">Executive Director</div></div></div>
+      <div class="person vacant"><div class="avatar">—</div><div><h3>To be appointed</h3><div class="role">Anti-Doping Officer</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="section on-dark" id="eligibility">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Membership</span>
+      <h2>Eligibility, membership &amp; national team.</h2>
+      <p class="lede">Membership and athlete eligibility are governed by the G.A.P. Constitution (Article IV) and the IPF By-Laws. Athletes competing in G.A.P. events must be current, financial members and comply with the IPF Anti-Doping Rules.</p>
+      <div class="info-list">
+        <div class="info-item"><h3>Eligibility requirements</h3><p>Ghanaian citizens, Ghanaian residents, persons of Ghanaian descent, or individuals otherwise approved by the Executive Committee consistent with IPF eligibility rules (IPF By-Law 14.9).</p></div>
+        <div class="info-item"><h3>Membership types</h3><p><strong>Full membership</strong> — athlete, coach and referee participation rights. <strong>Coach / referee membership</strong> — coach and/or referee capacities only. <strong>IPF-affiliated guest</strong> — members of other IPF nations may participate in G.A.P. events.</p></div>
+        <div class="info-item"><h3>National team selection</h3><p>Selection for APF and IPF international championships is based on performance at G.A.P. National Championships and IPF qualifying totals. Athletes must hold a valid Ghanaian passport or demonstrate six months of verified residency per IPF By-Law 14.9.</p></div>
+        <div class="info-item"><h3>International competition registration</h3><p>Athletes selected for international representation register through G.A.P.; entry, travel and accommodation are coordinated by the Secretary-General. An international events portal will open once G.A.P. achieves IPF provisional membership.</p></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="label">Annual membership dues</span>
+      <div class="fee-cards">
+        <div class="fee"><div class="fee-tag">Ghana resident</div><div class="fee-price"><strong>$60</strong><span>USD / year</span></div><p>For members living in Ghana full-time.</p></div>
+        <div class="fee accent"><div class="fee-tag">Diaspora</div><div class="fee-price"><strong>$140</strong><span>USD / year</span></div><p>For Ghanaians and athletes of Ghanaian descent living abroad.</p></div>
+      </div>
+      <p class="fee-note">One annual fee covers every membership category. Payment details are sent after your registration is reviewed.</p>
+      <div class="cat-list">
+        <div class="cat"><div class="icon-badge"><svg class="icon"><use href="#i-bar"/></svg></div><div><h3>Athlete member</h3><p>Compete in all sanctioned events, set national records and qualify for international selection.</p><ul><li><svg class="icon"><use href="#i-check"/></svg>Nationals &amp; qualifiers</li><li><svg class="icon"><use href="#i-check"/></svg>National records</li><li><svg class="icon"><use href="#i-check"/></svg>Team selection</li><li><svg class="icon"><use href="#i-check"/></svg>GA voting rights</li><li><svg class="icon"><use href="#i-check"/></svg>IPF registration</li></ul></div></div>
+        <div class="cat"><div class="icon-badge"><svg class="icon"><use href="#i-flag"/></svg></div><div><h3>Coach / referee</h3><p>Coach athletes or officiate at G.A.P. events, with access to IPF certification pathways.</p><ul><li><svg class="icon"><use href="#i-check"/></svg>Coach or officiate</li><li><svg class="icon"><use href="#i-check"/></svg>Referee pathway</li><li><svg class="icon"><use href="#i-check"/></svg>Coach education</li><li><svg class="icon"><use href="#i-check"/></svg>GA voting rights</li></ul></div></div>
+        <div class="cat"><div class="icon-badge"><svg class="icon"><use href="#i-heart"/></svg></div><div><h3>Associate / supporter</h3><p>Support the growth of powerlifting in Ghana. Open to gyms, clubs, sponsors and individuals.</p><ul><li><svg class="icon"><use href="#i-check"/></svg>Event access</li><li><svg class="icon"><use href="#i-check"/></svg>Community membership</li></ul></div></div>
+      </div>
+      <div class="actions"><a href="#register" class="btn btn-gold">Register now <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="section" id="compliance">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Compliance</span>
+      <h2>Operating under the IPF framework.</h2>
+      <p class="lede">All G.A.P. competitions, records, athlete eligibility and anti-doping standards are governed by the rules of the International Powerlifting Federation and the World Anti-Doping Code.</p>
+    </div>
+    <ul class="checks reveal">
+      <li><svg class="icon"><use href="#i-check"/></svg>Constitution and By-Laws conform to the IPF Constitution and By-Laws</li>
+      <li><svg class="icon"><use href="#i-check"/></svg>All competitions run under current IPF Technical Rules</li>
+      <li><svg class="icon"><use href="#i-check"/></svg>WADA Code–compliant anti-doping programme</li>
+      <li><svg class="icon"><use href="#i-check"/></svg>Athletes bound by IPF Anti-Doping Rules as a condition of membership</li>
+      <li><svg class="icon"><use href="#i-check"/></svg>CAS recognised as sole external jurisdiction body</li>
+      <li><svg class="icon"><use href="#i-check"/></svg>APF regional affiliation pending IPF provisional membership</li>
+      <li><svg class="icon"><use href="#i-check"/></svg>No affiliation with competing international associations</li>
+      <li><svg class="icon"><use href="#i-check"/></svg>Minutes and financial reports published publicly</li>
+    </ul>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section tint" id="news">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Latest from G.A.P.</span><h2>News &amp; announcements</h2></div></div>
+    <div class="news-grid">
+      <article class="article lead reveal">
+        <div class="article-meta"><span class="pill pill-red">Competition</span><time datetime="2026-11-14">November 14, 2026</time></div>
+        <h3>December 19 National Championships postponed as Ghana eyes IPF Central African Regionals in Spring 2027</h3>
+        <p>The G.A.P. National Powerlifting Championships, planned for December 19, 2026 in Accra, have been postponed pending the IPF Central African Regional Powerlifting Championships, which are tentatively planned to be hosted in Ghana in Spring 2027. Dates, venue and entry information will be published once confirmed.</p>
+        <p>Membership registration remains open, with annual dues of $60 USD for full-time residents of Ghana and $140 USD for Ghanaians in the diaspora.</p>
+        <a href="#nationals" class="link">Competition details <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </article>
+      <div class="news-side">
+        <article class="article reveal">
+          <div class="article-meta"><span class="pill pill-gold">Membership</span><time datetime="2026-11-14">November 14, 2026</time></div>
+          <h3>Membership dues set: $60 residents, $140 diaspora</h3>
+          <p>Annual membership is $60 USD for full-time residents of Ghana and $140 USD for Ghanaians abroad.</p>
+          <a href="#register" class="link">Join now <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="article reveal">
+          <div class="article-meta"><span class="pill pill-green">Announcement</span><time datetime="2026-03-08">March 8, 2026</time></div>
+          <h3>G.A.P. officially established; IPF application underway</h3>
+          <p>The Inaugural General Assembly in Accra adopted the Constitution and By-Laws, confirmed the founding Executive Committee and began the IPF provisional membership application.</p>
+          <a href="#governance" class="link">Governance <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+    </div>
+    <div class="news-small">
+      <article class="article reveal">
+        <div class="article-meta"><span class="pill pill-muted">Governance</span><time datetime="2026-03-08">March 8, 2026</time></div>
+        <h3>Constitution &amp; By-Laws formally adopted</h3>
+        <p>The IPF-compliant Constitution and By-Laws were unanimously adopted at the Inaugural General Assembly and are available to members on request.</p>
+        <a href="#governance" class="link">View documents <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="article reveal">
+        <div class="article-meta"><span class="pill pill-muted">Anti-doping</span><time datetime="2026-03-08">March 8, 2026</time></div>
+        <h3>Commitment to a full WADA Code programme</h3>
+        <p>G.A.P. has adopted the IPF Anti-Doping Rules and the World Anti-Doping Code as binding on all members. An Anti-Doping Officer appointment is forthcoming.</p>
+        <a href="#compliance" class="link">Learn more <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section" id="results">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Performance</span><h2>Results &amp; records</h2></div></div>
+    <div class="tabs reveal" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="results-tab">Competition results</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="records-tab">National records</button>
+    </div>
+    <div class="tab-panel active" id="results-tab" role="tabpanel">
+      <div class="empty"><div class="icon-badge"><svg class="icon"><use href="#i-trophy"/></svg></div><h3>No sanctioned results yet</h3><p>Official results will be published here after each G.A.P. sanctioned event. The December 19, 2026 National Championships have been postponed; the IPF Central African Regional Championships are tentatively planned for Ghana in Spring 2027.</p></div>
+    </div>
+    <div class="tab-panel" id="records-tab" role="tabpanel">
+      <p class="small-copy" style="max-width:72ch;margin:0 0 1.75rem">National records will be registered from the first G.A.P. sanctioned competition and certified by the G.A.P. Records Registrar under Chapter 8 of the By-Laws and current IPF Technical Rules.</p>
+      <div class="records">
+        <div class="record"><div class="record-div">Men's Open · 59 kg · Total</div><div class="record-val">—<small>kg</small></div><div class="record-holder">Not yet set</div></div>
+        <div class="record"><div class="record-div">Men's Open · 66 kg · Total</div><div class="record-val">—<small>kg</small></div><div class="record-holder">Not yet set</div></div>
+        <div class="record"><div class="record-div">Men's Open · 74 kg · Total</div><div class="record-val">—<small>kg</small></div><div class="record-holder">Not yet set</div></div>
+        <div class="record"><div class="record-div">Women's Open · 52 kg · Total</div><div class="record-val">—<small>kg</small></div><div class="record-holder">Not yet set</div></div>
+        <div class="record"><div class="record-div">Women's Open · 57 kg · Total</div><div class="record-val">—<small>kg</small></div><div class="record-holder">Not yet set</div></div>
+        <div class="record"><div class="record-div">Women's Open · 63 kg · Total</div><div class="record-val">—<small>kg</small></div><div class="record-holder">Not yet set</div></div>
+      </div>
+      <p class="fine">Selected weight classes shown. All IPF standard weight classes will be tracked.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="section tint" id="register">
+  <div class="wrap split">
+    <div class="reveal sticky-col">
+      <span class="eyebrow">Join</span>
+      <h2>Become a G.A.P. member.</h2>
+      <p class="lede">Membership is open to athletes, coaches, referees and supporters in Ghana and across the diaspora. Register below — our team will confirm your membership and send payment details within five business days.</p>
+      <div class="contacts">
+        <div class="contact"><div class="icon-badge"><svg class="icon"><use href="#i-pin"/></svg></div><div><h3>$60 USD / year</h3><div class="role muted-role">Full-time residents of Ghana</div></div></div>
+        <div class="contact"><div class="icon-badge" style="background:var(--gold-50);color:#8A6500"><svg class="icon"><use href="#i-globe"/></svg></div><div><h3>$140 USD / year</h3><div class="role muted-role">Ghanaians in the diaspora</div></div></div>
+        <div class="contact"><div class="icon-badge" style="background:#EEEDE8;color:var(--text-2)"><svg class="icon"><use href="#i-mail"/></svg></div><div><h3>Questions?</h3><a href="mailto:secretary@ghanapowerlifting.org">secretary@ghanapowerlifting.org</a></div></div>
+      </div>
+    </div>
+    <div class="form-card reveal" id="registerWrap">
+      <div id="registerHead"><h3>Membership registration</h3><p class="form-intro">Fields marked <span class="req">*</span> are required.</p></div>
+      <form id="registerForm" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfsU9JpRA8WYFq3hIHQtB5AlCXvq52mqTWnUGHPCwMzynQA5A/formResponse" target="hidden_iframe_register" onsubmit="submitRegister(event)" novalidate>
+        <div class="honeypot" aria-hidden="true"><label>Leave blank<input type="text" name="honeypot_register" id="honeypot_register" tabindex="-1" autocomplete="off"></label></div>
+        <div class="row">
+          <div class="field"><label for="r-first">First name<span class="req">*</span></label><input id="r-first" class="input" type="text" name="entry.444385941" placeholder="Kofi" required autocomplete="given-name"></div>
+          <div class="field"><label for="r-last">Last name<span class="req">*</span></label><input id="r-last" class="input" type="text" name="entry.1313300918" placeholder="Mensah" required autocomplete="family-name"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="r-email">Email<span class="req">*</span></label><input id="r-email" class="input" type="email" name="entry.1399262662" placeholder="you@example.com" required autocomplete="email"></div>
+          <div class="field"><label for="r-phone">Phone / WhatsApp</label><input id="r-phone" class="input" type="tel" name="entry.803919624" placeholder="+233 …" autocomplete="tel"></div>
+        </div>
+        <div class="group-label">Personal details</div>
+        <div class="row">
+          <div class="field"><label for="r-dob">Date of birth</label><input id="r-dob" class="input" type="date" name="entry.1381486234"></div>
+          <div class="field"><label for="r-sex">Biological sex</label><select id="r-sex" class="input" name="entry.2011533149"><option value="" disabled selected>Select</option><option>Male</option><option>Female</option><option>Other / prefer not to say</option></select></div>
+        </div>
+        <div class="field"><label for="r-region">Region / city in Ghana (you or your family)</label><input id="r-region" class="input" type="text" name="entry.605334597" placeholder="e.g. Accra, Kumasi, Cape Coast"></div>
+        <div class="group-label">Membership</div>
+        <div class="field"><label for="r-cat">Membership category<span class="req">*</span></label><select id="r-cat" class="input" name="entry.2008277528" required><option value="" disabled selected>Select membership type</option><option>Athlete Member — Full Competition Rights</option><option>Coach Member</option><option>Referee / Official</option><option>Associate / Supporter</option></select></div>
+        <fieldset class="field">
+          <legend>Nationality / residency — select all that apply<span class="req">*</span></legend>
+          <div class="check-list">
+            <label class="check"><input type="checkbox" name="entry.846137646" value="Ghanaian Citizen"><span>Ghanaian citizen</span></label>
+            <label class="check"><input type="checkbox" name="entry.846137646" value="Ghanaian Resident (need to be able to provide home/family address in Ghana)"><span>Ghanaian resident — I live in Ghana full-time<small>Requires a home/family address in Ghana · $60 resident rate</small></span></label>
+            <label class="check"><input type="checkbox" name="entry.846137646" value="Ghanaian Descent (Diaspora)"><span>Ghanaian descent (diaspora) — I live abroad<small>$140 diaspora rate</small></span></label>
+            <label class="check"><input type="checkbox" name="entry.846137646" value="IPF-Affiliated Nation Guest"><span>IPF-affiliated nation guest</span></label>
+            <label class="check"><input type="checkbox" name="entry.846137646" value="Currently or planning to apply for Ghanaian Passport / Citizenship"><span>Holding or planning to apply for a Ghanaian passport / citizenship</span></label>
+          </div>
+        </fieldset>
+        <div class="group-label">Experience</div>
+        <div class="row">
+          <div class="field"><label for="r-exp">Competition experience</label><select id="r-exp" class="input" name="entry.1750962993"><option value="" disabled selected>Select</option><option>None — new to the sport</option><option>Local / informal competitions only</option><option>Regional competitions</option><option>National competitions (other federations)</option><option>International competitions</option></select></div>
+          <div class="field"><label for="r-years">Years of strength training</label><select id="r-years" class="input" name="entry.187582774"><option value="" disabled selected>Select</option><option value="0">Less than 1</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10+</option></select></div>
+        </div>
+        <div class="fee-live" id="feeLive" aria-live="polite"><span id="feeLiveText">Select your nationality / residency to see your annual fee</span><strong id="feeLiveAmount">—</strong></div>
+        <div class="form-error" id="registerError" role="alert"></div>
+        <button type="submit" class="btn btn-primary register-submit"><span class="btn-label">Submit registration</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <p class="form-note">Payment details are sent once your registration is confirmed. Your data is held in accordance with Ghanaian data protection law.</p>
+      </form>
+      <iframe name="hidden_iframe_register" id="hidden_iframe_register" title="Registration submission" hidden></iframe>
+      <div class="success" id="registerSuccess" role="status">
+        <div class="icon-badge"><svg class="icon"><use href="#i-check"/></svg></div>
+        <h3>Registration received</h3>
+        <p>Welcome to the Ghana Association of Powerlifting. We'll review your application and contact you within 5 business days with confirmation and payment details.</p>
+        <p class="fee-confirm" id="registerSuccessFee"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Contact the Executive Committee.</h2>
+      <p class="lede">For membership, competitions, sponsorship, media or anything else relating to powerlifting in Ghana.</p>
+      <div class="contacts">
+        <div class="contact"><div class="avatar">DA</div><div><h3>Douglas Nyarko Amagyei</h3><div class="role">President</div><a href="mailto:DouglasAmagyei@ghanapowerlifting.org">DouglasAmagyei@ghanapowerlifting.org</a></div></div>
+        <div class="contact"><div class="avatar">KN</div><div><h3>Kwaku Nyarko</h3><div class="role">Secretary-General</div><a href="mailto:KwakuNyarko@ghanapowerlifting.org">KwakuNyarko@ghanapowerlifting.org</a></div></div>
+        <div class="contact"><div class="avatar">SA</div><div><h3>Samuel Yao Ablordeppey</h3><div class="role">Treasurer</div><a href="mailto:treasurer@ghanapowerlifting.org">treasurer@ghanapowerlifting.org</a></div></div>
+      </div>
+    </div>
+    <div class="form-card reveal">
+      <div id="contactHead"><h3>Send a message</h3><p class="form-intro">We usually reply within a few business days.</p></div>
+      <form id="contactForm" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSdkvgglWnfvrx9uBkP2-CNq_gFV3seoxBOa2chzwyAN4W4Cwg/formResponse" target="hidden_iframe_contact" onsubmit="submitContact(event)" novalidate>
+        <div class="honeypot" aria-hidden="true"><label>Leave blank<input type="text" name="honeypot_contact" id="honeypot_contact" tabindex="-1" autocomplete="off"></label></div>
+        <div class="row">
+          <div class="field"><label for="c-first">First name<span class="req">*</span></label><input id="c-first" class="input" type="text" name="entry.444385941" placeholder="Kofi" required autocomplete="given-name"></div>
+          <div class="field"><label for="c-last">Last name<span class="req">*</span></label><input id="c-last" class="input" type="text" name="entry.1313300918" placeholder="Mensah" required autocomplete="family-name"></div>
+        </div>
+        <div class="field"><label for="c-email">Email<span class="req">*</span></label><input id="c-email" class="input" type="email" name="entry.1399262662" placeholder="you@example.com" required autocomplete="email"></div>
+        <div class="field"><label for="c-subject">Subject<span class="req">*</span></label><select id="c-subject" class="input" name="entry.1121056505" required><option value="" disabled selected>Select a subject</option><option>Membership Inquiry</option><option>Competition Registration</option><option>International Competition</option><option>Referee / Officials</option><option>Coaching / Athlete Development</option><option>Sponsorship &amp; Partnerships</option><option>Media &amp; Press</option><option>IPF / APF Affiliation</option><option>Anti-Doping</option><option>General Inquiry</option></select></div>
+        <div class="field"><label for="c-msg">Message<span class="req">*</span></label><textarea id="c-msg" class="input" name="entry.2011533149" placeholder="How can we help?" required></textarea></div>
+        <div class="form-error" id="contactError" role="alert"></div>
+        <button type="submit" class="btn btn-primary form-submit"><span class="btn-label">Send message</span><svg class="icon"><use href="#i-arrow"/></svg></button>
+      </form>
+      <iframe name="hidden_iframe_contact" id="hidden_iframe_contact" title="Contact submission" hidden></iframe>
+      <div class="success" id="contactSuccess" role="status"><div class="icon-badge"><svg class="icon"><use href="#i-check"/></svg></div><h3>Message sent</h3><p>Thank you — we'll get back to you shortly.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24"><use href="#i-star"/></svg></span><span class="brand-name"><strong>G.A.P.</strong><span>Ghana Association of Powerlifting</span></span></a>
+        <p class="footer-about">The national governing body for drug-free powerlifting in Ghana, operating under the rules of the International Powerlifting Federation.</p>
+      </div>
+      <div><h4>Federation</h4><ul><li><a href="#about">About</a></li><li><a href="#governance">Governance</a></li><li><a href="#leadership">Leadership</a></li><li><a href="#compliance">Compliance</a></li></ul></div>
+      <div><h4>Athletes</h4><ul><li><a href="#nationals">Competitions</a></li><li><a href="#calendar">Calendar</a></li><li><a href="#results">Results &amp; records</a></li><li><a href="#register">Membership</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>P.O. Box GP 1234, Accra, Ghana</li><li><a href="mailto:info@ghanapowerlifting.org">info@ghanapowerlifting.org</a></li><li><a href="mailto:secretary@ghanapowerlifting.org">secretary@ghanapowerlifting.org</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Ghana Association of Powerlifting. All rights reserved.</span><span>Drug-free powerlifting under IPF rules</span></div>
+  </div>
+</footer>
+
 <script>
-/* ── CURSOR ──────────────────────────────────────────────────────────── */
+/* ── Header + mobile nav ─────────────────────────────────────────────── */
 (function(){
-  var dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
-  if(!dot||!ring)return;
-  var mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
-  (function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+  var header=document.getElementById('header'),toggle=document.getElementById('menuToggle'),menu=document.getElementById('mobileNav');
+  function onScroll(){header.classList.toggle('scrolled',window.scrollY>8)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  function setOpen(open){menu.classList.toggle('open',open);toggle.setAttribute('aria-expanded',open);toggle.setAttribute('aria-label',open?'Close menu':'Open menu');toggle.querySelector('use').setAttribute('href',open?'#i-close':'#i-menu');document.body.style.overflow=open?'hidden':''}
+  toggle.addEventListener('click',function(){setOpen(!menu.classList.contains('open'))});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
 })();
 
-/* ── MOBILE MENU ─────────────────────────────────────────────────────── */
+/* ── Scroll reveal ───────────────────────────────────────────────────── */
 (function(){
-  var hamburger=document.getElementById('hamburger'),menu=document.getElementById('mobileMenu');
-  if(!hamburger||!menu)return;
-  hamburger.addEventListener('click',function(){hamburger.classList.toggle('active');menu.classList.toggle('open');document.body.style.overflow=menu.classList.contains('open')?'hidden':''});
-  document.querySelectorAll('[data-close-mobile]').forEach(function(a){
-    a.addEventListener('click',function(){hamburger.classList.remove('active');menu.classList.remove('open');document.body.style.overflow=''});
-  });
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('visible')});return;}
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){obs.observe(el)});
 })();
 
-/* ── SCROLL REVEAL ───────────────────────────────────────────────────── */
+/* ── Active nav link ─────────────────────────────────────────────────── */
 (function(){
-  var reveals=document.querySelectorAll('.reveal');
-  if(!reveals.length)return;
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){
-    if(entry.isIntersecting){
-      var siblings=Array.from(entry.target.parentElement.querySelectorAll('.reveal:not(.visible)'));
-      var delay=siblings.indexOf(entry.target)*80;
-      setTimeout(function(){entry.target.classList.add('visible')},delay);
-    }
-  })},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
-  reveals.forEach(function(el){obs.observe(el)});
+  if(!('IntersectionObserver' in window))return;
+  var links=Array.from(document.querySelectorAll('.nav a[href^="#"]:not(.btn)')),map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&map[e.target.id]){links.forEach(function(l){l.classList.remove('active')});map[e.target.id].classList.add('active')}})},{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)obs.observe(s)});
 })();
 
-/* ── NAV ACTIVE SECTION ──────────────────────────────────────────────── */
-(function(){
-  var sections=document.querySelectorAll('section[id]'),navLinks=document.querySelectorAll('.nav-links a[href^="#"]');
-  window.addEventListener('scroll',function(){
-    var current='';
-    sections.forEach(function(s){if(window.scrollY>=s.offsetTop-100)current=s.id});
-    navLinks.forEach(function(a){a.style.color=a.getAttribute('href')==='#'+current?'rgba(250,250,248,1)':''});
-  },{passive:true});
-})();
-
-/* ── RESULTS TABS ────────────────────────────────────────────────────── */
+/* ── Results tabs ────────────────────────────────────────────────────── */
 document.querySelectorAll('.tab-btn').forEach(function(btn){
   btn.addEventListener('click',function(){
-    var panelId=this.getAttribute('data-tab');
-    if(!panelId)return;
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-selected','false')});
     document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});
-    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
-    var panel=document.getElementById(panelId);
-    if(panel)panel.classList.add('active');
-    this.classList.add('active');
+    btn.classList.add('active');btn.setAttribute('aria-selected','true');
+    document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
   });
 });
 
-/* ── FORM SUBMISSION (Google Forms via hidden iframe) ──────────────────
+/* ── Form submission (Google Forms via hidden iframe) ────────────────────
    Forms POST natively into a hidden iframe. Success is shown only once the
-   iframe actually loads Google's response; a timeout surfaces an error with
-   a mailto fallback instead of a false "received" message. */
+   iframe loads Google's response; a timeout surfaces an error instead. */
 var _lastSubmit={contact:0,register:0};
 var RATE_LIMIT_MS=10000, SUBMIT_TIMEOUT_MS=15000;
-
 function isHoneypotFilled(id){var hp=document.getElementById('honeypot_'+id);return hp&&hp.value.length>0;}
-function isValidEmail(email){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);}
-function showError(id,msg){var el=document.getElementById(id);if(!el)return;el.innerHTML=msg;el.style.display=msg?'block':'none';}
-
+function isValidEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);}
+function showError(id,msg){var el=document.getElementById(id);el.innerHTML=msg;el.style.display=msg?'block':'none';}
 function watchSubmission(iframeId,onDone,onFail){
   var iframe=document.getElementById(iframeId),settled=false;
   var timer=setTimeout(function(){if(!settled){settled=true;onFail();}},SUBMIT_TIMEOUT_MS);
-  iframe.addEventListener('load',function handler(){
-    iframe.removeEventListener('load',handler);
-    if(settled)return;settled=true;clearTimeout(timer);onDone();
-  });
+  iframe.addEventListener('load',function handler(){iframe.removeEventListener('load',handler);if(settled)return;settled=true;clearTimeout(timer);onDone();});
+}
+function firstInvalid(form){
+  var bad=null;
+  form.querySelectorAll('[required]').forEach(function(el){var ok=el.value.trim()!=='';el.classList.toggle('invalid',!ok);if(!ok&&!bad)bad=el;});
+  return bad;
+}
+function setBusy(btn,on,label){btn.disabled=on;btn.querySelector('.btn-label').textContent=label;}
+function validate(e,form,errId){
+  var bad=firstInvalid(form);
+  if(bad){e.preventDefault();bad.focus();showError(errId,'Please complete the required fields.');return false;}
+  var email=form.querySelector('input[name="entry.1399262662"]');
+  if(!isValidEmail(email.value)){e.preventDefault();email.classList.add('invalid');email.focus();showError(errId,'Please enter a valid email address.');return false;}
+  return true;
 }
 
 function submitContact(e){
   var form=e.target;
   if(isHoneypotFilled('contact')){e.preventDefault();return;}
+  if(!validate(e,form,'contactError'))return;
   var now=Date.now();
   if(now-_lastSubmit.contact<RATE_LIMIT_MS){e.preventDefault();showError('contactError','Please wait a moment before submitting again.');return;}
-  var emailField=form.querySelector('input[name="entry.1399262662"]');
-  if(!isValidEmail(emailField.value)){e.preventDefault();emailField.classList.add('invalid');emailField.focus();showError('contactError','Please enter a valid email address.');return;}
-  emailField.classList.remove('invalid');showError('contactError','');
-  _lastSubmit.contact=now;
-  var btn=form.querySelector('.form-submit'),label=btn.textContent;
-  btn.textContent='Sending…';btn.disabled=true;
+  showError('contactError','');_lastSubmit.contact=now;
+  var btn=form.querySelector('.form-submit');setBusy(btn,true,'Sending…');
   watchSubmission('hidden_iframe_contact',function(){
-    Array.from(form.children).forEach(function(c){if(c.id!=='contactSuccess')c.style.display='none';});
+    form.style.display='none';document.getElementById('contactHead').style.display='none';
     document.getElementById('contactSuccess').style.display='block';
   },function(){
-    btn.textContent=label;btn.disabled=false;
+    setBusy(btn,false,'Send message');
     showError('contactError','We couldn’t confirm your message was sent. Please try again or email <a href="mailto:info@ghanapowerlifting.org">info@ghanapowerlifting.org</a>.');
   });
-  /* allow native submit to proceed into the iframe */
 }
 
-/* ── MEMBERSHIP FEE (live) ─────────────────────────────────────────────── */
+/* ── Membership fee (live) ───────────────────────────────────────────── */
 var FEE_RESIDENT=60, FEE_DIASPORA=140;
 var RESIDENT_VAL='Ghanaian Resident (need to be able to provide home/family address in Ghana)';
 function currentFee(form){
@@ -239,14 +887,13 @@ function currentFee(form){
   if(!vals.length)return null;
   if(vals.indexOf(RESIDENT_VAL)>-1)return{amount:FEE_RESIDENT,label:'Ghana resident rate'};
   if(vals.length===1&&vals[0]==='IPF-Affiliated Nation Guest')return{amount:null,label:'Guest membership — confirmed by the Executive Committee'};
-  return{amount:FEE_DIASPORA,label:'Diaspora rate (living outside Ghana)'};
+  return{amount:FEE_DIASPORA,label:'Diaspora rate'};
 }
 (function(){
-  var form=document.getElementById('registerForm');if(!form)return;
-  var box=document.getElementById('feeLive'),txt=document.getElementById('feeLiveText'),amt=document.getElementById('feeLiveAmount');
+  var form=document.getElementById('registerForm'),box=document.getElementById('feeLive'),txt=document.getElementById('feeLiveText'),amt=document.getElementById('feeLiveAmount');
   function update(){
     var f=currentFee(form);
-    if(!f){box.classList.remove('set');txt.textContent='Select your nationality / residency above to see your annual fee';amt.textContent='—';return;}
+    if(!f){box.classList.remove('set');txt.textContent='Select your nationality / residency to see your annual fee';amt.textContent='—';return;}
     box.classList.add('set');txt.textContent='Your annual fee · '+f.label;amt.textContent=f.amount?('$'+f.amount+' USD'):'TBC';
   }
   form.querySelectorAll('input[name="entry.846137646"]').forEach(function(cb){cb.addEventListener('change',update)});
@@ -256,31 +903,22 @@ function currentFee(form){
 function submitRegister(e){
   var form=e.target;
   if(isHoneypotFilled('register')){e.preventDefault();return;}
+  if(!validate(e,form,'registerError'))return;
+  if(!form.querySelectorAll('input[name="entry.846137646"]:checked').length){e.preventDefault();showError('registerError','Please select at least one nationality / residency option.');form.querySelector('.check-list').scrollIntoView({behavior:'smooth',block:'center'});return;}
   var now=Date.now();
   if(now-_lastSubmit.register<RATE_LIMIT_MS){e.preventDefault();showError('registerError','Please wait a moment before submitting again.');return;}
-  var emailField=form.querySelector('input[name="entry.1399262662"]');
-  if(!isValidEmail(emailField.value)){e.preventDefault();emailField.classList.add('invalid');emailField.focus();showError('registerError','Please enter a valid email address.');return;}
-  emailField.classList.remove('invalid');
-  var anyChecked=form.querySelectorAll('input[name="entry.846137646"]:checked').length>0;
-  if(!anyChecked){e.preventDefault();showError('registerError','Please select at least one Nationality / Citizenship option.');form.querySelector('.check-list').scrollIntoView({behavior:'smooth',block:'center'});return;}
-  showError('registerError','');
-  _lastSubmit.register=now;
-  var fee=currentFee(form);
-  var btn=form.querySelector('.register-submit'),label=btn.textContent;
-  btn.textContent='Submitting…';btn.disabled=true;
+  showError('registerError','');_lastSubmit.register=now;
+  var fee=currentFee(form),btn=form.querySelector('.register-submit');setBusy(btn,true,'Submitting…');
   watchSubmission('hidden_iframe_register',function(){
-    form.style.display='none';
-    document.querySelector('.register-form-title').style.display='none';
-    document.querySelector('.register-form-sub').style.display='none';
+    form.style.display='none';document.getElementById('registerHead').style.display='none';
     if(fee&&fee.amount)document.getElementById('registerSuccessFee').textContent='Your annual membership fee: $'+fee.amount+' USD — '+fee.label+'.';
-    var s=document.getElementById('registerSuccess');s.style.display='block';
-    s.scrollIntoView({behavior:'smooth',block:'center'});
+    var s=document.getElementById('registerSuccess');s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'center'});
   },function(){
-    btn.textContent=label;btn.disabled=false;
-    showError('registerError','We couldn’t confirm your registration was received. Please try again, or email <a href="mailto:secretary@ghanapowerlifting.org" style="color:var(--gold)">secretary@ghanapowerlifting.org</a>.');
+    setBusy(btn,false,'Submit registration');
+    showError('registerError','We couldn’t confirm your registration was received. Please try again, or email <a href="mailto:secretary@ghanapowerlifting.org">secretary@ghanapowerlifting.org</a>.');
   });
-  /* allow native submit to proceed into the iframe */
 }
+document.querySelectorAll('.input').forEach(function(el){['input','change'].forEach(function(ev){el.addEventListener(ev,function(){el.classList.remove('invalid')})})});
 </script>
 </body>
 </html>
