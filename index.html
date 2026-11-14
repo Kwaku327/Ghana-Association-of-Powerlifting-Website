@@ -18,349 +18,464 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1210'/%3E%3Cpath d='M32 13l5.6 11.4 12.6 1.8-9.1 8.9 2.1 12.5L32 41.7l-11.2 5.9 2.1-12.5-9.1-8.9 12.6-1.8z' fill='%23E9B21B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ── Tokens ─────────────────────────────────────────────────────────── */
 :root{
-  --ink:#0E1210; --ink-2:#161B18; --ink-3:#212823;
-  --paper:#F6F5F1; --surface:#FFFFFF; --line:#E3E1DA; --line-dark:rgba(255,255,255,.1);
-  --text:#1A1E1C; --text-2:#5C625E; --text-3:#8A8F8B; --on-dark:#F3F2EE; --on-dark-2:rgba(243,242,238,.66); --on-dark-3:rgba(243,242,238,.42);
-  --green:#00623B; --green-700:#004D2E; --green-50:#E8F1EC;
-  --gold:#E9B21B; --gold-50:#FBF3DC;
-  --red:#C8102E; --red-50:#FBE9EC;
+  --ink:#0E1210; --ink-2:#161B18; --ink-3:#212823; --ink-grad:#0A1A12;
+  --paper:#F5F4EF; --surface:#FFFFFF; --line:#E3E1DA; --line-dark:rgba(255,255,255,.11);
+  --text:#161A18; --text-2:#565C58; --text-3:#878C88; --on-dark:#F4F3EF; --on-dark-2:rgba(244,243,239,.70); --on-dark-3:rgba(244,243,239,.45);
+  --green:#00623B; --green-700:#014D2E; --green-50:#E7F1EB;
+  --gold:#E9B21B; --gold-600:#C9960E; --gold-50:#FBF2D8;
+  --red:#C8102E; --red-50:#FBE8EB;
   --display:'Archivo',system-ui,sans-serif; --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --radius:6px; --radius-lg:10px;
-  --shadow:0 1px 2px rgba(14,18,16,.04),0 8px 24px -12px rgba(14,18,16,.12);
+  --radius:8px; --radius-lg:14px; --radius-pill:100px;
+  --shadow:0 1px 2px rgba(14,18,16,.05),0 10px 30px -14px rgba(14,18,16,.18);
+  --shadow-lg:0 2px 6px rgba(14,18,16,.06),0 24px 48px -20px rgba(14,18,16,.28);
   --ease:cubic-bezier(.2,.7,.2,1);
-  --wrap:1180px; --gutter:clamp(1.25rem,4vw,2.5rem);
+  --wrap:1200px; --gutter:clamp(1.25rem,4vw,2.5rem);
+  --h-util:38px; --h-head:70px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--body);font-size:16px;line-height:1.6;color:var(--text);background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-img,svg{display:block}
+svg{display:block}
 a{color:inherit}
 ::selection{background:var(--gold);color:var(--ink)}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
-section[id]{scroll-margin-top:80px}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:2px;border-radius:3px}
+.on-dark :focus-visible{outline-color:var(--gold)}
+section[id],div[id].anchor{scroll-margin-top:calc(var(--h-head) + 12px)}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
 .icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.skip{position:absolute;left:-999px;top:0;z-index:300;background:var(--gold);color:var(--ink);padding:.6rem 1rem;font-weight:600;border-radius:0 0 var(--radius) 0}
+.skip:focus{left:0}
 
 /* ── Type ───────────────────────────────────────────────────────────── */
-.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
-.eyebrow::before{content:'';width:18px;height:2px;background:linear-gradient(90deg,var(--red) 33%,var(--gold) 33% 66%,var(--green) 66%)}
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.eyebrow::before{content:'';width:20px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--red) 33%,var(--gold) 33% 66%,var(--green) 66%)}
 .on-dark .eyebrow{color:var(--gold)}
-h1,h2,h3{font-family:var(--display);font-stretch:88%;font-weight:750;letter-spacing:-.015em;line-height:1.05;color:inherit}
-h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:.9rem}
-h3{font-size:1.2rem;font-stretch:95%;font-weight:700;letter-spacing:-.005em;line-height:1.25}
-.lede{font-size:1.075rem;color:var(--text-2);max-width:58ch;margin-top:1.1rem}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.04;letter-spacing:-.02em;color:inherit;font-weight:800}
+h2{font-size:clamp(1.9rem,3.6vw,2.85rem);margin-top:.85rem;letter-spacing:-.025em}
+h3{font-size:1.18rem;font-weight:700;line-height:1.2;letter-spacing:-.01em}
+.lede{font-size:1.08rem;color:var(--text-2);max-width:60ch;margin-top:1.1rem}
 .on-dark .lede{color:var(--on-dark-2)}
-.section{padding:clamp(4.5rem,9vw,7.5rem) 0}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
+.section{padding:clamp(3.75rem,7vw,6.5rem) 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.75rem;flex-wrap:wrap}
 .on-dark{background:var(--ink);color:var(--on-dark)}
 .tint{background:var(--surface)}
-.label{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
+.label{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--text-3)}
 .on-dark .label{color:var(--on-dark-3)}
+.small-copy{font-size:.93rem;color:var(--text-2);margin-top:.7rem}
+.fine{font-size:.84rem;color:var(--text-3);margin-top:1.1rem}
 
-/* ── Buttons ────────────────────────────────────────────────────────── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font:600 .925rem/1 var(--body);padding:.95rem 1.4rem;border-radius:var(--radius);border:1px solid transparent;text-decoration:none;cursor:pointer;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
+/* ── Buttons & links ────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:700 .9rem/1 var(--body);letter-spacing:.01em;padding:.95rem 1.5rem;border-radius:var(--radius-pill);border:1.5px solid transparent;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
 .btn .icon{width:16px;height:16px;transition:transform .2s var(--ease)}
 .btn:hover .icon{transform:translateX(3px)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--gold-600)}
 .btn-primary{background:var(--green);color:#fff}
 .btn-primary:hover{background:var(--green-700)}
-.btn-gold{background:var(--gold);color:var(--ink)}
-.btn-gold:hover{background:#F2C443}
 .btn-ghost{border-color:var(--line);color:var(--text);background:transparent}
 .btn-ghost:hover{border-color:var(--text-3)}
-.on-dark .btn-ghost{border-color:rgba(255,255,255,.2);color:var(--on-dark)}
-.on-dark .btn-ghost:hover{border-color:rgba(255,255,255,.45)}
-.btn:disabled{opacity:.65;cursor:progress}
-.link{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.9rem;color:var(--green);text-decoration:none}
+.on-dark .btn-ghost,.hero .btn-ghost,.join-band .btn-ghost{border-color:rgba(255,255,255,.28);color:var(--on-dark)}
+.on-dark .btn-ghost:hover,.hero .btn-ghost:hover,.join-band .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn-sm{padding:.65rem 1.1rem;font-size:.82rem}
+.btn:disabled{opacity:.6;cursor:progress}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2rem}
+.link{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.88rem;color:var(--green);text-decoration:none}
 .link .icon{width:15px;height:15px;transition:transform .2s var(--ease)}
 .link:hover .icon{transform:translateX(3px)}
 .on-dark .link{color:var(--gold)}
-.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2.25rem}
-
-/* ── Header ─────────────────────────────────────────────────────────── */
-.flag-rule{height:3px;background:linear-gradient(90deg,var(--red) 0 33.33%,var(--gold) 33.33% 66.66%,var(--green) 66.66%)}
-.site-header{position:sticky;top:0;z-index:50;background:rgba(14,18,16,.94);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);color:var(--on-dark);border-bottom:1px solid transparent;transition:border-color .3s}
-.site-header.scrolled{border-bottom-color:var(--line-dark)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:2rem}
-.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--on-dark)}
-.brand-mark{width:38px;height:38px;border-radius:9px;background:var(--ink-3);border:1px solid var(--line-dark);display:grid;place-items:center;flex-shrink:0}
-.brand-mark svg{width:20px;height:20px;fill:var(--gold)}
-.brand-name{display:flex;flex-direction:column;line-height:1.15}
-.brand-name strong{font-family:var(--display);font-stretch:88%;font-weight:750;font-size:1.05rem;letter-spacing:.01em}
-.brand-name span{font-size:.72rem;color:var(--on-dark-3)}
-.nav{display:flex;align-items:center;gap:.15rem;list-style:none}
-.nav a{display:block;padding:.5rem .7rem;font-size:.86rem;font-weight:500;color:var(--on-dark-2);text-decoration:none;border-radius:4px;transition:color .2s}
-.nav a:hover,.nav a.active{color:var(--on-dark)}
-.nav .btn{margin-left:.75rem;padding:.65rem 1.05rem;color:var(--ink)}
-.menu-toggle{display:none;background:none;border:1px solid var(--line-dark);border-radius:var(--radius);width:42px;height:42px;color:var(--on-dark);cursor:pointer;place-items:center}
-.mobile-nav{display:none}
-
-/* ── Hero ───────────────────────────────────────────────────────────── */
-.hero{position:relative;overflow:hidden;padding:clamp(4rem,9vw,7rem) 0 0}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 10%,rgba(0,98,59,.28),transparent 70%),radial-gradient(40% 50% at 100% 100%,rgba(233,178,27,.07),transparent 70%);pointer-events:none}
-.hero .wrap{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(2.5rem,6vw,5rem);align-items:end}
-.hero h1{font-size:clamp(2.75rem,6.2vw,5rem);margin-top:1.25rem;max-width:14ch}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero .lede{font-size:1.15rem;margin-top:1.5rem;max-width:50ch}
-.update-card{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius-lg);padding:1.75rem;position:relative}
-.update-card::before{content:'';position:absolute;left:-1px;top:1.75rem;height:2.4rem;width:3px;background:var(--gold);border-radius:0 2px 2px 0}
-.update-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
-.update-card h3{font-size:1.35rem;color:var(--on-dark)}
-.update-card p{font-size:.92rem;color:var(--on-dark-2);margin-top:.6rem}
-.update-meta{display:flex;flex-direction:column;gap:.55rem;margin:1.3rem 0 1.4rem;padding-top:1.2rem;border-top:1px solid var(--line-dark)}
-.update-meta div{display:flex;align-items:center;gap:.6rem;font-size:.86rem;color:var(--on-dark-2)}
-.update-meta .icon{width:16px;height:16px;color:var(--gold)}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(3.5rem,7vw,5.5rem);border-top:1px solid var(--line-dark)}
-.hero-stat{padding:1.6rem 1.5rem 1.8rem 0}
-.hero-stat+.hero-stat{padding-left:1.5rem;border-left:1px solid var(--line-dark)}
-.hero-stat strong{display:block;font-family:var(--display);font-stretch:85%;font-weight:700;font-size:1.65rem;letter-spacing:-.01em;color:var(--on-dark)}
-.hero-stat span{font-size:.82rem;color:var(--on-dark-3)}
 
 /* ── Pills ──────────────────────────────────────────────────────────── */
-.pill{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.32rem .6rem;border-radius:100px;white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .6rem;border-radius:var(--radius-pill);white-space:nowrap}
 .pill-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
-.on-dark .pill-red{background:rgba(200,16,46,.16);color:#FF8597}
-.on-dark .pill-gold{background:rgba(233,178,27,.14);color:var(--gold)}
 .pill-red{background:var(--red-50);color:var(--red)}
 .pill-gold{background:var(--gold-50);color:#8A6500}
 .pill-green{background:var(--green-50);color:var(--green)}
-.pill-muted{background:#EEEDE8;color:var(--text-2)}
+.pill-muted{background:#EDECE6;color:var(--text-2)}
+.on-dark .pill-red{background:rgba(200,16,46,.17);color:#FF8596}
+.on-dark .pill-gold{background:rgba(233,178,27,.15);color:var(--gold)}
+.on-dark .pill-muted{background:rgba(255,255,255,.08);color:var(--on-dark-2)}
 
-/* ── Shared blocks ──────────────────────────────────────────────────── */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5.5rem);align-items:start}
-.icon-badge{width:42px;height:42px;border-radius:8px;display:grid;place-items:center;background:var(--green-50);color:var(--green);flex-shrink:0}
-.prose p{color:var(--text-2);margin-top:1.1rem;max-width:60ch}
+/* ── Flag rule ──────────────────────────────────────────────────────── */
+.flag-rule{height:3px;background:linear-gradient(90deg,var(--red) 0 33.33%,var(--gold) 33.33% 66.66%,var(--green) 66.66%)}
+
+/* ── Utility bar ────────────────────────────────────────────────────── */
+.utility{background:var(--ink-grad);color:var(--on-dark-2);font-size:.78rem}
+.utility-inner{height:var(--h-util);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.utility-tag{display:inline-flex;align-items:center;gap:.5rem;letter-spacing:.02em}
+.utility-tag .icon{width:14px;height:14px;color:var(--gold)}
+.utility-links{display:flex;align-items:center;gap:1.25rem}
+.utility-links a{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;color:var(--on-dark-2);transition:color .2s}
+.utility-links a:hover{color:var(--on-dark)}
+.utility-links .icon{width:14px;height:14px}
+.utility-links .sep{width:1px;height:14px;background:var(--line-dark)}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(14,18,16,.96);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);color:var(--on-dark);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.site-header.scrolled{border-bottom-color:var(--line-dark);box-shadow:0 10px 30px -22px rgba(0,0,0,.9)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:var(--h-head)}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--on-dark);flex-shrink:0}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(145deg,var(--ink-3),#111613);border:1px solid var(--line-dark);display:grid;place-items:center;flex-shrink:0}
+.brand-mark svg{width:21px;height:21px;fill:var(--gold)}
+.brand-name{display:flex;flex-direction:column;line-height:1.12}
+.brand-name strong{font-family:var(--display);font-weight:800;font-size:1.1rem;letter-spacing:.02em}
+.brand-name span{font-size:.7rem;color:var(--on-dark-3);letter-spacing:.01em}
+.nav{display:flex;align-items:center;gap:.1rem;list-style:none}
+.nav-top,.nav-link{display:inline-flex;align-items:center;gap:.35rem;font:600 .88rem var(--body);color:var(--on-dark-2);background:none;border:0;cursor:pointer;padding:.55rem .7rem;border-radius:6px;text-decoration:none;transition:color .2s}
+.nav-top .icon{width:13px;height:13px;transition:transform .25s var(--ease)}
+.nav-top:hover,.nav-link:hover,.nav-link.active{color:var(--on-dark)}
+.has-menu{position:relative}
+.has-menu:hover .nav-top .icon,.has-menu:focus-within .nav-top .icon,.has-menu.open .nav-top .icon{transform:rotate(180deg)}
+.submenu{position:absolute;top:calc(100% + 10px);left:0;min-width:230px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:.5rem;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s var(--ease),transform .18s var(--ease),visibility .18s;z-index:5}
+.has-menu:hover .submenu,.has-menu:focus-within .submenu,.has-menu.open .submenu{opacity:1;visibility:visible;transform:translateY(0)}
+.submenu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+.submenu a{display:flex;flex-direction:column;gap:.1rem;padding:.6rem .75rem;border-radius:8px;text-decoration:none;color:var(--text);font-size:.88rem;font-weight:600;transition:background .15s}
+.submenu a small{font-size:.76rem;font-weight:400;color:var(--text-3)}
+.submenu a:hover{background:var(--paper)}
+.header-cta{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+.menu-toggle{display:none;background:none;border:1px solid var(--line-dark);border-radius:var(--radius);width:44px;height:44px;color:var(--on-dark);cursor:pointer;place-items:center}
+.menu-toggle .icon{width:22px;height:22px}
+
+/* ── Mobile nav ─────────────────────────────────────────────────────── */
+.mobile-nav{display:none}
+@media(max-width:1040px){
+  .nav,.header-cta .btn{display:none}
+  .menu-toggle{display:grid}
+  .mobile-nav{position:fixed;inset:calc(var(--h-head)) 0 0;background:var(--ink);z-index:55;padding:1rem var(--gutter) 3rem;overflow-y:auto;flex-direction:column;gap:.25rem}
+  .mobile-nav.open{display:flex}
+  .mobile-nav details{border-bottom:1px solid var(--line-dark)}
+  .mobile-nav summary{list-style:none;display:flex;align-items:center;justify-content:space-between;padding:1rem .25rem;font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--on-dark);cursor:pointer}
+  .mobile-nav summary::-webkit-details-marker{display:none}
+  .mobile-nav summary::after{content:'';width:10px;height:10px;border-right:2px solid var(--on-dark-3);border-bottom:2px solid var(--on-dark-3);transform:rotate(45deg);transition:transform .2s;margin-right:.3rem}
+  .mobile-nav details[open] summary::after{transform:rotate(-135deg)}
+  .mobile-nav .sub a{display:block;padding:.65rem .25rem;color:var(--on-dark-2);text-decoration:none;font-size:.98rem}
+  .mobile-nav .sub a:last-child{padding-bottom:1rem}
+  .mobile-nav>a{padding:1rem .25rem;border-bottom:1px solid var(--line-dark);color:var(--on-dark);text-decoration:none;font-family:var(--display);font-weight:700;font-size:1.2rem}
+  .mobile-nav .btn{margin-top:1.5rem;font-family:var(--body);font-size:1rem;color:var(--ink);display:inline-flex}
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────── */
+.hero{position:relative;background:radial-gradient(120% 120% at 80% -10%,#0d2a1c 0%,var(--ink) 48%);color:var(--on-dark);overflow:hidden;padding:clamp(3.5rem,7vw,6rem) 0 0}
+.hero::before{content:'';position:absolute;right:-6%;top:-10%;width:min(620px,60vw);height:min(620px,60vw);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 2l12 36h38L69 60l12 38-31-23-31 23 12-38L0 38h38z' fill='%23E9B21B' fill-opacity='.05'/%3E%3C/svg%3E") center/contain no-repeat;pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero-inner{max-width:760px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.7rem);font-weight:900;letter-spacing:-.035em;line-height:1.0;margin-top:1.1rem}
+.hero h1 .hl{color:var(--gold)}
+.hero .lede{font-size:clamp(1.05rem,1.6vw,1.22rem);margin-top:1.6rem;max-width:54ch;color:var(--on-dark-2)}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2.25rem}
+.hero-foot{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line-dark);color:var(--on-dark-3);font-size:.82rem}
+.hero-foot span{display:inline-flex;align-items:center;gap:.5rem}
+.hero-foot .icon{width:15px;height:15px;color:var(--gold)}
+
+/* ── Feature cards (under hero) ─────────────────────────────────────── */
+.features{position:relative;z-index:2;background:transparent;margin-top:clamp(2.5rem,5vw,4rem);padding-bottom:clamp(3rem,6vw,5rem)}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.feature{display:flex;flex-direction:column;background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius-lg);padding:1.6rem;text-decoration:none;color:var(--on-dark);position:relative;overflow:hidden;transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.feature::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
+.feature.is-red::before{background:var(--red)}
+.feature.is-green::before{background:var(--green)}
+.feature:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.22)}
+.feature .f-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.feature .f-ico{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:rgba(233,178,27,.12);color:var(--gold)}
+.feature h3{font-size:1.14rem;color:var(--on-dark)}
+.feature p{font-size:.9rem;color:var(--on-dark-2);margin-top:.5rem;flex:1}
+.feature .f-link{margin-top:1.1rem;display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:700;color:var(--gold)}
+.feature .f-link .icon{width:15px;height:15px;transition:transform .2s var(--ease)}
+.feature:hover .f-link .icon{transform:translateX(3px)}
+
+/* ── Split layout ───────────────────────────────────────────────────── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,5vw,5rem);align-items:start}
+.icon-badge{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:var(--green-50);color:var(--green);flex-shrink:0}
+.prose p{color:var(--text-2);margin-top:1.1rem;max-width:62ch}
 .prose strong{color:var(--text);font-weight:600}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
-.pillar{background:var(--surface);padding:1.75rem}
-.pillar .icon-badge{margin-bottom:1.1rem}
-.pillar h3{font-size:1.05rem}
-.pillar p{font-size:.9rem;color:var(--text-2);margin-top:.4rem}
+.pillar{background:var(--surface);padding:1.6rem}
+.pillar .icon-badge{margin-bottom:1rem;width:40px;height:40px}
+.pillar h3{font-size:1.02rem}
+.pillar p{font-size:.88rem;color:var(--text-2);margin-top:.4rem}
+
+/* ── Upcoming events strip ──────────────────────────────────────────── */
+.ev-list{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);overflow:hidden}
+.ev-row{display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;padding:1rem 1.4rem;text-decoration:none;color:inherit;transition:background .18s}
+.ev-row+.ev-row{border-top:1px solid var(--line)}
+a.ev-row:hover{background:#FAFAF6}
+.ev-badge{width:62px;text-align:center;border-radius:10px;overflow:hidden;border:1px solid var(--line);flex-shrink:0}
+.ev-badge .m{display:block;background:var(--ink);color:var(--gold);font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem 0}
+.ev-badge .d{display:block;font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--text);padding:.25rem 0}
+.ev-badge.tbc .d{font-size:.95rem;padding:.45rem 0}
+.ev-main .ev-name{display:block;font-weight:600;font-size:.98rem}
+.ev-main .ev-meta{display:block;font-size:.84rem;color:var(--text-3);margin-top:.1rem}
+.ev-main .pill{vertical-align:middle}
+.ev-cta{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:700;color:var(--green);white-space:nowrap}
+.ev-cta .icon{width:15px;height:15px}
+.ev-foot{display:flex;justify-content:flex-end;margin-top:1.1rem}
+
+/* ── New here band ──────────────────────────────────────────────────── */
+.newhere{background:var(--green);color:#fff;border-radius:var(--radius-lg);padding:clamp(2rem,4vw,3rem);display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center;position:relative;overflow:hidden}
+.newhere::after{content:'';position:absolute;right:-30px;bottom:-40px;width:230px;height:230px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 2l12 36h38L69 60l12 38-31-23-31 23 12-38L0 38h38z' fill='%23fff' fill-opacity='.06'/%3E%3C/svg%3E") center/contain no-repeat}
+.newhere .eyebrow{color:rgba(255,255,255,.75)}
+.newhere .eyebrow::before{background:var(--gold)}
+.newhere h2{color:#fff;position:relative}
+.newhere p{color:rgba(255,255,255,.82);margin-top:.9rem;max-width:46ch;position:relative}
+.newhere-cta{display:flex;flex-direction:column;gap:.75rem;position:relative}
+.newhere-cta .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff;justify-content:space-between;padding:1rem 1.4rem}
+.newhere-cta .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.newhere-cta .btn-gold{justify-content:space-between;padding:1rem 1.4rem}
+
+/* ── Meet cards (tagged) ────────────────────────────────────────────── */
+.meet-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.meet{border:1px solid var(--line-dark);border-radius:var(--radius-lg);padding:1.75rem;background:var(--ink-2);display:flex;flex-direction:column}
+.meet.next{background:linear-gradient(150deg,rgba(0,98,59,.26),rgba(0,98,59,.03))}
+.meet-tag{font-size:.7rem;font-weight:800;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.meet-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.9rem 0 .4rem}
+.meet h3{font-size:1.28rem;color:var(--on-dark)}
+.meet h3 s{color:var(--on-dark-2);text-decoration-color:rgba(255,133,150,.7);text-decoration-thickness:1.5px}
+.meet>p{font-size:.9rem;color:var(--on-dark-2);margin-top:.35rem}
+.meet-bul{list-style:none;margin:1.25rem 0;display:flex;flex-direction:column;gap:.6rem}
+.meet-bul li{display:grid;grid-template-columns:18px 1fr;gap:.6rem;font-size:.88rem;color:var(--on-dark-2)}
+.meet-bul .icon{width:16px;height:16px;color:var(--gold);margin-top:.15rem}
+.meet .link{margin-top:auto}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:var(--radius-lg);overflow:hidden;margin-top:1.25rem}
+.spec{background:var(--ink-2);padding:1.25rem;display:grid;grid-template-columns:34px 1fr;gap:.85rem}
+.spec .icon{color:var(--gold);margin-top:.1rem}
+.spec dt{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)}
+.spec dd{font-size:.92rem;color:var(--on-dark);margin-top:.2rem}
 
 /* ── Governance ─────────────────────────────────────────────────────── */
 .gov-bodies{margin-top:1.75rem;border-top:1px solid var(--line)}
 .gov-body{display:grid;grid-template-columns:48px 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);align-items:baseline}
-.gov-body b{font-family:var(--display);font-stretch:85%;font-weight:700;color:var(--green);font-size:.95rem}
-.gov-body span{font-size:.94rem;color:var(--text-2)}
+.gov-body b{font-family:var(--display);font-weight:800;color:var(--green);font-size:.95rem}
+.gov-body span{font-size:.93rem;color:var(--text-2)}
 .gov-body strong{color:var(--text);font-weight:600}
-.small-copy{font-size:.93rem;color:var(--text-2);margin-top:.75rem}
-.block-label{display:block;margin:2.5rem 0 1rem}
+.block-label{margin:2.25rem 0 1rem}
 .block-label:first-child{margin-top:0}
 .doc-list{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);overflow:hidden}
-.doc{display:flex;align-items:center;gap:1rem;padding:1.05rem 1.25rem;text-decoration:none;transition:background .2s}
+.doc{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;text-decoration:none;transition:background .2s}
 .doc+.doc{border-top:1px solid var(--line)}
-a.doc:hover{background:#FAFAF7}
+a.doc:hover{background:#FAFAF6}
 .doc>.icon{color:var(--text-3)}
 .doc-info{flex:1;min-width:0;display:flex;flex-direction:column}
-.doc-title{font-weight:600;font-size:.94rem}
-.doc-meta{font-size:.8rem;color:var(--text-3)}
-.doc-action{font-size:.82rem;font-weight:600;color:var(--green);white-space:nowrap}
+.doc-title{font-weight:600;font-size:.92rem}
+.doc-meta{font-size:.79rem;color:var(--text-3)}
+.doc-action{font-size:.8rem;font-weight:700;color:var(--green);white-space:nowrap}
 .doc-action.muted{color:var(--text-3);font-weight:500}
 
-/* ── Competitions ───────────────────────────────────────────────────── */
-.status-card{border:1px solid var(--line-dark);border-radius:var(--radius-lg);overflow:hidden;margin-top:2.25rem}
-.status-row{padding:1.75rem}
-.status-row+.status-row{border-top:1px solid var(--line-dark)}
-.status-row.next{background:linear-gradient(135deg,rgba(0,98,59,.24),rgba(0,98,59,.04))}
-.status-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
-.status-date{font-size:.82rem;color:var(--on-dark-3);font-weight:500}
-.status-row h3{font-size:1.3rem;color:var(--on-dark)}
-.status-row h3 s{text-decoration-color:rgba(255,133,151,.7);text-decoration-thickness:1.5px;color:var(--on-dark-2)}
-.status-row p{font-size:.92rem;color:var(--on-dark-2);margin-top:.5rem}
-.spec-list{border-top:1px solid var(--line-dark)}
-.spec{display:grid;grid-template-columns:36px 1fr;gap:.9rem;padding:1.2rem 0;border-bottom:1px solid var(--line-dark)}
-.spec .icon{color:var(--gold);margin-top:.15rem}
-.spec dt{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)}
-.spec dd{font-size:.95rem;color:var(--on-dark);margin-top:.15rem}
-
-/* ── Calendar ───────────────────────────────────────────────────────── */
+/* ── Calendar timeline ──────────────────────────────────────────────── */
 .timeline{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface);overflow:hidden}
-.t-row{display:grid;grid-template-columns:170px 1fr auto;gap:1.5rem;align-items:center;padding:1.15rem 1.5rem}
+.t-row{display:grid;grid-template-columns:168px 1fr auto;gap:1.5rem;align-items:center;padding:1.1rem 1.4rem}
 .t-row+.t-row{border-top:1px solid var(--line)}
-.t-date{font-family:var(--display);font-stretch:88%;font-weight:650;font-size:.98rem}
-.t-name{font-weight:600;font-size:.98rem}
-.t-loc{font-size:.84rem;color:var(--text-3)}
+.t-date{font-family:var(--display);font-weight:700;font-size:.96rem}
+.t-name{font-weight:600;font-size:.96rem}
+.t-loc{font-size:.83rem;color:var(--text-3)}
 .t-row.is-past .t-date,.t-row.is-past .t-name{color:var(--text-3);font-weight:500}
 .t-row.is-postponed .t-date s{text-decoration-color:var(--red)}
-.t-row.is-feature{background:linear-gradient(90deg,var(--green-50),transparent 75%);box-shadow:inset 3px 0 0 var(--green)}
+.t-row.is-feature{background:linear-gradient(90deg,var(--green-50),transparent 78%);box-shadow:inset 3px 0 0 var(--green)}
 .t-tags{display:flex;gap:.4rem;justify-content:flex-end;flex-wrap:wrap}
 
 /* ── Leadership ─────────────────────────────────────────────────────── */
-.people{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.person{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;min-width:0}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;min-width:0}
 .person>div:last-child{min-width:0}
-.avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-family:var(--display);font-stretch:85%;font-weight:700;font-size:1.05rem;color:var(--on-dark);background:var(--ink)}
-.person h3{font-size:1.05rem}
-.role{font-size:.8rem;font-weight:600;color:var(--green);margin-top:.15rem}
-.person a,.contact a{display:inline-block;margin-top:.5rem;font-size:.84rem;color:var(--text-2);text-decoration:none;overflow-wrap:anywhere}
+.avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.02rem;color:var(--on-dark);background:var(--ink)}
+.person h3{font-size:1.02rem}
+.role{font-size:.79rem;font-weight:700;color:var(--green);margin-top:.15rem}
+.person a,.contact a{display:inline-block;margin-top:.5rem;font-size:.82rem;color:var(--text-2);text-decoration:none;overflow-wrap:anywhere}
 .person a:hover,.contact a:hover{color:var(--green);text-decoration:underline}
 .person.vacant{background:transparent;border-style:dashed}
-.person.vacant .avatar{background:#ECEBE6;color:var(--text-3)}
-.person.vacant h3{color:var(--text-3);font-weight:600}
+.person.vacant .avatar{background:#ECEBE5;color:var(--text-3)}
+.person.vacant h3{color:var(--text-3)}
 .person.vacant .role{color:var(--text-2)}
 
 /* ── Membership ─────────────────────────────────────────────────────── */
-.fee-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
-.fee{border:1px solid var(--line-dark);border-radius:var(--radius-lg);padding:1.6rem;background:var(--ink-2)}
-.fee-tag{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)}
-.fee-price{display:flex;align-items:baseline;gap:.4rem;margin-top:.75rem}
-.fee-price strong{font-family:var(--display);font-stretch:85%;font-weight:750;font-size:3rem;line-height:1;letter-spacing:-.02em;color:var(--on-dark)}
-.fee-price span{font-size:.85rem;color:var(--on-dark-3)}
-.fee p{font-size:.88rem;color:var(--on-dark-2);margin-top:.75rem}
-.fee.accent{border-color:rgba(233,178,27,.4)}
-.fee.accent .fee-tag{color:var(--gold)}
-.fee-note{font-size:.84rem;color:var(--on-dark-3);margin-top:1rem}
 .info-list{margin-top:2rem;border-top:1px solid var(--line-dark)}
-.info-item{padding:1.3rem 0;border-bottom:1px solid var(--line-dark)}
+.info-item{padding:1.25rem 0;border-bottom:1px solid var(--line-dark)}
 .info-item h3{font-size:1rem;color:var(--on-dark)}
-.info-item p{font-size:.92rem;color:var(--on-dark-2);margin-top:.35rem}
+.info-item p{font-size:.9rem;color:var(--on-dark-2);margin-top:.35rem}
 .info-item strong{color:var(--on-dark);font-weight:600}
-.cat-list{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem}
-.cat{display:grid;grid-template-columns:42px 1fr;gap:1rem;padding:1.25rem;border:1px solid var(--line-dark);border-radius:var(--radius-lg)}
-.cat .icon-badge{background:rgba(233,178,27,.1);color:var(--gold)}
+.fee-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.fee{border:1px solid var(--line-dark);border-radius:var(--radius-lg);padding:1.6rem;background:var(--ink-2);position:relative;overflow:hidden}
+.fee::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
+.fee.accent::before{background:var(--gold)}
+.fee-tag{font-size:.73rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--on-dark-3)}
+.fee.accent .fee-tag{color:var(--gold)}
+.fee-price{display:flex;align-items:baseline;gap:.4rem;margin-top:.75rem}
+.fee-price strong{font-family:var(--display);font-weight:900;font-size:3rem;line-height:1;letter-spacing:-.03em;color:var(--on-dark)}
+.fee-price span{font-size:.82rem;color:var(--on-dark-3)}
+.fee p{font-size:.86rem;color:var(--on-dark-2);margin-top:.7rem}
+.fee-note{font-size:.84rem;color:var(--on-dark-3);margin-top:1rem}
+.cat-list{margin-top:1.75rem;display:flex;flex-direction:column;gap:.75rem}
+.cat{display:grid;grid-template-columns:44px 1fr;gap:1rem;padding:1.2rem;border:1px solid var(--line-dark);border-radius:var(--radius-lg)}
+.cat .icon-badge{background:rgba(233,178,27,.1);color:var(--gold);width:44px;height:44px}
 .cat h3{font-size:1rem;color:var(--on-dark)}
-.cat p{font-size:.88rem;color:var(--on-dark-2);margin-top:.25rem}
+.cat p{font-size:.86rem;color:var(--on-dark-2);margin-top:.25rem}
 .cat ul{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .9rem;margin-top:.6rem}
-.cat li{display:flex;align-items:center;gap:.35rem;font-size:.8rem;color:var(--on-dark-3)}
+.cat li{display:flex;align-items:center;gap:.35rem;font-size:.79rem;color:var(--on-dark-3)}
 .cat li .icon{width:13px;height:13px;color:var(--gold)}
+
+/* ── Get involved ───────────────────────────────────────────────────── */
+.involve-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.involve{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.6rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s}
+.involve:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#D4D2C9}
+.involve .icon-badge{margin-bottom:1rem}
+.involve h3{font-size:1.02rem}
+.involve p{font-size:.86rem;color:var(--text-2);margin:.4rem 0 1rem;flex:1}
+.involve .link{font-size:.82rem}
+
+/* ── Stats band ─────────────────────────────────────────────────────── */
+.stats-band{background:var(--ink);color:var(--on-dark)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:clamp(2.5rem,5vw,3.5rem) 1.5rem;text-align:center;border-left:1px solid var(--line-dark)}
+.stat:first-child{border-left:0}
+.stat strong{display:block;font-family:var(--display);font-weight:900;font-size:clamp(2.2rem,4vw,3rem);letter-spacing:-.03em;color:var(--gold)}
+.stat span{display:block;font-size:.86rem;color:var(--on-dark-2);margin-top:.5rem}
 
 /* ── Compliance ─────────────────────────────────────────────────────── */
 .checks{display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem;border-top:1px solid var(--line);list-style:none}
-.checks li{display:flex;gap:.8rem;padding:1rem 0;border-bottom:1px solid var(--line);font-size:.93rem;color:var(--text-2)}
+.checks li{display:flex;gap:.8rem;padding:1rem 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--text-2)}
 .checks .icon{width:18px;height:18px;color:var(--green);margin-top:.15rem}
 
 /* ── News ───────────────────────────────────────────────────────────── */
-.news-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:1.25rem}
-.news-side{display:grid;gap:1.25rem}
-.news-small{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.25rem}
+.news-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:1.1rem}
+.news-side{display:grid;gap:1.1rem}
+.news-small{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:1.1rem}
 .article{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.6rem;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
-.article:hover{border-color:#D3D1C8;box-shadow:var(--shadow)}
-.article-meta{display:flex;align-items:center;gap:.75rem;font-size:.8rem;color:var(--text-3)}
-.article h3{margin-top:.85rem}
-.article p{font-size:.92rem;color:var(--text-2);margin-top:.55rem}
-.article .link{margin-top:auto;padding-top:1.1rem}
-.article.lead{padding:2.25rem;border-top:3px solid var(--green)}
-.article.lead h3{font-size:clamp(1.45rem,2.4vw,1.9rem);line-height:1.15}
-.article.lead p{font-size:1rem}
+.article:hover{border-color:#D4D2C9;box-shadow:var(--shadow)}
+.article-meta{display:flex;align-items:center;gap:.7rem;font-size:.8rem;color:var(--text-3)}
+.article h3{margin-top:.8rem}
+.article p{font-size:.9rem;color:var(--text-2);margin-top:.5rem}
+.article .link{margin-top:auto;padding-top:1rem}
+.article.lead{padding:2.1rem;border-top:3px solid var(--green)}
+.article.lead h3{font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.14}
+.article.lead p{font-size:.98rem}
 
 /* ── Results ────────────────────────────────────────────────────────── */
-.tabs{display:inline-flex;padding:4px;background:#ECEBE6;border-radius:8px;margin-bottom:2rem}
-.tab-btn{font:600 .88rem var(--body);padding:.6rem 1.1rem;border:0;border-radius:6px;background:transparent;color:var(--text-2);cursor:pointer;transition:background .2s,color .2s}
-.tab-btn.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.tabs{display:inline-flex;padding:4px;background:#EBEAE4;border-radius:var(--radius-pill);margin-bottom:2rem}
+.tab-btn{font:700 .86rem var(--body);padding:.6rem 1.2rem;border:0;border-radius:var(--radius-pill);background:transparent;color:var(--text-2);cursor:pointer;transition:background .2s,color .2s}
+.tab-btn.active{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .tab-panel{display:none}.tab-panel.active{display:block}
-.empty{text-align:center;padding:3.5rem 1.5rem;border:1px dashed #D3D1C8;border-radius:var(--radius-lg);background:var(--surface)}
+.empty{text-align:center;padding:3.25rem 1.5rem;border:1px dashed #D4D2C9;border-radius:var(--radius-lg);background:var(--surface)}
 .empty .icon-badge{margin:0 auto 1rem}
-.empty h3{font-size:1.2rem}
-.empty p{font-size:.93rem;color:var(--text-2);max-width:60ch;margin:.5rem auto 0}
+.empty h3{font-size:1.18rem}
+.empty p{font-size:.92rem;color:var(--text-2);max-width:60ch;margin:.5rem auto 0}
 .records{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
-.record{background:var(--surface);padding:1.3rem 1.4rem}
-.record-div{font-size:.8rem;font-weight:600;color:var(--text-2)}
-.record-val{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:1.8rem;color:#C9C7BF;margin-top:.3rem}
-.record-val small{font-size:.9rem;font-weight:600;margin-left:.2rem}
-.record-holder{font-size:.82rem;color:var(--text-3)}
-.fine{font-size:.85rem;color:var(--text-3);margin-top:1.25rem}
+.record{background:var(--surface);padding:1.25rem 1.4rem}
+.record-div{font-size:.79rem;font-weight:600;color:var(--text-2)}
+.record-val{font-family:var(--display);font-weight:800;font-size:1.8rem;color:#C9C7BE;margin-top:.3rem}
+.record-val small{font-size:.9rem;font-weight:600;margin-left:.15rem}
+.record-holder{font-size:.81rem;color:var(--text-3)}
 
 /* ── Forms ──────────────────────────────────────────────────────────── */
-.form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(1.5rem,3.5vw,2.5rem);box-shadow:var(--shadow)}
-.form-card h3{font-size:1.4rem}
-.form-intro{font-size:.92rem;color:var(--text-2);margin-top:.4rem}
-.form-card form{display:flex;flex-direction:column;gap:1.1rem;margin-top:1.75rem}
+.form-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(1.5rem,3vw,2.4rem);box-shadow:var(--shadow)}
+.form-card h3{font-size:1.35rem}
+.form-intro{font-size:.9rem;color:var(--text-2);margin-top:.35rem}
+.form-card form{display:flex;flex-direction:column;gap:1.05rem;margin-top:1.6rem}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .field{display:flex;flex-direction:column;gap:.4rem;border:0;min-width:0}
-.field label,.field legend{font-size:.84rem;font-weight:600;color:var(--text)}
+.field label,.field legend{font-size:.83rem;font-weight:600;color:var(--text)}
 .field legend{margin-bottom:.5rem}
 .req{color:var(--red);margin-left:.15rem}
-.input{font:400 .95rem var(--body);color:var(--text);background:var(--surface);border:1px solid #D6D4CC;border-radius:var(--radius);padding:.78rem .9rem;width:100%;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none;min-height:46px}
-.input::placeholder{color:#A7AAA6}
-.input:hover{border-color:#BDBBB2}
+.input{font:400 .94rem var(--body);color:var(--text);background:var(--surface);border:1px solid #D6D4CC;border-radius:var(--radius);padding:.8rem .9rem;width:100%;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none;min-height:46px}
+.input::placeholder{color:#A7AAA5}
+.input:hover{border-color:#BCBAB1}
 .input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(0,98,59,.14)}
 .input.invalid{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.1)}
 select.input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%235C625E' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.4rem}
-textarea.input{min-height:140px;resize:vertical}
-.group-label{display:flex;align-items:center;gap:1rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:.6rem}
+textarea.input{min-height:138px;resize:vertical}
+.group-label{display:flex;align-items:center;gap:1rem;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:.5rem}
 .group-label::after{content:'';flex:1;height:1px;background:var(--line)}
 .check-list{display:flex;flex-direction:column;gap:.5rem}
-.check{display:flex;gap:.75rem;align-items:flex-start;padding:.8rem .95rem;border:1px solid var(--line);border-radius:var(--radius);cursor:pointer;font-size:.92rem;font-weight:500 !important;transition:border-color .2s,background .2s}
-.check:hover{border-color:#C9C7BF}
+.check{display:flex;gap:.75rem;align-items:flex-start;padding:.8rem .95rem;border:1px solid var(--line);border-radius:var(--radius);cursor:pointer;font-size:.9rem;font-weight:500;transition:border-color .2s,background .2s}
+.check:hover{border-color:#C9C7BE}
 .check:has(input:checked){border-color:var(--green);background:var(--green-50)}
 .check input{width:17px;height:17px;margin-top:.15rem;accent-color:var(--green);flex-shrink:0}
-.check small{display:block;font-size:.8rem;font-weight:400;color:var(--text-3);margin-top:.1rem}
-.fee-live{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.15rem;border-radius:var(--radius);background:#F3F2EC;border:1px solid var(--line);font-size:.88rem;color:var(--text-2);transition:background .25s,border-color .25s}
-.fee-live strong{font-family:var(--display);font-stretch:85%;font-weight:750;font-size:1.5rem;color:var(--text-3);white-space:nowrap}
+.check small{display:block;font-size:.78rem;font-weight:400;color:var(--text-3);margin-top:.1rem}
+.fee-live{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.15rem;border-radius:var(--radius);background:#F2F1EB;border:1px solid var(--line);font-size:.87rem;color:var(--text-2);transition:background .25s,border-color .25s}
+.fee-live strong{font-family:var(--display);font-weight:900;font-size:1.5rem;color:var(--text-3);white-space:nowrap}
 .fee-live.set{background:var(--gold-50);border-color:#EED38A;color:var(--text)}
 .fee-live.set strong{color:var(--text)}
-.form-error{display:none;padding:.85rem 1rem;border-radius:var(--radius);background:var(--red-50);border:1px solid #F1B9C2;color:#8F0C21;font-size:.88rem}
-.form-note{font-size:.8rem;color:var(--text-3);text-align:center}
+.form-error{display:none;padding:.85rem 1rem;border-radius:var(--radius);background:var(--red-50);border:1px solid #F1B9C2;color:#8F0C21;font-size:.87rem}
+.form-note{font-size:.79rem;color:var(--text-3);text-align:center}
 .form-card form .btn{width:100%;padding:1.05rem}
-.success{display:none;text-align:center;padding:2.5rem 1rem}
-.success .icon-badge{width:56px;height:56px;border-radius:50%;margin:0 auto 1.25rem}
+.success{display:none;text-align:center;padding:2.4rem 1rem}
+.success .icon-badge{width:56px;height:56px;border-radius:50%;margin:0 auto 1.2rem}
 .success .icon-badge .icon{width:26px;height:26px}
-.success h3{font-size:1.5rem}
-.success p{color:var(--text-2);margin-top:.6rem;font-size:.95rem}
+.success h3{font-size:1.45rem}
+.success p{color:var(--text-2);margin-top:.55rem;font-size:.94rem}
 .success .fee-confirm{color:var(--green);font-weight:600}
 .honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-
-/* ── Contact lists ──────────────────────────────────────────────────── */
 .contacts{margin-top:2rem;border-top:1px solid var(--line)}
-.contact{display:flex;gap:1rem;align-items:center;padding:1.15rem 0;border-bottom:1px solid var(--line)}
-.contact .avatar{width:44px;height:44px;font-size:.92rem}
+.contact{display:flex;gap:1rem;align-items:center;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.contact .avatar{width:44px;height:44px;font-size:.9rem}
 .contact>div:last-child{min-width:0}
 .contact h3{font-size:.98rem}
 .contact .role{margin-top:0}
 .contact a{margin-top:.15rem}
 .muted-role{color:var(--text-2);font-weight:500}
+.sticky-col{position:static}
+@media(min-width:1041px){.sticky-col{position:sticky;top:calc(var(--h-head) + 24px)}}
+
+/* ── Join band ──────────────────────────────────────────────────────── */
+.join-band{background:radial-gradient(120% 140% at 15% 0%,#0d2a1c,var(--ink) 55%);color:var(--on-dark);text-align:center;border-radius:var(--radius-lg);padding:clamp(2.75rem,6vw,4.5rem) var(--gutter);position:relative;overflow:hidden}
+.join-band::before{content:'';position:absolute;left:-40px;top:-40px;width:220px;height:220px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 2l12 36h38L69 60l12 38-31-23-31 23 12-38L0 38h38z' fill='%23E9B21B' fill-opacity='.06'/%3E%3C/svg%3E") center/contain no-repeat}
+.join-band h2{color:#fff;position:relative}
+.join-band p{color:var(--on-dark-2);max-width:48ch;margin:1rem auto 0;position:relative}
+.join-band .actions{justify-content:center;position:relative}
 
 /* ── Footer ─────────────────────────────────────────────────────────── */
-.site-footer{background:var(--ink);color:var(--on-dark-2);padding:4.5rem 0 0;font-size:.9rem}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:2.5rem}
-.footer-grid h4{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark);margin-bottom:1rem}
+.site-footer{background:var(--ink);color:var(--on-dark-2);padding:4rem 0 0;font-size:.9rem}
+.footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:2.5rem}
+.footer-grid h4{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark);margin-bottom:1rem}
 .footer-grid ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
 .footer-grid a{text-decoration:none;color:var(--on-dark-2);transition:color .2s}
 .footer-grid a:hover{color:var(--on-dark)}
-.footer-about{max-width:34ch;margin-top:1rem;color:var(--on-dark-3)}
-.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:3.5rem;padding:1.5rem 0;border-top:1px solid var(--line-dark);font-size:.8rem;color:var(--on-dark-3)}
+.footer-about{max-width:36ch;margin-top:1rem;color:var(--on-dark-3)}
+.footer-join p{color:var(--on-dark-3);margin-bottom:1rem}
+.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:3.25rem;padding:1.4rem 0;border-top:1px solid var(--line-dark);font-size:.79rem;color:var(--on-dark-3)}
 
 /* ── Motion ─────────────────────────────────────────────────────────── */
-.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .js .reveal.visible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}.js .reveal{opacity:1;transform:none}}
 
 /* ── Responsive ─────────────────────────────────────────────────────── */
-@media(min-width:961px){.sticky-col{position:sticky;top:110px}}
-@media(max-width:1100px){.nav a{padding:.5rem .5rem;font-size:.82rem}.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:960px){
-  .nav{display:none}.menu-toggle{display:grid}
-  .mobile-nav{position:fixed;inset:75px 0 0;background:var(--ink);z-index:49;padding:.5rem var(--gutter) 2rem;overflow-y:auto;flex-direction:column}
-  .mobile-nav.open{display:flex}
-  .mobile-nav a{padding:1rem 0;border-bottom:1px solid var(--line-dark);color:var(--on-dark);text-decoration:none;font-family:var(--display);font-stretch:88%;font-weight:650;font-size:1.25rem}
-  .mobile-nav .btn{margin-top:1.5rem;border:0;font-family:var(--body);font-size:1rem;color:var(--ink)}
-  .hero-grid,.split,.news-grid{grid-template-columns:1fr}
+@media(max-width:1040px){
+  .feature-grid{grid-template-columns:1fr}
+  .utility-tag{display:none}
+  .utility-inner{justify-content:flex-end}
+}
+@media(max-width:860px){
+  .split,.news-grid,.meet-cards,.newhere{grid-template-columns:1fr}
+  .involve-grid{grid-template-columns:1fr 1fr}
   .people{grid-template-columns:1fr 1fr}
   .records{grid-template-columns:1fr 1fr}
   .checks{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr}
+  .stat{border-left:0}.stat+.stat{border-top:1px solid var(--line-dark)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .spec-grid{grid-template-columns:1fr}
 }
-@media(max-width:640px){
-  .hero-stats{grid-template-columns:1fr 1fr}
-  .hero-stat:nth-child(3){padding-left:0;border-left:0}
-  .hero-stat:nth-child(n+3){border-top:1px solid var(--line-dark)}
-  .pillars,.fee-cards,.news-small,.row,.people,.records{grid-template-columns:1fr}
+@media(max-width:560px){
+  .pillars,.fee-cards,.news-small,.row,.people,.records,.involve-grid{grid-template-columns:1fr}
   .t-row{grid-template-columns:1fr;gap:.35rem}
   .t-tags{justify-content:flex-start}
+  .ev-row{grid-template-columns:auto 1fr;gap:1rem}
+  .ev-cta{grid-column:2;justify-content:flex-start}
   .brand-name span{display:none}
   .footer-grid{grid-template-columns:1fr}
-  .article.lead{padding:1.6rem}
+  .article.lead{padding:1.5rem}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 <script>document.documentElement.classList.add('js')</script>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.6l-5.8 3 1.1-6.4-4.7-4.6 6.5-.9z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
   <symbol id="i-bar" viewBox="0 0 24 24"><path d="M2 12h20M6.5 7v10M3.5 9.5v5M17.5 7v10M20.5 9.5v5"/></symbol>
@@ -378,9 +493,24 @@ textarea.input{min-height:140px;resize:vertical}
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.2-9.3C1.6 7.2 4 4 7.3 4c2 0 3.5 1.1 4.7 2.8C13.2 5.1 14.7 4 16.7 4 20 4 22.4 7.2 21.2 10.7 19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-whistle" viewBox="0 0 24 24"><path d="M14 8h7a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1a6 6 0 1 1-6-6h0v2zM11 3h3M12.5 3v3"/></symbol>
 </svg>
 
 <div class="flag-rule"></div>
+
+<!-- UTILITY BAR -->
+<div class="utility">
+  <div class="wrap utility-inner">
+    <span class="utility-tag"><svg class="icon"><use href="#i-shield"/></svg>Drug-free powerlifting under IPF rules</span>
+    <div class="utility-links">
+      <a href="#contact"><svg class="icon"><use href="#i-mail"/></svg>Contact</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="#register">Join BSPA</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
 <header class="site-header" id="header">
   <div class="wrap header-inner">
     <a href="#top" class="brand" aria-label="Black Star Powerlifting Association — home">
@@ -389,55 +519,110 @@ textarea.input{min-height:140px;resize:vertical}
     </a>
     <nav aria-label="Primary">
       <ul class="nav">
-        <li><a href="#about">About</a></li>
-        <li><a href="#governance">Governance</a></li>
-        <li><a href="#nationals">Competitions</a></li>
-        <li><a href="#calendar">Calendar</a></li>
-        <li><a href="#leadership">Leadership</a></li>
-        <li><a href="#eligibility">Membership</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#register" class="btn btn-gold">Join BSPA</a></li>
+        <li class="has-menu">
+          <button type="button" class="nav-top" aria-expanded="false">About <svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="submenu" role="menu">
+            <a href="#about" role="menuitem">Who we are<small>The federation &amp; its mission</small></a>
+            <a href="#leadership" role="menuitem">Leadership<small>Executive Committee</small></a>
+            <a href="#compliance" role="menuitem">Compliance<small>IPF &amp; WADA framework</small></a>
+          </div>
+        </li>
+        <li class="has-menu">
+          <button type="button" class="nav-top" aria-expanded="false">Membership <svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="submenu" role="menu">
+            <a href="#eligibility" role="menuitem">Eligibility &amp; types<small>Who can join</small></a>
+            <a href="#eligibility" role="menuitem">Annual dues<small>$60 resident · $140 diaspora</small></a>
+            <a href="#register" role="menuitem">Register<small>Membership application</small></a>
+          </div>
+        </li>
+        <li class="has-menu">
+          <button type="button" class="nav-top" aria-expanded="false">Competitions <svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="submenu" role="menu">
+            <a href="#nationals" role="menuitem">Competition update<small>Nationals &amp; regionals</small></a>
+            <a href="#calendar" role="menuitem">Calendar<small>2026–27 events</small></a>
+            <a href="#results" role="menuitem">Results &amp; records<small>National records</small></a>
+          </div>
+        </li>
+        <li class="has-menu">
+          <button type="button" class="nav-top" aria-expanded="false">Governance <svg class="icon"><use href="#i-chevron"/></svg></button>
+          <div class="submenu" role="menu">
+            <a href="#governance" role="menuitem">Documents<small>Constitution &amp; by-laws</small></a>
+            <a href="#governance" role="menuitem">Structure<small>Assembly, EC, commissions</small></a>
+          </div>
+        </li>
+        <li><a href="#news" class="nav-link">News</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg class="icon"><use href="#i-menu"/></svg></button>
+    <div class="header-cta">
+      <a href="#register" class="btn btn-gold btn-sm">Become a member</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
   </div>
 </header>
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-  <a href="#about">About</a><a href="#governance">Governance</a><a href="#nationals">Competitions</a><a href="#calendar">Calendar</a><a href="#leadership">Leadership</a><a href="#eligibility">Membership</a><a href="#news">News</a><a href="#results">Results &amp; Records</a><a href="#contact">Contact</a>
-  <a href="#register" class="btn btn-gold">Join BSPA</a>
+  <details><summary>About</summary><div class="sub"><a href="#about">Who we are</a><a href="#leadership">Leadership</a><a href="#compliance">Compliance</a></div></details>
+  <details><summary>Membership</summary><div class="sub"><a href="#eligibility">Eligibility &amp; types</a><a href="#eligibility">Annual dues</a><a href="#register">Register</a></div></details>
+  <details><summary>Competitions</summary><div class="sub"><a href="#nationals">Competition update</a><a href="#calendar">Calendar</a><a href="#results">Results &amp; records</a></div></details>
+  <details><summary>Governance</summary><div class="sub"><a href="#governance">Documents</a><a href="#governance">Structure</a></div></details>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#register" class="btn btn-gold">Become a member</a>
 </nav>
 
 <main id="top">
 <!-- HERO -->
-<section class="hero on-dark">
+<section class="hero">
   <div class="wrap">
-    <div class="hero-grid">
-      <div class="reveal">
-        <span class="eyebrow">National Governing Body · IPF</span>
-        <h1>Building the future of <em>powerlifting</em> in Ghana.</h1>
-        <p class="lede">The Black Star Powerlifting Association develops, regulates and promotes drug-free powerlifting across Ghana and its diaspora — under the rules of the International Powerlifting Federation.</p>
-        <div class="actions">
-          <a href="#register" class="btn btn-gold">Become a member <svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a href="#nationals" class="btn btn-ghost">Competition update</a>
-        </div>
+    <div class="hero-inner reveal">
+      <span class="eyebrow">National Governing Body · IPF · APF</span>
+      <h1>The home of <span class="hl">Ghanaian powerlifting.</span></h1>
+      <p class="lede">The Black Star Powerlifting Association develops, regulates and promotes drug-free powerlifting across Ghana and its diaspora — under the rules of the International Powerlifting Federation.</p>
+      <div class="hero-actions">
+        <a href="#register" class="btn btn-gold">Become a member <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a href="#nationals" class="btn btn-ghost">Competition update</a>
       </div>
-      <aside class="update-card reveal" aria-label="Latest update">
-        <div class="update-head"><span class="label">Latest update</span><span class="pill pill-red pill-dot">Postponed</span></div>
-        <h3>December 19 National Championships postponed</h3>
-        <p>Pending the IPF Central African Regional Championships, tentatively to be hosted in Ghana.</p>
-        <div class="update-meta">
-          <div><svg class="icon"><use href="#i-cal"/></svg>Spring 2027 · tentative</div>
-          <div><svg class="icon"><use href="#i-pin"/></svg>Ghana · venue to be confirmed</div>
-        </div>
-        <a href="#nationals" class="link">Read the update <svg class="icon"><use href="#i-arrow"/></svg></a>
-      </aside>
+      <div class="hero-foot">
+        <span><svg class="icon"><use href="#i-shield"/></svg>WADA-compliant anti-doping</span>
+        <span><svg class="icon"><use href="#i-star"/></svg>Founded in Accra, 2026</span>
+        <span><svg class="icon"><use href="#i-globe"/></svg>Open to Ghana &amp; the diaspora</span>
+      </div>
     </div>
-    <div class="hero-stats reveal">
-      <div class="hero-stat"><strong>2026</strong><span>Founded in Accra</span></div>
-      <div class="hero-stat"><strong>IPF</strong><span>Rules &amp; anti-doping standards</span></div>
-      <div class="hero-stat"><strong>Spring 2027</strong><span>Central African Regionals (tentative)</span></div>
-      <div class="hero-stat"><strong>$60 / $140</strong><span>Annual dues · resident / diaspora</span></div>
+  </div>
+  <!-- FEATURE CARDS -->
+  <div class="wrap features">
+    <div class="feature-grid">
+      <a href="#nationals" class="feature is-red reveal">
+        <div class="f-top"><span class="f-ico" style="background:rgba(200,16,46,.14);color:#FF8596"><svg class="icon"><use href="#i-trophy"/></svg></span><span class="pill pill-red pill-dot">Postponed</span></div>
+        <h3>National Championships update</h3>
+        <p>The December 19, 2026 Nationals in Accra are postponed pending the regional championships. A new date will be announced.</p>
+        <span class="f-link">Read the update <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#calendar" class="feature reveal">
+        <div class="f-top"><span class="f-ico"><svg class="icon"><use href="#i-cal"/></svg></span><span class="pill pill-gold">Tentative</span></div>
+        <h3>IPF Central African Regionals</h3>
+        <p>Tentatively to be hosted in Ghana in Spring 2027. Dates, venue and entry details to be confirmed.</p>
+        <span class="f-link">See the calendar <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#register" class="feature is-green reveal">
+        <div class="f-top"><span class="f-ico" style="background:rgba(0,98,59,.18);color:#49c58c"><svg class="icon"><use href="#i-users"/></svg></span><span class="pill pill-green">Open</span></div>
+        <h3>Membership is open</h3>
+        <p>Annual dues are $60 USD for full-time residents of Ghana and $140 USD for the diaspora. Register online today.</p>
+        <span class="f-link">Become a member <svg class="icon"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING EVENTS STRIP -->
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">What's coming up</span><h2>Upcoming events</h2></div><a href="#calendar" class="link">Full calendar <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+    <div class="ev-list reveal">
+      <a class="ev-row" href="#calendar"><span class="ev-badge"><span class="m">Nov</span><span class="d">'26</span></span><span class="ev-main"><span class="ev-name">EC Meeting #4</span><span class="ev-meta">Accra, Ghana · Executive Committee</span></span><span class="ev-cta">Details <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+      <a class="ev-row" href="#nationals"><span class="ev-badge"><span class="m">Dec</span><span class="d">19</span></span><span class="ev-main"><span class="ev-name">BSPA National Powerlifting Championships <span class="pill pill-red" style="margin-left:.4rem">Postponed</span></span><span class="ev-meta">Accra, Ghana · new date to be announced</span></span><span class="ev-cta">Details <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+      <a class="ev-row" href="#calendar"><span class="ev-badge tbc"><span class="m">TBC</span><span class="d">GA #2</span></span><span class="ev-main"><span class="ev-name">General Assembly #2</span><span class="ev-meta">Accra, Ghana · rescheduling with Nationals</span></span><span class="ev-cta">Details <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+      <a class="ev-row" href="#nationals"><span class="ev-badge"><span class="m">Spr</span><span class="d">'27</span></span><span class="ev-main"><span class="ev-name">IPF Central African Regional Championships <span class="pill pill-gold" style="margin-left:.4rem">Tentative</span></span><span class="ev-meta">Ghana (tentative host) · details to be confirmed</span></span><span class="ev-cta">Details <svg class="icon"><use href="#i-arrow"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -460,61 +645,54 @@ textarea.input{min-height:140px;resize:vertical}
   </div>
 </section>
 
-<!-- GOVERNANCE -->
-<section class="section tint" id="governance">
-  <div class="wrap split">
-    <div class="reveal">
-      <span class="eyebrow">Governance &amp; transparency</span>
-      <h2>Constitution, by-laws &amp; official documents.</h2>
-      <p class="lede">BSPA is governed by three bodies established under its Constitution, in line with the IPF Constitution and By-Laws and the IOC Basic Universal Principles of Good Governance.</p>
-      <div class="gov-bodies">
-        <div class="gov-body"><b>GA</b><span><strong>General Assembly</strong> — the supreme governing body, meeting annually no less than one day before the National Championship.</span></div>
-        <div class="gov-body"><b>EC</b><span><strong>Executive Committee</strong> — acts as the Board of Directors between General Assemblies, with fiduciary responsibility.</span></div>
-        <div class="gov-body"><b>CO</b><span><strong>Commissions</strong> — Technical, Anti-Doping, Disciplinary and Appeals.</span></div>
+<!-- NEW HERE -->
+<section class="section tint" style="padding-top:0">
+  <div class="wrap">
+    <div class="newhere reveal">
+      <div>
+        <span class="eyebrow">Are you new here?</span>
+        <h2>New to the sport or the federation?</h2>
+        <p>Whether you're a lifter, a coach or a supporter, there's a place for you in Ghana's powerlifting community. Start with how membership works, or see what's on the calendar.</p>
       </div>
-      <span class="label block-label">IPF compliance</span>
-      <p class="small-copy">BSPA complies with the IPF Constitution, By-Laws, Technical Rules and Anti-Doping Rules. All members are bound by the World Anti-Doping Code. The Court of Arbitration for Sport (CAS) in Lausanne is recognised as the sole external jurisdiction body for disputes. BSPA is not affiliated with any organisation purporting to be a worldwide governing body for powerlifting other than the IPF.</p>
-    </div>
-    <div class="reveal">
-      <span class="label block-label">Governing documents</span>
-      <div class="doc-list">
-        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20Constitution"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">BSPA Constitution</span><span class="doc-meta">In force from February 11, 2026 (adopted as G.A.P.)</span></span><span class="doc-action">Request copy</span></a>
-        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20By-Laws"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">BSPA By-Laws</span><span class="doc-meta">Adopted February 11, 2026 (as G.A.P.)</span></span><span class="doc-action">Request copy</span></a>
-        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20Anti-Doping%20Statement"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">Anti-Doping Policy Alignment Statement</span><span class="doc-meta">IPF Anti-Doping Rules &amp; WADA Code</span></span><span class="doc-action">Request copy</span></a>
+      <div class="newhere-cta">
+        <a href="#eligibility" class="btn btn-gold">How membership works <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a href="#calendar" class="btn btn-ghost">Upcoming events <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
-      <span class="label block-label">Minutes &amp; financial reports</span>
-      <div class="doc-list">
-        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20GA%20Minutes"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">Inaugural General Assembly Minutes</span><span class="doc-meta">March 8, 2026 — Accra, Ghana</span></span><span class="doc-action">Request copy</span></a>
-        <div class="doc"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">2026 Annual Report &amp; Financial Statements</span><span class="doc-meta">Balance sheet, P&amp;L, cash flow &amp; auditor's report</span></span><span class="doc-action muted">Pending FY close</span></div>
-        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20IPF%20Application"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">IPF Membership Application Letter</span><span class="doc-meta">Submitted to the IPF Secretary-General</span></span><span class="doc-action">Request copy</span></a>
-      </div>
-      <p class="fine">Minutes and financial reports are published for transparency per IPF By-Law 12.3.</p>
     </div>
   </div>
 </section>
 
 <!-- COMPETITIONS -->
 <section class="section on-dark" id="nationals">
-  <div class="wrap split">
-    <div class="reveal">
-      <span class="eyebrow">Competition update</span>
-      <h2>National Championships postponed.</h2>
-      <p class="lede">The inaugural BSPA National Powerlifting Championships, originally scheduled for December 19, 2026 in Accra, have been postponed. A new date will be announced once plans for the IPF Central African Regional Championships are confirmed.</p>
-      <div class="status-card">
-        <div class="status-row">
-          <div class="status-top"><span class="status-date">Originally Dec 19, 2026 · Accra</span><span class="pill pill-red pill-dot">Postponed</span></div>
-          <h3><s>BSPA National Powerlifting Championships</s></h3>
-          <p>New date to be announced.</p>
-        </div>
-        <div class="status-row next">
-          <div class="status-top"><span class="status-date">Spring 2027 · Ghana</span><span class="pill pill-gold">Tentative</span></div>
-          <h3>IPF Central African Regional Powerlifting Championships</h3>
-          <p>Tentatively to be hosted in Ghana. Dates, venue and entry details will be published here once confirmed.</p>
-        </div>
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Competitions</span><h2>National Championships postponed.</h2></div></div>
+    <p class="lede reveal" style="margin-top:-1.5rem;margin-bottom:2.5rem">The inaugural BSPA National Powerlifting Championships, originally scheduled for December 19, 2026 in Accra, have been postponed. A new date will be announced once plans for the IPF Central African Regional Championships are confirmed.</p>
+    <div class="meet-cards reveal">
+      <div class="meet">
+        <span class="meet-tag">National // BSPA</span>
+        <div class="meet-top"><h3><s>BSPA National Powerlifting Championships</s></h3><span class="pill pill-red pill-dot">Postponed</span></div>
+        <p>New date to be announced.</p>
+        <ul class="meet-bul">
+          <li><svg class="icon"><use href="#i-cal"/></svg>Originally December 19, 2026</li>
+          <li><svg class="icon"><use href="#i-pin"/></svg>Accra, Ghana</li>
+          <li><svg class="icon"><use href="#i-bar"/></svg>IPF Classic (Raw) &amp; Equipped</li>
+        </ul>
+        <a href="#calendar" class="link">View calendar <svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="actions"><a href="#register" class="btn btn-gold">Become a member <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+      <div class="meet next">
+        <span class="meet-tag">Regional // IPF</span>
+        <div class="meet-top"><h3>IPF Central African Regional Championships</h3><span class="pill pill-gold">Tentative</span></div>
+        <p>Tentatively to be hosted in Ghana. Dates, venue and entry details will be published here once confirmed.</p>
+        <ul class="meet-bul">
+          <li><svg class="icon"><use href="#i-cal"/></svg>Spring 2027 · tentative</li>
+          <li><svg class="icon"><use href="#i-pin"/></svg>Ghana — tentative host</li>
+          <li><svg class="icon"><use href="#i-users"/></svg>Open to BSPA members in good standing</li>
+        </ul>
+        <a href="#register" class="link">Become a member <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
     </div>
-    <dl class="spec-list reveal">
+    <span class="label block-label" style="margin-top:2.5rem;color:var(--on-dark-3)">Championship format</span>
+    <dl class="spec-grid reveal">
       <div class="spec"><svg class="icon"><use href="#i-bar"/></svg><div><dt>Competition format</dt><dd>IPF Classic (Raw) &amp; IPF Equipped powerlifting</dd></div></div>
       <div class="spec"><svg class="icon"><use href="#i-scale"/></svg><div><dt>Weight classes &amp; divisions</dt><dd>All IPF standard classes, men's &amp; women's · Sub-Junior, Junior, Open, Masters M1–M4</dd></div></div>
       <div class="spec"><svg class="icon"><use href="#i-medal"/></svg><div><dt>Records</dt><dd>BSPA national records eligible to be set</dd></div></div>
@@ -542,6 +720,52 @@ textarea.input{min-height:140px;resize:vertical}
       <div class="t-row is-postponed"><div class="t-date"><s>Dec 19, 2026</s></div><div><div class="t-name">BSPA National Powerlifting Championships</div><div class="t-loc">Accra, Ghana — new date to be announced</div></div><div class="t-tags"><span class="pill pill-red">Postponed</span></div></div>
       <div class="t-row"><div class="t-date">Date TBC</div><div><div class="t-name">General Assembly #2</div><div class="t-loc">Accra, Ghana — rescheduling with Nationals</div></div><div class="t-tags"><span class="pill pill-muted">Admin</span></div></div>
       <div class="t-row is-feature"><div class="t-date">Spring 2027</div><div><div class="t-name">IPF Central African Regional Powerlifting Championships</div><div class="t-loc">Ghana (tentative host) — details to be confirmed</div></div><div class="t-tags"><span class="pill pill-gold">Tentative</span><span class="pill pill-green">Regional</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section class="section tint">
+  <div class="wrap">
+    <div class="section-head reveal"><div><span class="eyebrow">Get involved</span><h2>Help build the sport in Ghana.</h2></div></div>
+    <div class="involve-grid reveal">
+      <a href="#contact" class="involve"><div class="icon-badge"><svg class="icon"><use href="#i-whistle"/></svg></div><h3>Referee</h3><p>Train toward IPF referee certification and officiate at BSPA events.</p><span class="link">Get in touch <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+      <a href="#contact" class="involve"><div class="icon-badge"><svg class="icon"><use href="#i-bar"/></svg></div><h3>Spot &amp; load</h3><p>Join the meet crew spotting and loading on competition day.</p><span class="link">Get in touch <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+      <a href="#contact" class="involve"><div class="icon-badge"><svg class="icon"><use href="#i-grad"/></svg></div><h3>Coach</h3><p>Develop athletes and access BSPA coach education pathways.</p><span class="link">Get in touch <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+      <a href="#contact" class="involve"><div class="icon-badge"><svg class="icon"><use href="#i-pin"/></svg></div><h3>Host a meet</h3><p>Run a sanctioned competition at your gym or club with BSPA.</p><span class="link">Get in touch <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section class="section" id="governance">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Governance &amp; transparency</span>
+      <h2>Constitution, by-laws &amp; official documents.</h2>
+      <p class="lede">BSPA is governed by three bodies established under its Constitution, in line with the IPF Constitution and By-Laws and the IOC Basic Universal Principles of Good Governance.</p>
+      <div class="gov-bodies">
+        <div class="gov-body"><b>GA</b><span><strong>General Assembly</strong> — the supreme governing body, meeting annually no less than one day before the National Championship.</span></div>
+        <div class="gov-body"><b>EC</b><span><strong>Executive Committee</strong> — acts as the Board of Directors between General Assemblies, with fiduciary responsibility.</span></div>
+        <div class="gov-body"><b>CO</b><span><strong>Commissions</strong> — Technical, Anti-Doping, Disciplinary and Appeals.</span></div>
+      </div>
+      <span class="label block-label">IPF compliance</span>
+      <p class="small-copy">BSPA complies with the IPF Constitution, By-Laws, Technical Rules and Anti-Doping Rules. All members are bound by the World Anti-Doping Code. The Court of Arbitration for Sport (CAS) in Lausanne is recognised as the sole external jurisdiction body for disputes. BSPA is not affiliated with any organisation purporting to be a worldwide governing body for powerlifting other than the IPF.</p>
+    </div>
+    <div class="reveal">
+      <span class="label block-label">Governing documents</span>
+      <div class="doc-list">
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20Constitution"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">BSPA Constitution</span><span class="doc-meta">In force from February 11, 2026 (adopted as G.A.P.)</span></span><span class="doc-action">Request copy</span></a>
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20By-Laws"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">BSPA By-Laws</span><span class="doc-meta">Adopted February 11, 2026 (as G.A.P.)</span></span><span class="doc-action">Request copy</span></a>
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20Anti-Doping%20Statement"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">Anti-Doping Policy Alignment Statement</span><span class="doc-meta">IPF Anti-Doping Rules &amp; WADA Code</span></span><span class="doc-action">Request copy</span></a>
+      </div>
+      <span class="label block-label">Minutes &amp; financial reports</span>
+      <div class="doc-list">
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20GA%20Minutes"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">Inaugural General Assembly Minutes</span><span class="doc-meta">March 8, 2026 — Accra, Ghana</span></span><span class="doc-action">Request copy</span></a>
+        <div class="doc"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">2026 Annual Report &amp; Financial Statements</span><span class="doc-meta">Balance sheet, P&amp;L, cash flow &amp; auditor's report</span></span><span class="doc-action muted">Pending FY close</span></div>
+        <a class="doc" href="mailto:secretary@ghanapowerlifting.org?subject=Document%20Request%3A%20IPF%20Application"><svg class="icon"><use href="#i-doc"/></svg><span class="doc-info"><span class="doc-title">IPF Membership Application Letter</span><span class="doc-meta">Submitted to the IPF Secretary-General</span></span><span class="doc-action">Request copy</span></a>
+      </div>
+      <p class="fine">Minutes and financial reports are published for transparency per IPF By-Law 12.3.</p>
     </div>
   </div>
 </section>
@@ -588,6 +812,17 @@ textarea.input{min-height:140px;resize:vertical}
         <div class="cat"><div class="icon-badge"><svg class="icon"><use href="#i-heart"/></svg></div><div><h3>Associate / supporter</h3><p>Support the growth of powerlifting in Ghana. Open to gyms, clubs, sponsors and individuals.</p><ul><li><svg class="icon"><use href="#i-check"/></svg>Event access</li><li><svg class="icon"><use href="#i-check"/></svg>Community membership</li></ul></div></div>
       </div>
       <div class="actions"><a href="#register" class="btn btn-gold">Register now <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat reveal"><strong>2026</strong><span>Founded in Accra as Ghana's national federation</span></div>
+      <div class="stat reveal"><strong>IPF</strong><span>Rules, technical standards &amp; anti-doping</span></div>
+      <div class="stat reveal"><strong>$60 / $140</strong><span>Annual dues — resident / diaspora</span></div>
     </div>
   </div>
 </section>
@@ -779,6 +1014,18 @@ textarea.input{min-height:140px;resize:vertical}
     </div>
   </div>
 </section>
+
+<!-- JOIN BAND -->
+<section class="section">
+  <div class="wrap">
+    <div class="join-band reveal">
+      <span class="eyebrow" style="color:var(--gold)">Join us today</span>
+      <h2>Ready to join Ghana's powerlifting community?</h2>
+      <p>Become a member to compete, coach, officiate or support the sport — in Ghana or anywhere in the diaspora.</p>
+      <div class="actions"><a href="#register" class="btn btn-gold">Become a member <svg class="icon"><use href="#i-arrow"/></svg></a><a href="#contact" class="btn btn-ghost">Contact us</a></div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -790,9 +1037,9 @@ textarea.input{min-height:140px;resize:vertical}
       </div>
       <div><h4>Federation</h4><ul><li><a href="#about">About</a></li><li><a href="#governance">Governance</a></li><li><a href="#leadership">Leadership</a></li><li><a href="#compliance">Compliance</a></li></ul></div>
       <div><h4>Athletes</h4><ul><li><a href="#nationals">Competitions</a></li><li><a href="#calendar">Calendar</a></li><li><a href="#results">Results &amp; records</a></li><li><a href="#register">Membership</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li>Accra, Ghana</li><li><a href="mailto:info@ghanapowerlifting.org">info@ghanapowerlifting.org</a></li><li><a href="mailto:secretary@ghanapowerlifting.org">secretary@ghanapowerlifting.org</a></li></ul></div>
+      <div class="footer-join"><h4>Join us today</h4><p>Membership is open to athletes, coaches, referees and supporters.</p><a href="#register" class="btn btn-gold btn-sm">Become a member</a></div>
     </div>
-    <div class="footer-bottom"><span>&copy; 2026 Black Star Powerlifting Association. All rights reserved.</span><span>Drug-free powerlifting under IPF rules</span></div>
+    <div class="footer-bottom"><span>&copy; 2026 Black Star Powerlifting Association. All rights reserved.</span><span>Accra, Ghana · <a href="mailto:info@ghanapowerlifting.org" style="color:inherit">info@ghanapowerlifting.org</a></span></div>
   </div>
 </footer>
 
@@ -806,6 +1053,19 @@ textarea.input{min-height:140px;resize:vertical}
   toggle.addEventListener('click',function(){setOpen(!menu.classList.contains('open'))});
   menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false)})});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+})();
+
+/* ── Desktop dropdown menus (keyboard accessible) ────────────────────── */
+(function(){
+  var groups=Array.from(document.querySelectorAll('.has-menu'));
+  function closeAll(except){groups.forEach(function(g){if(g!==except){g.classList.remove('open');g.querySelector('.nav-top').setAttribute('aria-expanded','false');}});}
+  groups.forEach(function(g){
+    var btn=g.querySelector('.nav-top');
+    btn.addEventListener('click',function(){var open=!g.classList.contains('open');closeAll(g);g.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);});
+    g.querySelectorAll('.submenu a').forEach(function(a){a.addEventListener('click',function(){closeAll();});});
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  document.addEventListener('click',function(e){if(!e.target.closest('.has-menu'))closeAll();});
 })();
 
 /* ── Scroll reveal ───────────────────────────────────────────────────── */
